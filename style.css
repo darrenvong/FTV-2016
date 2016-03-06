@@ -1,0 +1,17 @@
+/*
+Theme Name: FTV2016
+Theme URI: http://joshuahackett.com
+Author: Joshua Hackett
+Author URI: http://joshuahackett.com
+Description: Forge TV's theme.
+Version: 1.0
+*/
+
+/*Import other stylesheets*/
+
+@import url('css/main.css');
+@import url('css/responsive.css');
+
+/*Import fonts*/
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700|Open+Sans:400,300,700);
