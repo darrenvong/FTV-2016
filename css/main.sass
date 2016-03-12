@@ -13,9 +13,8 @@ html, body
 *
   margin: 0
   padding: 0
-  font-family: $h-font-stack
   box-sizing: border-box
-  text-transform: uppercase
+  font-family: $h-font-stack
 
 h1, h2, h3, h4, h5
   font-family: $h-font-stack
@@ -36,7 +35,7 @@ header
   height: 50px
   position: fixed
   background-color: $background-color
-  z-index: 2
+  z-index: 100
 
 nav ul
   list-style-type: none
@@ -46,6 +45,7 @@ nav ul li
   padding: 0px 7px 0px 7px
   font-size: 0.9em
   transition: 0.2s
+  text-transform: uppercase
 
 nav ul li a
   color: $brand-color
@@ -142,6 +142,7 @@ a.cue
   animation-duration: 2s
   animation-delay: 1s
   transition: 0.2s
+  z-index: 3
 
 i.cue
   opacity: 0.7
@@ -162,14 +163,76 @@ a.cue:hover
   transform: scale(1.3,1.3)
   background-color: rgba(255,255,255,0.3)
 
-
 section#latest
   width: 100%
   height: 100%
+  z-index: 4
+  position: relative
 
-  div.tile
-    width: 33vw
-    height: 50%
-    display: inline-block
-    float:left
-    background-color: $light-grey
+div.tile
+  width: 33vw
+  height: 50%
+  float: left
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+div.tile#first
+  background-color: $brand-color
+  padding: 40px
+  color: $background-color
+  position: relative
+
+div.tile h3
+  font-size: 1.5em
+  padding-bottom: 20px
+  display: block
+  text-transform: uppercase
+
+div.tile p
+  color: $light-grey
+  font-size: 0.8em
+
+ul.post-categories
+  list-style-type: none
+
+  li
+    display: inline
+    padding-right: 5px
+
+    a
+      color: #dfdfdf
+      font-weight: 300
+
+
+div.tile .triangle
+  width: 0
+  height: 0
+  border-top: 30px solid transparent
+  border-bottom: 30px solid transparent
+  border-left: 30px solid $brand-color
+  float: right
+  position: absolute
+  right: 0
+  bottom: 50%
+  transform: translateY(50%)
+  margin-right: -30px
+
+
+//Contact bar in footer
+
+section#contact
+  width: 100%
+  padding: 20px
+  background-color: $brand-color
+  text-align: center
+
+  h5 a
+    color: $background-color
+    text-transform: uppercase
+    font-size: 1.4em
+    transition: 0.2s
+
+  h5 a:hover
+    color: $light-grey
+    transition: 0.2s
