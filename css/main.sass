@@ -60,7 +60,6 @@ nav ul li:hover, nav#social ul li a:hover
 nav#right, nav#social
   float: right
 
-
 nav#social ul li a
   background-color: $brand-color
   border-radius: 30px
@@ -79,7 +78,6 @@ nav#social ul li
   padding: 0px 5px 0px 5px
   margin-top: -2px
 
-
 nav#right ul li.active, nav#left ul li.active
   background-color: $light-grey
   border-radius: 30px
@@ -87,6 +85,17 @@ nav#right ul li.active, nav#left ul li.active
 
 img#forge
   height: 20px
+
+header
+  nav#right
+    i
+      display: none
+      transition: 0.1s
+      color: $brand-color
+
+i.fa-bars:hover
+  transition: 0.1s
+  transform: scale(1.1)
 
 // Footer
 
@@ -156,6 +165,7 @@ footer
 section#latest, section#services
   max-width: 1100px
   margin: 20px auto
+  clear: both
 
   p
     color: $light-brand
@@ -165,17 +175,11 @@ section#latest, section#services
       color: $lighter-brand
       font-family: open sans
 
-
 //The hero section
 
 section#hero
   width: 100%
   height: 100%
-  background-image: url("../img/hero.jpg")
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center
-  background-attachment: fixed
   display: flex
   align-items: center
   justify-content: center
@@ -186,18 +190,45 @@ section#hero
   z-index: 1
   font-family: $h-font-stack
 
-div.divider
-  height: 12px
-  width: 60px
-  border-top: 3px solid $background-color
-  border-bottom: 3px solid $background-color
-  margin: 20px
+  div#bg_img
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-attachment: fixed
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -2
+    -webkit-filter: brightness(0.6) grayscale(1)
+    -moz-filter: brightness(0.6) grayscale(1)
+    filter: brightness(0.6) grayscale(1)
 
-span#slogan
-  max-width: 320px
-  text-align: center
-  padding: 0px 10px 0px 10px
-  font-size: 1.1em
+  div#bg
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -1
+    background: -moz-linear-gradient(right,  rgba(29,31,96,0.7) 0%, rgba(40,41,97,0) 100%)
+    background: -webkit-linear-gradient(right,  rgba(29,31,96,0.7) 0%,rgba(40,41,97,0) 100%)
+    background: linear-gradient(to left,  rgba(29,31,96,0.7) 0%,rgba(40,41,97,0) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282961', endColorstr='#00282961',GradientType=1 )
+
+  div.divider
+    height: 12px
+    width: 60px
+    border-top: 3px solid $background-color
+    border-bottom: 3px solid $background-color
+    margin: 20px
+
+  span#slogan
+    max-width: 320px
+    text-align: center
+    padding: 0px 10px 0px 10px
+    font-size: 1.1em
 
 img#logo
   height: 100px
@@ -241,6 +272,7 @@ h4
   margin-bottom: 5px
   font-family: open sans
   font-weight: 100
+  color: $mid-grey
 
 section#latest
   height: 100%
@@ -256,9 +288,14 @@ section#latest
     padding: 10px
 
   div.tile:hover
-    transform: scale(1.02,1.02)
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.05)
+    transform: scale(1.01,1.01)
     transition: 0.2s
+
+    .tile-info
+      background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(40,41,97,0.05) 100%)
+      background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(40,41,97,0.05) 100%)
+      background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(40,41,97,0.05) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 )
 
   div.tile
     border: 1px solid #dfdfdf
@@ -341,10 +378,11 @@ section#contact
     font-size: 1.5em
     color: $brand-color
     margin: 5px
+    font-weight: 100
 
   span:nth-of-type(2)
     color: $background-color
-    font-weight: 100
+    font-weight: 400
     text-transform: uppercase
     font-family: oswald
     font-size: 1.5em
@@ -355,7 +393,6 @@ section#featured
   width: 100%
   height: 60%
   background-color: #efefef
-  display: flex
   position: relative
 
   div#bg_img

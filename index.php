@@ -1,6 +1,21 @@
 <?php get_header(); ?>
 
+<script src="<?php echo get_template_directory_uri() . '/js/smooth_scroll.js'?>"></script>
+
 <section id="hero">
+
+    <?php
+      function displayRandom() {
+          $photoAreas = array("/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg");
+          $randomNumber = rand(0, (count($photoAreas) - 1));
+          echo $photoAreas[$randomNumber];
+      }
+    ?>
+
+
+
+  <div id="bg_img" style="background-image: url(<?php bloginfo('template_directory'); ?>/img<?php displayRandom(); ?>)"></div>
+  <div id="bg"></div>
 
   <img id="logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" />
   <div class="divider"></div>
@@ -103,7 +118,8 @@ wp_reset_postdata();
     <div class="service">
       <div class="flex-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/get_involved.jpg)"></div>
       <div class="flex-content">
-        <h3>Get involved</h3>
+        <h4>Get involved</h4>
+        <h3>Join our team</h3>
         <p>There are no membership fees or applications, and absolutely no experience is needed.</p>
         <button>Find out how</button>
       </div>
@@ -113,6 +129,7 @@ wp_reset_postdata();
     <div class="service hover">
       <div class="flex-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/hire_us.jpg)"></div>
       <div class="flex-content">
+        <h4>Services</h4>
         <h3>Hire us</h3>
         <p>Give your event the high-definition reception it deserves.</p>
       </div>
@@ -123,7 +140,7 @@ wp_reset_postdata();
 
     <?php
     $args2 = Array(
-      'cat' => '2',
+      'cat' => '4045',
       'posts_per_page' => '1',
     );
     $featured_query = new WP_Query( $args2 );

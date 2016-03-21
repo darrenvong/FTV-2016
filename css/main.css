@@ -73,6 +73,15 @@ nav#right ul li.active, nav#left ul li.active {
 img#forge {
   height: 20px; }
 
+header nav#right i {
+  display: none;
+  transition: 0.1s;
+  color: #282961; }
+
+i.fa-bars:hover {
+  transition: 0.1s;
+  transform: scale(1.1); }
+
 footer {
   display: block;
   width: 100%;
@@ -129,7 +138,8 @@ footer {
 
 section#latest, section#services {
   max-width: 1100px;
-  margin: 20px auto; }
+  margin: 20px auto;
+  clear: both; }
   section#latest p, section#services p {
     color: #515294;
     font-size: 0.8em; }
@@ -140,11 +150,6 @@ section#latest, section#services {
 section#hero {
   width: 100%;
   height: 100%;
-  background-image: url("../img/hero.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,19 +159,42 @@ section#hero {
   position: relative;
   z-index: 1;
   font-family: oswald, sans-serif; }
-
-div.divider {
-  height: 12px;
-  width: 60px;
-  border-top: 3px solid #fafafa;
-  border-bottom: 3px solid #fafafa;
-  margin: 20px; }
-
-span#slogan {
-  max-width: 320px;
-  text-align: center;
-  padding: 0px 10px 0px 10px;
-  font-size: 1.1em; }
+  section#hero div#bg_img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    -webkit-filter: brightness(0.6) grayscale(1);
+    -moz-filter: brightness(0.6) grayscale(1);
+    filter: brightness(0.6) grayscale(1); }
+  section#hero div#bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: -moz-linear-gradient(right, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%);
+    background: -webkit-linear-gradient(right, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%);
+    background: linear-gradient(to left, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282961', endColorstr='#00282961',GradientType=1 ); }
+  section#hero div.divider {
+    height: 12px;
+    width: 60px;
+    border-top: 3px solid #fafafa;
+    border-bottom: 3px solid #fafafa;
+    margin: 20px; }
+  section#hero span#slogan {
+    max-width: 320px;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    font-size: 1.1em; }
 
 img#logo {
   height: 100px; }
@@ -206,7 +234,8 @@ h4 {
   text-transform: uppercase;
   margin-bottom: 5px;
   font-family: open sans;
-  font-weight: 100; }
+  font-weight: 100;
+  color: #969696; }
 
 section#latest {
   height: 100%;
@@ -220,9 +249,13 @@ section#latest {
     width: 33.33%;
     padding: 10px; }
   section#latest div.tile:hover {
-    transform: scale(1.02, 1.02);
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+    transform: scale(1.01, 1.01);
     transition: 0.2s; }
+    section#latest div.tile:hover .tile-info {
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 ); }
   section#latest div.tile {
     border: 1px solid #dfdfdf;
     height: 100%;
@@ -291,10 +324,11 @@ section#contact {
     font-family: oswald;
     font-size: 1.5em;
     color: #282961;
-    margin: 5px; }
+    margin: 5px;
+    font-weight: 100; }
   section#contact span:nth-of-type(2) {
     color: #fafafa;
-    font-weight: 100;
+    font-weight: 400;
     text-transform: uppercase;
     font-family: oswald;
     font-size: 1.5em; }
@@ -303,7 +337,6 @@ section#featured {
   width: 100%;
   height: 60%;
   background-color: #efefef;
-  display: flex;
   position: relative; }
   section#featured div#bg_img {
     position: absolute;

@@ -1,0 +1,106 @@
+// First breakpoint, for tablets
+
+@media screen and (max-width: 900px)
+  section#latest div.padder
+    width: 50%
+
+  img#logo
+    height: 50px
+
+  section#latest, section#services
+    height: auto !important
+
+    div.padder
+      height: 400px
+
+  header
+    nav#right
+      div
+        display: none !important
+
+      i
+        display: inline !important
+
+  header nav#social
+    display: none
+
+// Second breakpoint, for phones
+
+@media screen and (max-width: 600px)
+
+  section#services
+    div.column
+      div.service
+        min-height: 320px
+        flex-direction: column
+
+        div.flex-image
+          min-height: 150px
+
+        div.flex-content
+          min-height: 230px
+
+  div.column
+    width: 100% !important
+
+  section#latest div.padder
+    width: 100%
+
+
+  section#featured
+    height: 100%
+
+    div.featured-info
+      margin: 0 auto
+      text-align: center
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      height: 100%
+
+      h2
+        font-size: 2.5em
+        margin-bottom: 15px
+
+      ul.post-categories
+        display: none
+
+  footer br
+    display: none
+
+  section#contact
+    display: none
+
+// -1st breakpoint, for big HD screens
+
+@media screen and (min-width: 1400px)
+
+  img#logo
+    height: 130px
+
+  span#slogan
+    font-size: 1.3em !important
+
+  section#featured
+    div.featured-info
+      padding: 80px
+      max-width: 800px
+
+      h2
+        font-size: 3em !important
+
+  section#latest
+    div.tile
+      div.tile-info
+        h2
+          font-size: 1.6em
+
+  section#services
+    height: 60%
+
+  section#contact
+    height: 150px
+
+    span
+      font-size: 2em !important

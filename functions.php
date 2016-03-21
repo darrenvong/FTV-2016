@@ -51,4 +51,3 @@ add_filter('get_the_excerpt', 'wp_new_excerpt');
 wp_enqueue_style( 'Primary styles', get_stylesheet_uri() );
 wp_enqueue_style( 'FontAwesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
 wp_enqueue_script( 'jquery_frontend', 'https://code.jquery.com/jquery-2.2.1.min.js');
-// wp_enqueue_script( 'smooth_scroll', get_template_directory_uri() . '/js/smooth_scroll.js');

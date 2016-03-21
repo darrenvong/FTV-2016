@@ -33,5 +33,8 @@
       );
       wp_nav_menu( $args);
     ?>
+
+    <i class="fa fa-bars"></i>
+
   </nav>
 </header>
