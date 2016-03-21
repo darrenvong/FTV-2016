@@ -1,6 +1,8 @@
 // Declare key variables
 
 $brand-color: #282961
+$light-brand: #515294
+$a-color: #62639C
 $background-color: #fafafa
 $light-grey: #efefef
 $p-font-stack: open sans, sans-serif
@@ -14,7 +16,6 @@ html, body
   margin: 0
   padding: 0
   box-sizing: border-box
-  font-family: $h-font-stack
 
 h1, h2, h3, h4, h5
   font-family: $h-font-stack
@@ -36,11 +37,12 @@ header
   position: fixed
   background-color: $background-color
   z-index: 100
+  font-family: $h-font-stack
 
 nav ul
   list-style-type: none
 
-nav ul li
+header nav ul li
   float: left
   padding: 0px 7px 0px 7px
   font-size: 0.9em
@@ -90,11 +92,71 @@ img#forge
 footer
   display: block
   width: 100%
-  padding: 15px
+  padding: 25px
   min-height: 50px
-  background-color: $background-color
+  background-color: $brand-color
   text-align: center
-  z-index: 2
+  z-index: 5
+  position: relative
+  -webkit-box-shadow: inset 0px 9px 24px -9px rgba(0,0,0,0.2)
+  -moz-box-shadow: inset 0px 9px 24px -9px rgba(0,0,0,0.2)
+  box-shadow: inset 0px 9px 24px -9px rgba(0,0,0,0.2)
+  font-family: $h-font-stack
+
+  nav
+    display: flex
+    margin: 10px auto 30px auto
+    justify-content: center
+    align-items: center
+
+    ul li
+      float: left
+      font-size: 0.9em
+      transition: 0.2s
+      text-transform: uppercase
+      padding: 0px 7px 0px 7px
+
+    ul li a
+      background-color: $light-brand
+      border-radius: 30px
+      width: 30px
+      height: 30px
+      color: $background-color
+      display: flex
+      justify-content: center
+      align-items: center
+      transition: 0.2s
+
+    nav
+      margin-left: 10px
+
+    nav ul li
+      padding: 0px 7px 0px 7px
+      margin-top: -2px
+
+  span
+    text-transform: uppercase
+    color: $light-brand
+    font-size: 1.3em
+
+  hr
+    width: 30px
+    margin: 10px auto
+    border: 1px solid $light-brand
+
+section#latest, section#services
+  max-width: 1100px
+  margin: 0 auto
+
+  p
+    color: $light-brand
+    font-size: 0.8em
+
+    a
+      color: $a-color
+      font-family: open sans
+
+
 
 
 //The hero section
@@ -115,6 +177,7 @@ section#hero
   color: $background-color
   position: relative
   z-index: 1
+  font-family: $h-font-stack
 
 div.divider
   height: 12px
@@ -139,7 +202,7 @@ a.cue
   text-align: center
   color: $background-color
   animation-name: throb
-  animation-duration: 2s
+  animation-duration: 1s
   animation-delay: 1s
   transition: 0.2s
   z-index: 3
@@ -149,90 +212,257 @@ i.cue
 
 @keyframes throb
   0%
-    transform: scale(1,1)
+    transform: scaleY(1)
     background-color: rgba(255,255,255,0)
   50%
-    transform: scale(1.5,1.5)
+    transform: scaleY(1.5)
     background-color: rgba(255,255,255,0.3)
   100%
-    transform: scale(1,1)
+    transform: scaleY(1)
     background-color: rgba(255,255,255,0)
 
 a.cue:hover
   transition: 0.2s
-  transform: scale(1.3,1.3)
+  transform: scaleY(1.3)
   background-color: rgba(255,255,255,0.3)
 
-section#latest
-  width: 100%
-  height: 100%
-  z-index: 4
-  position: relative
+//Latest section
 
-div.tile
-  width: 33vw
-  height: 50%
-  float: left
-  background-size: cover
-  background-position: center
-  background-repeat: no-repeat
-
-div.tile#first
-  background-color: $brand-color
-  padding: 40px
-  color: $background-color
-  position: relative
-
-div.tile h3
-  font-size: 1.5em
-  padding-bottom: 20px
-  display: block
+h4
+  font-size: 0.9em
   text-transform: uppercase
+  margin-bottom: 5px
+  font-family: open sans
+  font-weight: 100
 
-div.tile p
-  color: $light-grey
-  font-size: 0.8em
+section#latest
+  height: 100%
+  display: flex
+  flex-flow: row wrap
+  z-index: 3
+  position: relative
+  padding: 10px 5px 10px 5px
 
-ul.post-categories
-  list-style-type: none
+  div.padder
+    height: 50%
+    width: 33.33%
+    padding: 10px
 
-  li
-    display: inline
-    padding-right: 5px
+  div.tile:hover
+    transform: scale(1.02,1.02)
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.05)
+    transition: 0.2s
 
-    a
-      color: #dfdfdf
-      font-weight: 300
+  div.tile
+    border: 1px solid #dfdfdf
+    height: 100%
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1)
+    transition: 0.2s
+    position: relative
 
+    div.cover
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
 
-div.tile .triangle
-  width: 0
-  height: 0
-  border-top: 30px solid transparent
-  border-bottom: 30px solid transparent
-  border-left: 30px solid $brand-color
-  float: right
-  position: absolute
-  right: 0
-  bottom: 50%
-  transform: translateY(50%)
-  margin-right: -30px
+    div.tile-image
+      height: 50%
+      background-size: cover
+      background-position: center
+      -webkit-filter: brightness(0.8)
 
+    div.tile-info
+      height: 50%
+      padding: 20px
+      position: relative
+      pointer-events: none
 
-//Contact bar in footer
+      ul
+        list-style-type: none
+
+        li
+          display: inline
+          margin-right: 5px
+          font-size: 0.8em
+          font-family: $p-font-stack
+          font-weight: 100
+
+          a
+            color: #505050
+
+      h2
+        text-transform: uppercase
+        color: $brand-color
+        font-size: 1.3em
+
+      p
+        font-size: 0.9em
+        color: #505050
+        margin-top: 10px
+
+      div.triangle
+        width: 0
+        height: 0
+        border-left: 25px solid transparent
+        border-right: 25px solid transparent
+        border-bottom: 30px solid $background-color
+        position: absolute
+        top: -25px
+        left: 15px
+
+//Contact bar
+
+section#contact:hover
+  transition: 0.1s
+  background-color: #494A8E
 
 section#contact
   width: 100%
-  padding: 20px
-  background-color: $brand-color
-  text-align: center
+  height: 100px
+  background-color: $light-brand
+  display: flex
+  justify-content: center
+  align-items: center
+  transition: 0.1s
 
-  h5 a
-    color: $background-color
+  span:first-of-type
     text-transform: uppercase
-    font-size: 1.4em
-    transition: 0.2s
+    font-family: oswald
+    font-size: 1.5em
+    color: $brand-color
+    margin: 5px
 
-  h5 a:hover
-    color: $light-grey
-    transition: 0.2s
+  span:nth-of-type(2)
+    color: $background-color
+    font-weight: 100
+
+    text-transform: uppercase
+    font-family: oswald
+    font-size: 1.5em
+
+//Featured banner
+
+section#featured
+  width: 100%
+  height: 60%
+  background-color: #efefef
+  background-position: center
+  background-size: cover
+  display: flex
+  background-attachment: fixed
+  position: relative
+
+  div.featured-info
+    padding: 50px
+    max-width: 700px
+    text-shadow: 0px 0px 30px rgba(0,0,0,0.4)
+    background: -moz-linear-gradient(left,  rgba(29,31,96,1) 0%, rgba(40,41,97,0) 100%)
+    background: -webkit-linear-gradient(left,  rgba(29,31,96,1) 0%,rgba(40,41,97,0) 100%)
+    background: linear-gradient(to right,  rgba(29,31,96,1) 0%,rgba(40,41,97,0) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282961', endColorstr='#00282961',GradientType=1 )
+
+
+    ul
+      list-style-type: none
+
+      li
+        display: inline
+        margin-right: 5px
+        font-size: 0.8em
+        font-family: $p-font-stack
+        font-weight: 100
+
+        a
+          color: $background-color
+
+    h2
+      text-transform: uppercase
+      color: $background-color
+      font-size: 1.8em
+
+    p
+      font-size: 0.9em
+      color: $background-color
+
+    button#watch-now
+      color: $background-color
+      background-color: $light-brand
+      padding: 15px
+      font-size: 0.8em
+      border-radius: 4px
+      margin-top: 20px
+      border: none !important
+      box-shadow: none !important
+      text-transform: uppercase
+      font-family: open sans
+
+      i
+        margin-left: 5px
+
+  h3
+    position: absolute
+    right: 10px
+    bottom: -10px
+    font-size: 8em
+    color: rgba(255,255,255,0.1)
+    text-transform: uppercase
+
+//Services section
+
+section#services
+  height: 80%
+  display: flex
+  flex-flow: row wrap
+  z-index: 3
+  position: relative
+  padding: 10px 5px 10px 5px
+
+  div.column
+    width: 50%
+    display: flex
+    flex-direction: column
+    background-color: peach
+
+    div.service:hover
+      transform: scale(1.01,1.01)
+      box-shadow: 0px 0px 5px rgba(0,0,0,0.05)
+      transition: 0.2s
+
+    div.service
+      flex: 1
+      border-top: 7px solid $brand-color
+      margin: 10px
+      border-bottom: 1px solid #dfdfdf
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+      position: relative
+      display: flex
+      flex-direction: row
+
+      div.cover
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+
+      div.flex-image
+        flex: 1
+        background-size: cover
+        background-position: center
+        border-right: 1px solid #dfdfdf
+
+      div.flex-content
+        padding: 20px
+        flex: 1
+
+        h3
+          color: $brand-color
+          font-size: 1.7em
+          text-transform: uppercase
+
+        p
+          font-size: 0.9em
+          color: #505050
+          margin-top: 10px

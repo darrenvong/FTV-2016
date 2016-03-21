@@ -32,7 +32,7 @@ function wp_new_excerpt($text)
 		$text = str_replace(']]>', ']]>', $text);
 		$text = strip_tags($text);
 		$text = nl2br($text);
-		$excerpt_length = apply_filters('excerpt_length', 20);
+		$excerpt_length = apply_filters('excerpt_length', 15);
 		$words = explode(' ', $text, $excerpt_length + 1);
 		if (count($words) > $excerpt_length) {
 			array_pop($words);
@@ -44,3 +44,11 @@ function wp_new_excerpt($text)
 }
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'wp_new_excerpt');
+
+
+//Enqueue scripts
+
+wp_enqueue_style( 'Primary styles', get_stylesheet_uri() );
+wp_enqueue_style( 'FontAwesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
+wp_enqueue_script( 'jquery_frontend', 'https://code.jquery.com/jquery-2.2.1.min.js');
+// wp_enqueue_script( 'smooth_scroll', get_template_directory_uri() . '/js/smooth_scroll.js');

@@ -5,8 +5,7 @@ html, body {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: oswald, sans-serif; }
+  box-sizing: border-box; }
 
 h1, h2, h3, h4, h5 {
   font-family: oswald, sans-serif; }
@@ -25,12 +24,13 @@ header {
   height: 50px;
   position: fixed;
   background-color: #fafafa;
-  z-index: 100; }
+  z-index: 100;
+  font-family: oswald, sans-serif; }
 
 nav ul {
   list-style-type: none; }
 
-nav ul li {
+header nav ul li {
   float: left;
   padding: 0px 7px 0px 7px;
   font-size: 0.9em;
@@ -76,11 +76,60 @@ img#forge {
 footer {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 25px;
   min-height: 50px;
-  background-color: #fafafa;
+  background-color: #282961;
   text-align: center;
-  z-index: 2; }
+  z-index: 5;
+  position: relative;
+  -webkit-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
+  font-family: oswald, sans-serif; }
+  footer nav {
+    display: flex;
+    margin: 10px auto 30px auto;
+    justify-content: center;
+    align-items: center; }
+    footer nav ul li {
+      float: left;
+      font-size: 0.9em;
+      transition: 0.2s;
+      text-transform: uppercase;
+      padding: 0px 7px 0px 7px; }
+    footer nav ul li a {
+      background-color: #515294;
+      border-radius: 30px;
+      width: 30px;
+      height: 30px;
+      color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.2s; }
+    footer nav nav {
+      margin-left: 10px; }
+    footer nav nav ul li {
+      padding: 0px 7px 0px 7px;
+      margin-top: -2px; }
+  footer span {
+    text-transform: uppercase;
+    color: #515294;
+    font-size: 1.3em; }
+  footer hr {
+    width: 30px;
+    margin: 10px auto;
+    border: 1px solid #515294; }
+
+section#latest, section#services {
+  max-width: 1100px;
+  margin: 0 auto; }
+  section#latest p, section#services p {
+    color: #515294;
+    font-size: 0.8em; }
+    section#latest p a, section#services p a {
+      color: #62639C;
+      font-family: open sans; }
 
 section#hero {
   width: 100%;
@@ -97,7 +146,8 @@ section#hero {
   flex-direction: column;
   color: #fafafa;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  font-family: oswald, sans-serif; }
 
 div.divider {
   height: 12px;
@@ -122,7 +172,7 @@ a.cue {
   text-align: center;
   color: #fafafa;
   animation-name: throb;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-delay: 1s;
   transition: 0.2s;
   z-index: 3; }
@@ -132,83 +182,217 @@ i.cue {
 
 @keyframes throb {
   0% {
-    transform: scale(1, 1);
+    transform: scaleY(1);
     background-color: rgba(255, 255, 255, 0); }
   50% {
-    transform: scale(1.5, 1.5);
+    transform: scaleY(1.5);
     background-color: rgba(255, 255, 255, 0.3); }
   100% {
-    transform: scale(1, 1);
+    transform: scaleY(1);
     background-color: rgba(255, 255, 255, 0); } }
 a.cue:hover {
   transition: 0.2s;
-  transform: scale(1.3, 1.3);
+  transform: scaleY(1.3);
   background-color: rgba(255, 255, 255, 0.3); }
 
+h4 {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-family: open sans;
+  font-weight: 100; }
+
 section#latest {
-  width: 100%;
   height: 100%;
-  z-index: 4;
-  position: relative; }
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 3;
+  position: relative;
+  padding: 10px 5px 10px 5px; }
+  section#latest div.padder {
+    height: 50%;
+    width: 33.33%;
+    padding: 10px; }
+  section#latest div.tile:hover {
+    transform: scale(1.02, 1.02);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+    transition: 0.2s; }
+  section#latest div.tile {
+    border: 1px solid #dfdfdf;
+    height: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+    position: relative; }
+    section#latest div.tile div.cover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0; }
+    section#latest div.tile div.tile-image {
+      height: 50%;
+      background-size: cover;
+      background-position: center;
+      -webkit-filter: brightness(0.8); }
+    section#latest div.tile div.tile-info {
+      height: 50%;
+      padding: 20px;
+      position: relative;
+      pointer-events: none; }
+      section#latest div.tile div.tile-info ul {
+        list-style-type: none; }
+        section#latest div.tile div.tile-info ul li {
+          display: inline;
+          margin-right: 5px;
+          font-size: 0.8em;
+          font-family: open sans, sans-serif;
+          font-weight: 100; }
+          section#latest div.tile div.tile-info ul li a {
+            color: #505050; }
+      section#latest div.tile div.tile-info h2 {
+        text-transform: uppercase;
+        color: #282961;
+        font-size: 1.3em; }
+      section#latest div.tile div.tile-info p {
+        font-size: 0.9em;
+        color: #505050;
+        margin-top: 10px; }
+      section#latest div.tile div.tile-info div.triangle {
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 30px solid #fafafa;
+        position: absolute;
+        top: -25px;
+        left: 15px; }
 
-div.tile {
-  width: 33vw;
-  height: 50%;
-  float: left;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; }
-
-div.tile#first {
-  background-color: #282961;
-  padding: 40px;
-  color: #fafafa;
-  position: relative; }
-
-div.tile h3 {
-  font-size: 1.5em;
-  padding-bottom: 20px;
-  display: block;
-  text-transform: uppercase; }
-
-div.tile p {
-  color: #efefef;
-  font-size: 0.8em; }
-
-ul.post-categories {
-  list-style-type: none; }
-  ul.post-categories li {
-    display: inline;
-    padding-right: 5px; }
-    ul.post-categories li a {
-      color: #dfdfdf;
-      font-weight: 300; }
-
-div.tile .triangle {
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 30px solid #282961;
-  float: right;
-  position: absolute;
-  right: 0;
-  bottom: 50%;
-  transform: translateY(50%);
-  margin-right: -30px; }
+section#contact:hover {
+  transition: 0.1s;
+  background-color: #494A8E; }
 
 section#contact {
   width: 100%;
-  padding: 20px;
-  background-color: #282961;
-  text-align: center; }
-  section#contact h5 a {
-    color: #fafafa;
+  height: 100px;
+  background-color: #515294;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s; }
+  section#contact span:first-of-type {
     text-transform: uppercase;
-    font-size: 1.4em;
-    transition: 0.2s; }
-  section#contact h5 a:hover {
-    color: #efefef;
-    transition: 0.2s; }
+    font-family: oswald;
+    font-size: 1.5em;
+    color: #282961;
+    margin: 5px; }
+  section#contact span:nth-of-type(2) {
+    color: #fafafa;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-family: oswald;
+    font-size: 1.5em; }
+
+section#featured {
+  width: 100%;
+  height: 60%;
+  background-color: #efefef;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  background-attachment: fixed;
+  position: relative; }
+  section#featured div.featured-info {
+    padding: 50px;
+    max-width: 700px;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+    background: -moz-linear-gradient(left, #1d1f60 0%, rgba(40, 41, 97, 0) 100%);
+    background: -webkit-linear-gradient(left, #1d1f60 0%, rgba(40, 41, 97, 0) 100%);
+    background: linear-gradient(to right, #1d1f60 0%, rgba(40, 41, 97, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282961', endColorstr='#00282961',GradientType=1 ); }
+    section#featured div.featured-info ul {
+      list-style-type: none; }
+      section#featured div.featured-info ul li {
+        display: inline;
+        margin-right: 5px;
+        font-size: 0.8em;
+        font-family: open sans, sans-serif;
+        font-weight: 100; }
+        section#featured div.featured-info ul li a {
+          color: #fafafa; }
+    section#featured div.featured-info h2 {
+      text-transform: uppercase;
+      color: #fafafa;
+      font-size: 1.8em; }
+    section#featured div.featured-info p {
+      font-size: 0.9em;
+      color: #fafafa; }
+    section#featured div.featured-info button#watch-now {
+      color: #fafafa;
+      background-color: #515294;
+      padding: 15px;
+      font-size: 0.8em;
+      border-radius: 4px;
+      margin-top: 20px;
+      border: none !important;
+      box-shadow: none !important;
+      text-transform: uppercase;
+      font-family: open sans; }
+      section#featured div.featured-info button#watch-now i {
+        margin-left: 5px; }
+  section#featured h3 {
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+    font-size: 8em;
+    color: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase; }
+
+section#services {
+  height: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 3;
+  position: relative;
+  padding: 10px 5px 10px 5px; }
+  section#services div.column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: peach; }
+    section#services div.column div.service:hover {
+      transform: scale(1.01, 1.01);
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+      transition: 0.2s; }
+    section#services div.column div.service {
+      flex: 1;
+      border-top: 7px solid #282961;
+      margin: 10px;
+      border-bottom: 1px solid #dfdfdf;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: flex;
+      flex-direction: row; }
+      section#services div.column div.service div.cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+      section#services div.column div.service div.flex-image {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        border-right: 1px solid #dfdfdf; }
+      section#services div.column div.service div.flex-content {
+        padding: 20px;
+        flex: 1; }
+        section#services div.column div.service div.flex-content h3 {
+          color: #282961;
+          font-size: 1.7em;
+          text-transform: uppercase; }
+        section#services div.column div.service div.flex-content p {
+          font-size: 0.9em;
+          color: #505050;
+          margin-top: 10px; }
 
 /*# sourceMappingURL=main.css.map */
