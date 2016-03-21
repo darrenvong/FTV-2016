@@ -2,9 +2,10 @@
 
 $brand-color: #282961
 $light-brand: #515294
-$a-color: #62639C
+$lighter-brand: #797AAF
 $background-color: #fafafa
 $light-grey: #efefef
+$mid-grey: #969696
 $p-font-stack: open sans, sans-serif
 $h-font-stack: oswald, sans-serif
 
@@ -144,19 +145,25 @@ footer
     margin: 10px auto
     border: 1px solid $light-brand
 
+  p
+    font-family: $p-font-stack
+    color: $light-brand
+    font-size: 0.8em
+
+    a
+      color: $lighter-brand
+
 section#latest, section#services
   max-width: 1100px
-  margin: 0 auto
+  margin: 20px auto
 
   p
     color: $light-brand
     font-size: 0.8em
 
     a
-      color: $a-color
+      color: $lighter-brand
       font-family: open sans
-
-
 
 
 //The hero section
@@ -259,6 +266,7 @@ section#latest
     box-shadow: 0px 0px 5px rgba(0,0,0,0.1)
     transition: 0.2s
     position: relative
+    overflow: hidden
 
     div.cover
       position: absolute
@@ -290,7 +298,7 @@ section#latest
           font-weight: 100
 
           a
-            color: #505050
+            color: $mid-grey
 
       h2
         text-transform: uppercase
@@ -298,8 +306,8 @@ section#latest
         font-size: 1.3em
 
       p
-        font-size: 0.9em
-        color: #505050
+        font-size: 0.8em
+        color: $mid-grey
         margin-top: 10px
 
       div.triangle
@@ -337,7 +345,6 @@ section#contact
   span:nth-of-type(2)
     color: $background-color
     font-weight: 100
-
     text-transform: uppercase
     font-family: oswald
     font-size: 1.5em
@@ -348,21 +355,41 @@ section#featured
   width: 100%
   height: 60%
   background-color: #efefef
-  background-position: center
-  background-size: cover
   display: flex
-  background-attachment: fixed
   position: relative
 
-  div.featured-info
-    padding: 50px
-    max-width: 700px
-    text-shadow: 0px 0px 30px rgba(0,0,0,0.4)
+  div#bg_img
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-attachment: fixed
+    background-position: center
+    background-size: cover
+    -webkit-filter: grayscale(1.0)
+    -moz-filter: grayscale(1.0)
+    filter: grayscale(1.0)
+
+
+  div#bg
     background: -moz-linear-gradient(left,  rgba(29,31,96,1) 0%, rgba(40,41,97,0) 100%)
     background: -webkit-linear-gradient(left,  rgba(29,31,96,1) 0%,rgba(40,41,97,0) 100%)
     background: linear-gradient(to right,  rgba(29,31,96,1) 0%,rgba(40,41,97,0) 100%)
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282961', endColorstr='#00282961',GradientType=1 )
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: 1
 
+  div.featured-info
+    padding: 50px
+    max-width: 500px
+    text-shadow: 0px 0px 30px rgba(0,0,0,0.4)
+    z-index: 2
+    position: relative
 
     ul
       list-style-type: none
@@ -391,8 +418,8 @@ section#featured
       background-color: $light-brand
       padding: 15px
       font-size: 0.8em
-      border-radius: 4px
-      margin-top: 20px
+      border-radius: 2px
+      margin-top: 40px
       border: none !important
       box-shadow: none !important
       text-transform: uppercase
@@ -411,6 +438,20 @@ section#featured
 
 //Services section
 
+button
+  color: $background-color
+  background-color: $brand-color
+  padding: 15px
+  font-size: 0.8em
+  border-radius: 2px
+  border: none !important
+  box-shadow: none !important
+  text-transform: uppercase
+  font-family: open sans
+
+  i
+    margin-left: 5px
+
 section#services
   height: 80%
   display: flex
@@ -425,7 +466,7 @@ section#services
     flex-direction: column
     background-color: peach
 
-    div.service:hover
+    div.service.hover:hover
       transform: scale(1.01,1.01)
       box-shadow: 0px 0px 5px rgba(0,0,0,0.05)
       transition: 0.2s
@@ -464,5 +505,9 @@ section#services
 
         p
           font-size: 0.9em
-          color: #505050
+          color: $mid-grey
           margin-top: 10px
+
+        button
+          position: absolute
+          bottom: 20px

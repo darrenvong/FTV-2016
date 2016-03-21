@@ -15,7 +15,6 @@
 <section id="latest">
 
   <?php
-
   $counter = 0;
 
   if ( have_posts() ) {
@@ -25,11 +24,7 @@
         if($counter<6){
 
           $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-
-
-
           ?>
-
 
             <div class="padder">
               <div class="tile">
@@ -67,12 +62,12 @@
 
 <?php
 
-$args = Array(
-  'cat' => '38, 2',
+$args1 = Array(
+  'cat' => '9',
   'posts_per_page' => '1',
 );
 
-$featured_query = new WP_Query( $args );
+$featured_query = new WP_Query( $args1 );
 
 if ( $featured_query->have_posts() ) {
   while ( $featured_query->have_posts() ) {
@@ -83,25 +78,17 @@ if ( $featured_query->have_posts() ) {
         $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
         ?>
 
-        <section id="featured" style="background-image:url(<?php echo $featured_img; ?>)">
+        <section id="featured">
 
+          <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
+
+          <div id="bg"></div>
           <div class="featured-info">
-
             <h4><?php the_category(); ?></h4>
             <h2><?php the_title(); ?></h2>
             <p><?php the_excerpt(); ?></p>
-
             <button id="watch-now">Watch now <i class="fa fa-play"></i></button>
           </div>
-
-          <!-- <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" /> -->
-
-          <h3>Latest live</h3>
-
-          <a href="<?php the_permalink(); ?>">
-          <div class="cover"></div>
-          </a>
-
         </section>
 
       <?php
@@ -109,34 +96,37 @@ if ( $featured_query->have_posts() ) {
 } // end if
 
 wp_reset_postdata();
-
 ?>
 
 <section id="services">
   <div class="column">
     <div class="service">
-      <div class="flex-image"></div>
+      <div class="flex-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/get_involved.jpg)"></div>
       <div class="flex-content">
         <h3>Get involved</h3>
         <p>There are no membership fees or applications, and absolutely no experience is needed.</p>
+        <button>Find out how</button>
       </div>
     </div>
   </div>
   <div class="column">
-    <div class="service">
-      <div class="flex-image"></div>
+    <div class="service hover">
+      <div class="flex-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/hire_us.jpg)"></div>
       <div class="flex-content">
         <h3>Hire us</h3>
-        <p>Give your event the high-definition reception it deserves</p>
+        <p>Give your event the high-definition reception it deserves.</p>
       </div>
+      <a href="#">
+        <div class="cover"></div>
+      </a>
     </div>
 
     <?php
-    $args = Array(
-      'cat' => '8',
+    $args2 = Array(
+      'cat' => '2',
       'posts_per_page' => '1',
     );
-    $featured_query = new WP_Query( $args );
+    $featured_query = new WP_Query( $args2 );
     if ( $featured_query->have_posts() ) {
       while ( $featured_query->have_posts() ) {
         $featured_query->the_post();
@@ -144,14 +134,18 @@ wp_reset_postdata();
             $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
             ?>
 
-              <div class="service">
+              <div class="service hover">
                 <div class="flex-image" style="background-image:url(<?php echo $featured_img ?>)"></div>
                 <div class="flex-content">
                   <h4>Latest blog post</h4>
                   <h3><?php the_title(); ?></h3>
                   <p><?php the_excerpt(); ?></p>
-
                 </div>
+
+                <a href="<?php the_permalink(); ?>">
+                  <div class="cover"></div>
+                </a>
+
               </div>
 
           <?php
