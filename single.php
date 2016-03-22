@@ -88,6 +88,8 @@ wp_reset_postdata();
     while( $my_query->have_posts() ) {
     $my_query->the_post();
 
+    ///Aaaaaaaah
+
     $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     ?>
 
