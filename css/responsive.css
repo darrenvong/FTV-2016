@@ -16,7 +16,13 @@
     display: inline !important; }
 
   header nav#social {
-    display: none; } }
+    display: none; }
+
+  a span#more {
+    display: block; }
+
+  div.blog-tile {
+    width: 70%; } }
 @media screen and (max-width: 600px) {
   section#services div.column div.service {
     min-height: 320px;
@@ -30,6 +36,9 @@
     width: 100% !important; }
 
   section#latest div.padder {
+    width: 100%; }
+
+  div.blog-tile {
     width: 100%; }
 
   section#featured {
@@ -73,7 +82,12 @@
     height: 60%; }
 
   section#contact {
-    height: 150px; }
+    height: 300px;
+    padding: 80px; }
+    section#contact h3 {
+      font-size: 1em; }
+    section#contact h4 {
+      font-size: 3em; }
     section#contact span {
       font-size: 2em !important; } }
 

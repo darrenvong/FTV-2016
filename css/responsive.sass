@@ -24,6 +24,12 @@
   header nav#social
     display: none
 
+  a span#more
+    display: block
+
+  div.blog-tile
+    width: 70%
+
 // Second breakpoint, for phones
 
 @media screen and (max-width: 600px)
@@ -44,6 +50,9 @@
     width: 100% !important
 
   section#latest div.padder
+    width: 100%
+
+  div.blog-tile
     width: 100%
 
 
@@ -100,7 +109,14 @@
     height: 60%
 
   section#contact
-    height: 150px
+    height: 300px
+    padding: 80px
+
+    h3
+      font-size: 1em
+
+    h4
+      font-size: 3em
 
     span
       font-size: 2em !important

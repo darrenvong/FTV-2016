@@ -51,3 +51,13 @@ add_filter('get_the_excerpt', 'wp_new_excerpt');
 wp_enqueue_style( 'Primary styles', get_stylesheet_uri() );
 wp_enqueue_style( 'FontAwesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
 wp_enqueue_script( 'jquery_frontend', 'https://code.jquery.com/jquery-2.2.1.min.js');
+
+
+
+
+//Wrap videos in responsive container
+
+add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+function my_embed_oembed_html($html, $url, $attr, $post_id) {
+  return '<div class="video-box"><div class="video-wrapper">' . $html . '</div></div>';
+}
