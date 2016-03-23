@@ -643,6 +643,10 @@ section#title {
           section#title div#full-height h3 ul li a {
             color: #efefef; }
 
+article.page {
+  max-width: 900px !important;
+  font-size: 1.1em !important; }
+
 article {
   max-width: 1000px;
   margin: -100px auto 50px auto;
