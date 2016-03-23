@@ -1,5 +1,7 @@
 <footer>
 
+  <a href="#top"><div class="up"><i class="fa fa-arrow-up"></i></div></a>
+
   <nav>
     <?php
       $args = array(

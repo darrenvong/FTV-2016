@@ -101,9 +101,27 @@ footer {
   -moz-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
   font-family: oswald, sans-serif; }
+  footer div.up {
+    background-color: #515294;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fafafa;
+    font-size: 1.5em;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.1s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+  footer div.up:hover {
+    top: -30px; }
   footer nav {
     display: flex;
-    margin: 10px auto 30px auto;
+    margin: 40px auto 20px auto;
     justify-content: center;
     align-items: center; }
     footer nav ul li {
@@ -218,7 +236,8 @@ a.cue {
   z-index: 3; }
 
 i.cue {
-  opacity: 0.7; }
+  opacity: 0.7;
+  padding: 5px; }
 
 @keyframes throb {
   0% {
@@ -653,7 +672,8 @@ article {
   position: relative;
   z-index: 3;
   padding: 20px;
-  background-color: #efefef; }
+  background-color: #efefef;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); }
   article p {
     font-family: open sans, sans-serif;
     color: #2d2d2d;
@@ -880,7 +900,7 @@ section#category {
         left: 15px; }
 
 section#pagination {
-  padding: 30px;
+  padding: 50px 10px 50px 10px;
   width: 100%;
   background-color: #efefef;
   display: flex;

@@ -2,6 +2,14 @@
 
 <div class="spacer"></div>
 
+<?php
+  function randomText() {
+      $photoAreas = array("Always more to see", "More delightful videos", "Lots left to see", "We've got lots left to show you", "Aren't you glad to see us", "Have a looksie", "Fancy seeing you here");
+      $randomNumber = rand(0, (count($photoAreas) - 1));
+      echo $photoAreas[$randomNumber];
+  }
+?>
+
 
   <?php
   if ( have_posts() ) {
@@ -65,7 +73,7 @@
   </article>
 
 
-  <h4 class="related">There's always more to see</h4>
+  <h4 class="related"><?php randomText(); ?></h4>
   <section class="related">
 
     <?php $orig_post = $post;

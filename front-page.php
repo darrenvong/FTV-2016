@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<script src="<?php echo get_template_directory_uri() . '/js/smooth_scroll.js'?>"></script>
-
 <section id="hero">
 
     <?php
@@ -21,7 +19,7 @@
   <div class="divider"></div>
   <span id="slogan"><?php bloginfo( 'description' ); ?></span>
 
-  <a href="#latest" class="cue"><i class="fa fa-caret-down fa-4x cue"></i></a>
+  <a href="#latest" class="cue"><i class="fa fa-arrow-down fa-3x cue"></i></a>
 
 </section>
 
