@@ -8,66 +8,64 @@
   	while ( have_posts() ) {
   		the_post();
 
-        $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-        ?>
+      $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+      ?>
 
         <section id="title">
-
           <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
-
           <div id="bg"></div>
-
           <div id="full-height">
             <h2><?php the_title(); ?></h2>
             <h3>Published <?php the_date(); ?> | In <?php the_category(); ?></h3>
           </div>
-
         </section>
 
         <article>
-
           <a href="http://localhost/wp"><span id="back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
-
-          <!-- <div class="back button"><i class="fa fa-left-arrow"></i></div> -->
-
           <?php the_content(); ?>
+
+          <?php
+
+          $args3 = Array(
+            'cat' => array($post->cat_ID),
+            'posts_per_page' => '1',
+            'post__not_in' => array($post->ID)
+          );
+          $blog_query = new WP_Query( $args3 );
+
+          if ( $blog_query->have_posts() ) {
+            while ( $blog_query->have_posts() ) {
+              $blog_query->the_post();
+              ?>
+
+                <div class="blog-tile">
+                <h4>Watch next <i class="fa fa-play"></i></h4>
+                <h3><?php the_title(); ?></h3>
+                <a href="<?php the_permalink(); ?>">
+                  <div class="cover"></div>
+                </a>
+              </div>
+
+              <?php
+
+
+          } // end while
+        }; // end if
+        wp_reset_postdata();
+          ?>
+
+          <?php comments_template( $file, $separate_comments ); ?>
 
         <?php
     } // end while
-  } // end if
-  ?>
-
-
-  <?php
-  $args3 = Array(
-    'cat' => '2',
-    'posts_per_page' => '1',
-  );
-  $blog_query = new WP_Query( $args3 );
-  if ( $blog_query->have_posts() ) {
-    while ( $blog_query->have_posts() ) {
-      $blog_query->the_post();
-
-        echo	'<div class="blog-tile">';
-        echo	'<h4>Latest blog post</h4>';
-        echo	'<h3>';
-        the_title();
-        echo	'</h3>';
-        echo	'<a href="';
-        the_permalink();
-        echo  '">';
-        echo	'<div class="cover"></div></a></div>';
-
-  } // end while
-} // end if
-wp_reset_postdata();
+  }; // end if
   ?>
 
 
   </article>
 
 
-  <h4 class="related">More to see</h4>
+  <h4 class="related">There's always more to see</h4>
   <section class="related">
 
     <?php $orig_post = $post;
@@ -88,11 +86,10 @@ wp_reset_postdata();
     while( $my_query->have_posts() ) {
     $my_query->the_post();
 
-    ///Aaaaaaaah
-
     $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     ?>
 
+    <div class="padder">
     <div class="related-tile">
 
       <div class="related-image" style="background-image:url(<?php echo $featured_img; ?>)">
@@ -107,9 +104,9 @@ wp_reset_postdata();
       <div class="grad"></div>
 
     </div>
+    </div>
 
-
-    <? }
+    <?php }
     } }
     $post = $orig_post;
     wp_reset_query(); ?>
@@ -119,18 +116,7 @@ wp_reset_postdata();
     <a id="more" href="http://localhost/wp"><span><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
 
 
-
-      <!-- Contact bar -->
-      <a href="mailto:forgetv@forgetoday.com">
-        <section id="contact">
-
-          <div id="bg_img" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/contact.jpg")></div>
-
-          <div id="grad"></div>
-          <h3>Get in touch</h4>
-          <h4>forgetv@forgetoday.com</h2>
-
-        </section>
-      </a>
-
-<?php get_footer(); ?>
+<?php
+get_template_part(contact);
+get_footer();
+?>

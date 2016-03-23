@@ -43,26 +43,18 @@
 
             <div class="padder">
               <div class="tile">
-
                 <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
                 </div>
-
                 <div class="tile-info">
-
                   <div class="triangle"></div>
-
                   <h4><?php the_category(); ?></h4>
                   <h2><?php the_title(); ?></h2>
                   <p><?php the_excerpt(); ?></p>
-
                   <div class="grad"></div>
-
                 </div>
-
                 <a href="<?php the_permalink(); ?>">
                 <div class="cover"></div>
                 </a>
-
               </div>
             </div>
 
@@ -106,7 +98,7 @@ if ( $featured_query->have_posts() ) {
             <h4><?php the_category(); ?></h4>
             <h2><?php the_title(); ?></h2>
             <p><?php the_excerpt(); ?></p>
-            <button id="watch-now">Watch now <i class="fa fa-play"></i></button>
+            <a href="<?php the_permalink(); ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
           </div>
         </section>
 
@@ -144,7 +136,7 @@ wp_reset_postdata();
 
     <?php
     $args2 = Array(
-      'cat' => '2',
+      'cat' => '4045',
       'posts_per_page' => '1',
     );
     $featured_query = new WP_Query( $args2 );
@@ -178,17 +170,7 @@ wp_reset_postdata();
   </div>
 </section>
 
-<!-- Contact bar -->
-<a href="mailto:forgetv@forgetoday.com">
-  <section id="contact">
-
-    <div id="bg_img" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/contact.jpg")></div>
-    
-    <div id="grad"></div>
-    <h3>Get in touch</h4>
-    <h4>forgetv@forgetoday.com</h2>
-
-  </section>
-</a>
-
-<?php get_footer(); ?>
+<?php
+get_template_part(contact);
+get_footer();
+?>

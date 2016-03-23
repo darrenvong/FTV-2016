@@ -329,10 +329,11 @@ section#latest
       height: 50%
       padding: 20px
       position: relative
-      pointer-events: none
 
       ul
         list-style-type: none
+        z-index: 10
+        position: relative
 
         li
           display: inline
@@ -401,19 +402,18 @@ a#more span
   font-family: open sans
   text-transform: uppercase
   font-weight: 100
-  margin: 5px auto 20px auto
-  transition: 0.1s
+
   cursor: pointer
-  display: block
   text-align: center
 
-a#more span:hover
-  transform: scale(1.1,1.1)
+a#more:hover
+  transform: scale(1.05,1.05)
 
 a#more
+  width: 122px !important
+  margin: 5px auto 50px auto
   display: block
-  margin: 0px auto 50px auto
-
+  transition: 0.1s
 
 //Contact bar
 
@@ -478,6 +478,9 @@ section#contact
     position: relative
     z-index: 3
     text-shadow: 0px 0px 10px rgba(0,0,0,0.2)
+
+  h3:nth-of-type(2)
+    opacity: 0.5
 
 
 section#contact:hover div#grad
@@ -699,6 +702,7 @@ section#title
       font-size: 2.5em
       text-shadow: 0px 0px 10px rgba(0,0,0,0.5)
       text-align: center
+      max-width: 800px
 
     h3
       z-index: 3
@@ -710,21 +714,37 @@ section#title
       font-size: 0.9em
       font-weight: 100
       text-shadow: 0px 0px 10px rgba(0,0,0,0.5)
+      line-height: 24px
 
       ul
         list-style-type: none
         display: inline
 
+        li:hover
+          background-color: $light-grey
+          border: 1px solid #fafafa
+          text-shadow: none !important
+
+          a
+            color: $brand-color !important
+
         li
           display: inline
           margin-right: 3px
+          display: inline
+          margin-right: 3px
+          border: 1px solid #fafafa
+          padding: 2px 9px 2px 9px
+          border-radius: 20px
+          font-size: 0.8em
+          transition: 0.1s
 
           a
             color: $light-grey
 
 article
   max-width: 1000px
-  margin: -100px auto 20px auto
+  margin: -100px auto 50px auto
   position: relative
   z-index: 3
   padding: 20px
@@ -732,13 +752,12 @@ article
 
   p
     font-family: $p-font-stack
-    color: #969696
-    font-size: 0.9em
+    color: #2d2d2d
+    font-size: 1em
     background-color: $light-grey
-    margin-bottom: 10px
+    margin-top: 10px
 
   p:first-of-type
-    max-width: 600px
     display: block
     margin-top: 20px
 
@@ -802,7 +821,14 @@ div.blog-tile
   width: 33.3%
   border-left: 5px solid $brand-color
   padding: 10px
-  margin-top: 20px
+  margin-top: 30px
+  margin-bottom: 25px
+
+  h4
+    i
+      font-size: 0.9em
+      margin-left: 3px
+
 
   h3
     text-transform: uppercase
@@ -821,6 +847,8 @@ div.blog-tile
   div.cover:hover
     background-color: rgba(40,41,97,0.03)
 
+
+
 //Related content
 
 section.related
@@ -830,14 +858,18 @@ section.related
   flex-direction: row
   flex-grow: 1
   margin: 10px auto 0px auto
+  flex-flow: row wrap
+
+  div.padder
+    width: 25%
+    padding: 5px
 
   div.related-tile:hover
     transform: scale(1.02,1.02)
     background-color: rgba(40,41,97,0.03)
 
   div.related-tile
-    width: 25%
-    margin: 5px
+    // width: 25%
     height: 230px
     border: 1px solid #dfdfdf
     background-color: $background-color
@@ -886,3 +918,169 @@ section.related
 
     div.cover:hover
       background-color: rgba(40,41,97,0.03)
+
+//Category page
+h2.category
+  font-family: $h-font-stack
+  font-size: 2em
+  text-align: center
+  font-weight: 700
+  color: $brand-color
+  margin: 20px auto 10px auto
+  text-transform: uppercase
+
+  span
+    font-weight: 100
+    color: #dfdfdf
+
+section#category
+  display: flex
+  flex-flow: row wrap
+  z-index: 3
+  position: relative
+  padding: 10px 5px 10px 5px
+  max-width: 1100px
+  margin: 20px auto 10px auto
+
+  div.padder
+    height: 350px
+    width: 33.33%
+    padding: 10px
+
+  div.tile:hover
+    transform: scale(1.01,1.01)
+    transition: 0.2s
+
+    .tile-info
+      background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(40,41,97,0.05) 100%)
+      background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(40,41,97,0.05) 100%)
+      background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(40,41,97,0.05) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 )
+
+  div.tile
+    border: 1px solid #dfdfdf
+    height: 100%
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1)
+    transition: 0.2s
+    position: relative
+    overflow: hidden
+
+    div.cover
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+
+    div.tile-image
+      height: 50%
+      background-size: cover
+      background-position: center
+      -webkit-filter: brightness(0.8)
+
+    div.tile-info
+      height: 50%
+      padding: 20px
+      position: relative
+
+      ul
+        list-style-type: none
+        z-index: 10
+        position: relative
+
+        li
+          display: inline
+          margin-right: 5px
+          font-size: 0.8em
+          font-family: $p-font-stack
+
+          a
+            color: $mid-grey
+            font-weight: 100
+
+      h2
+        text-transform: uppercase
+        color: $brand-color
+        font-size: 1.3em
+
+      p
+        font-size: 0.8em
+        color: $mid-grey
+        margin-top: 10px
+
+      div.triangle
+        width: 0
+        height: 0
+        border-left: 25px solid transparent
+        border-right: 25px solid transparent
+        border-bottom: 30px solid $background-color
+        position: absolute
+        top: -25px
+        left: 15px
+
+section#pagination
+  padding: 30px
+  width: 100%
+  background-color: $light-grey
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: row
+
+  span, a
+    font-family: $p-font-stack
+    border: 1px solid $brand-color
+    border-radius: 30px
+    font-size: 0.8em
+    text-transform: uppercase
+    padding: 3px 7px
+    margin: 0px 3px 0px 3px
+    transition: 0.2s
+    color: $brand-color
+
+  a:hover, span.current
+    background-color: $brand-color
+    color: $background-color
+
+  span.dots
+    background-color: $light-grey
+    color: $brand-color
+    border: none !important
+
+ul.popular-cats
+  list-style-type: none
+  margin-bottom: 30px
+  text-align: center
+
+  li
+    display: inline
+    font-family: $p-font-stack
+    border: 1px solid #969696
+    border-radius: 30px
+    font-size: 0.8em
+    text-transform: uppercase
+    padding: 3px 7px
+    margin: 0px 3px 0px 3px
+    transition: 0.2s
+
+    a
+      color: #969696
+
+  li:hover
+    background-color: $brand-color !important
+    border-color: $brand-color
+
+    a
+      color: $background-color !important
+
+span#cat-back
+  position: absolute
+  color: $brand-color
+  top: -25px
+  font-family: $p-font-stack
+  text-transform: uppercase
+  text-shadow: none !important
+  transition: 0.1s
+
+span#cat-back:hover
+  transform: scale(1.1,1.1)

@@ -283,10 +283,11 @@ section#latest {
     section#latest div.tile div.tile-info {
       height: 50%;
       padding: 20px;
-      position: relative;
-      pointer-events: none; }
+      position: relative; }
       section#latest div.tile div.tile-info ul {
-        list-style-type: none; }
+        list-style-type: none;
+        z-index: 10;
+        position: relative; }
         section#latest div.tile div.tile-info ul li {
           display: inline;
           margin-right: 5px;
@@ -349,18 +350,17 @@ a#more span {
   font-family: open sans;
   text-transform: uppercase;
   font-weight: 100;
-  margin: 5px auto 20px auto;
-  transition: 0.1s;
   cursor: pointer;
-  display: block;
   text-align: center; }
 
-a#more span:hover {
-  transform: scale(1.1, 1.1); }
+a#more:hover {
+  transform: scale(1.05, 1.05); }
 
 a#more {
+  width: 122px !important;
+  margin: 5px auto 50px auto;
   display: block;
-  margin: 0px auto 50px auto; }
+  transition: 0.1s; }
 
 section#contact:hover {
   transition: 0.1s;
@@ -419,6 +419,8 @@ section#contact {
     position: relative;
     z-index: 3;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
+  section#contact h3:nth-of-type(2) {
+    opacity: 0.5; }
 
 section#contact:hover div#grad {
   opacity: 0.7; }
@@ -606,7 +608,8 @@ section#title {
       margin: 0px auto;
       font-size: 2.5em;
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      text-align: center; }
+      text-align: center;
+      max-width: 800px; }
     section#title div#full-height h3 {
       z-index: 3;
       position: relative;
@@ -616,31 +619,44 @@ section#title {
       margin: 0px auto;
       font-size: 0.9em;
       font-weight: 100;
-      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      line-height: 24px; }
       section#title div#full-height h3 ul {
         list-style-type: none;
         display: inline; }
+        section#title div#full-height h3 ul li:hover {
+          background-color: #efefef;
+          border: 1px solid #fafafa;
+          text-shadow: none !important; }
+          section#title div#full-height h3 ul li:hover a {
+            color: #282961 !important; }
         section#title div#full-height h3 ul li {
           display: inline;
-          margin-right: 3px; }
+          margin-right: 3px;
+          display: inline;
+          margin-right: 3px;
+          border: 1px solid #fafafa;
+          padding: 2px 9px 2px 9px;
+          border-radius: 20px;
+          font-size: 0.8em;
+          transition: 0.1s; }
           section#title div#full-height h3 ul li a {
             color: #efefef; }
 
 article {
   max-width: 1000px;
-  margin: -100px auto 20px auto;
+  margin: -100px auto 50px auto;
   position: relative;
   z-index: 3;
   padding: 20px;
   background-color: #efefef; }
   article p {
     font-family: open sans, sans-serif;
-    color: #969696;
-    font-size: 0.9em;
+    color: #2d2d2d;
+    font-size: 1em;
     background-color: #efefef;
-    margin-bottom: 10px; }
+    margin-top: 10px; }
   article p:first-of-type {
-    max-width: 600px;
     display: block;
     margin-top: 20px; }
   article div.video-wrapper {
@@ -698,7 +714,11 @@ div.blog-tile {
   width: 33.3%;
   border-left: 5px solid #282961;
   padding: 10px;
-  margin-top: 20px; }
+  margin-top: 30px;
+  margin-bottom: 25px; }
+  div.blog-tile h4 i {
+    font-size: 0.9em;
+    margin-left: 3px; }
   div.blog-tile h3 {
     text-transform: uppercase;
     color: #282961;
@@ -720,13 +740,15 @@ section.related {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  margin: 10px auto 0px auto; }
+  margin: 10px auto 0px auto;
+  flex-flow: row wrap; }
+  section.related div.padder {
+    width: 25%;
+    padding: 5px; }
   section.related div.related-tile:hover {
     transform: scale(1.02, 1.02);
     background-color: rgba(40, 41, 97, 0.03); }
   section.related div.related-tile {
-    width: 25%;
-    margin: 5px;
     height: 230px;
     border: 1px solid #dfdfdf;
     background-color: #fafafa;
@@ -768,5 +790,149 @@ section.related {
       transition: 0.1s; }
     section.related div.related-tile div.cover:hover {
       background-color: rgba(40, 41, 97, 0.03); }
+
+h2.category {
+  font-family: oswald, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  font-weight: 700;
+  color: #282961;
+  margin: 20px auto 10px auto;
+  text-transform: uppercase; }
+  h2.category span {
+    font-weight: 100;
+    color: #dfdfdf; }
+
+section#category {
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 3;
+  position: relative;
+  padding: 10px 5px 10px 5px;
+  max-width: 1100px;
+  margin: 20px auto 10px auto; }
+  section#category div.padder {
+    height: 350px;
+    width: 33.33%;
+    padding: 10px; }
+  section#category div.tile:hover {
+    transform: scale(1.01, 1.01);
+    transition: 0.2s; }
+    section#category div.tile:hover .tile-info {
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 ); }
+  section#category div.tile {
+    border: 1px solid #dfdfdf;
+    height: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+    position: relative;
+    overflow: hidden; }
+    section#category div.tile div.cover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0; }
+    section#category div.tile div.tile-image {
+      height: 50%;
+      background-size: cover;
+      background-position: center;
+      -webkit-filter: brightness(0.8); }
+    section#category div.tile div.tile-info {
+      height: 50%;
+      padding: 20px;
+      position: relative; }
+      section#category div.tile div.tile-info ul {
+        list-style-type: none;
+        z-index: 10;
+        position: relative; }
+        section#category div.tile div.tile-info ul li {
+          display: inline;
+          margin-right: 5px;
+          font-size: 0.8em;
+          font-family: open sans, sans-serif; }
+          section#category div.tile div.tile-info ul li a {
+            color: #969696;
+            font-weight: 100; }
+      section#category div.tile div.tile-info h2 {
+        text-transform: uppercase;
+        color: #282961;
+        font-size: 1.3em; }
+      section#category div.tile div.tile-info p {
+        font-size: 0.8em;
+        color: #969696;
+        margin-top: 10px; }
+      section#category div.tile div.tile-info div.triangle {
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 30px solid #fafafa;
+        position: absolute;
+        top: -25px;
+        left: 15px; }
+
+section#pagination {
+  padding: 30px;
+  width: 100%;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; }
+  section#pagination span, section#pagination a {
+    font-family: open sans, sans-serif;
+    border: 1px solid #282961;
+    border-radius: 30px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    margin: 0px 3px 0px 3px;
+    transition: 0.2s;
+    color: #282961; }
+  section#pagination a:hover, section#pagination span.current {
+    background-color: #282961;
+    color: #fafafa; }
+  section#pagination span.dots {
+    background-color: #efefef;
+    color: #282961;
+    border: none !important; }
+
+ul.popular-cats {
+  list-style-type: none;
+  margin-bottom: 30px;
+  text-align: center; }
+  ul.popular-cats li {
+    display: inline;
+    font-family: open sans, sans-serif;
+    border: 1px solid #969696;
+    border-radius: 30px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    margin: 0px 3px 0px 3px;
+    transition: 0.2s; }
+    ul.popular-cats li a {
+      color: #969696; }
+  ul.popular-cats li:hover {
+    background-color: #282961 !important;
+    border-color: #282961; }
+    ul.popular-cats li:hover a {
+      color: #fafafa !important; }
+
+span#cat-back {
+  position: absolute;
+  color: #282961;
+  top: -25px;
+  font-family: open sans, sans-serif;
+  text-transform: uppercase;
+  text-shadow: none !important;
+  transition: 0.1s; }
+
+span#cat-back:hover {
+  transform: scale(1.1, 1.1); }
 
 /*# sourceMappingURL=main.css.map */
