@@ -99,6 +99,8 @@ footer {
   position: relative;
   -webkit-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 9px 24px -9px rgba(0, 0, 0, 0.2);
   font-family: oswald, sans-serif; }
   footer div.up {
@@ -196,6 +198,8 @@ section#hero {
     z-index: -2;
     -webkit-filter: brightness(0.6) grayscale(1);
     -moz-filter: brightness(0.6) grayscale(1);
+    -ms-filter: brightness(0.6) grayscale(1);
+    -o-filter: brightness(0.6) grayscale(1);
     filter: brightness(0.6) grayscale(1); }
   section#hero div#bg {
     position: absolute;
@@ -406,6 +410,8 @@ section#contact {
     background-size: cover;
     background-attachment: fixed;
     -webkit-filter: grayscale(1) brightness(0.7);
+    -ms-filter: grayscale(1) brightness(0.7);
+    -o-filter: grayscale(1) brightness(0.7);
     filter: grayscale(1) brightness(0.7);
     -moz-filter: grayscale(1) brightness(0.7); }
   section#contact div#grad {
@@ -460,7 +466,9 @@ section#featured {
     background-size: cover;
     -webkit-filter: grayscale(1);
     -moz-filter: grayscale(1);
-    filter: grayscale(1); }
+    filter: grayscale(1);
+    -ms-filter: grayscale(1);
+    -o-filter: grayscale(1); }
   section#featured div#bg {
     background: -moz-linear-gradient(left, #1d1f60 0%, rgba(40, 41, 97, 0) 100%);
     background: -webkit-linear-gradient(left, #1d1f60 0%, rgba(40, 41, 97, 0) 100%);
@@ -596,6 +604,8 @@ section#title {
     right: 0;
     -webkit-filter: grayscale(1) brightness(0.7);
     -moz-filter: grayscale(1) brightness(0.7);
+    -ms-filter: grayscale(1) brightness(0.7);
+    -o-filter: grayscale(1) brightness(0.7);
     filter: grayscale(1) brightness(0.7);
     background-size: cover;
     background-position: center;
@@ -786,6 +796,9 @@ section.related {
       background-size: cover;
       background-position: center;
       -webkit-filter: brightness(0.8);
+      -ms-filter: brightness(0.8);
+      -moz-filter: brightness(0.8);
+      -o-filter: brightness(0.8);
       filter: brightness(0.8);
       position: relative;
       z-index: 4; }
