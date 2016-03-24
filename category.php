@@ -49,7 +49,16 @@
     <h4><?php the_category(); ?></h4>
     <h2><?php the_title(); ?></h2>
     <p><?php the_excerpt(); ?></p>
-    <a href="<?php the_permalink(); ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
+    <a href="<?php the_permalink(); ?>">
+      <?php
+        if(is_category('5')){
+         echo '<button id="watch-now">Read now <i class="fa fa-book"></i>';
+        }else{
+        echo '<button id="watch-now">Watch now <i class="fa fa-play"></i>';
+        };
+      ?>
+
+      </button></a>
   </div>
 </section>
 
