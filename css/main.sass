@@ -31,6 +31,20 @@ p
 a
   text-decoration: none
 
+div.video-wrapper
+  position: relative
+  padding-bottom: 54%
+  padding-top: 25px
+  height: 0
+  border-bottom: 5px solid $brand-color
+
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
 // The header
 
 header
@@ -57,7 +71,7 @@ header nav ul li
 nav ul li a
   color: $brand-color
 
-nav ul li:hover, nav#social ul li a:hover
+nav#left ul li:hover, nav#right ul li:hover, footer nav ul li:hover, nav#social ul li a:hover
   margin-top: -3px
   transition: 0.2s
 
@@ -95,14 +109,10 @@ img#forge
 
 header
   nav#right
-    i
+    #bars
       display: none
       transition: 0.1s
       color: $brand-color
-
-i.fa-bars:hover
-  transition: 0.1s
-  transform: scale(1.1)
 
 // Footer
 
@@ -685,7 +695,7 @@ div.spacer
 section#title
   width: 100%
   min-height: 350px
-  background-color: $brand-color
+  background-color: rgba(255,255,255,0.1)
   position: relative
 
   div#bg_img
@@ -777,6 +787,12 @@ article.page
   max-width: 900px !important
   font-size: 1.1em !important
 
+  h3
+    color: $brand-color
+    margin-top: 40px
+    text-transform: uppercase
+    font-size: 1.5em
+
 article
   max-width: 1000px
   margin: -100px auto 50px auto
@@ -786,6 +802,10 @@ article
   background-color: $light-grey
   box-shadow: 0px 0px 20px rgba(0,0,0,0.1)
 
+  img, a img
+    max-width: 100%
+    height: auto
+
   p
     font-family: $p-font-stack
     color: #2d2d2d
@@ -793,25 +813,14 @@ article
     background-color: $light-grey
     margin-top: 10px
 
+    a
+      color: $brand-color
+      font-weight: 400
+      text-decoration: none
+
   p:first-of-type
     display: block
     margin-top: 20px
-
-  div.video-box
-
-  div.video-wrapper
-    position: relative
-    padding-bottom: 54%
-    padding-top: 25px
-    height: 0
-    border-bottom: 5px solid $brand-color
-
-    iframe
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
 
   a span#back
     color: $background-color
@@ -1123,3 +1132,404 @@ span#cat-back
 
 span#cat-back:hover
   transform: scale(1.1,1.1)
+
+
+// 404
+
+section.not-found
+  height: 100% !important
+
+  h4
+    a
+      color: $background-color !important
+
+      span#back
+        color: $background-color !important
+        top: -25px
+        font-family: $p-font-stack
+        text-transform: uppercase
+        text-shadow: none !important
+        transition: 0.1s
+
+        :hover
+          transform: scale(1.1,1.1)
+
+
+//Floating responsive menu
+
+nav#mobile
+  position: fixed
+  background-color: rgba(0,0,0,0.9)
+  width: 100%
+  height: 100%
+  z-index: 50
+  display: none
+  transition: 0.2s
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  hr
+    width: 50%
+    margin: 30px
+    background-color: none
+    border: 1px solid rgba(255,255,255,0.3)
+    max-width: 230px
+
+  ul#mobile-primary
+    text-align: center
+    font-family: oswald
+    font-size: 1.6em
+    text-transform: uppercase
+    margin: 5px
+
+    li
+      a
+        color: $background-color
+
+      a:hover
+        color: $light-brand
+        transition: 0.2s
+
+  ul#socialise
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+    li:hover
+      margin-top: -3px
+
+    li
+      width: 40px
+      height: 40px
+      border-radius: 50px
+      background-color: $background-color
+      margin: 5px
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 1.5em
+      transition: 0.1s
+
+      a
+        color: rgba(0,0,0,0.9)
+
+
+nav.on
+  display: flex !important
+  -webkit-animation: fadein 0.5
+  -moz-animation: fadein 0.5
+  -ms-animation: fadein 0.5
+  -o-animation: fadein 0.5
+  animation: fadein 0.5s
+
+@keyframes fadein
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+
+#bars
+  width: 17px
+  height: 17px
+  position: relative
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  transform: rotate(0deg)
+  -webkit-transition: .5s ease-in-out
+  -moz-transition: .5s ease-in-out
+  -o-transition: .5s ease-in-out
+  transition: .5s ease-in-out
+  cursor: pointer
+  margin-top: 5px
+
+#bars span
+  display: block
+  position: absolute
+  height: 3px
+  width: 100%
+  background: $brand-color
+  border-radius: 9px
+  opacity: 1
+  left: 0
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  transform: rotate(0deg)
+  -webkit-transition: .25s ease-in-out
+  -moz-transition: .25s ease-in-out
+  -o-transition: .25s ease-in-out
+  transition: .25s ease-in-out
+
+#bars span:nth-child(1)
+  top: 0px
+
+#bars span:nth-child(2)
+  top: 6px
+
+#bars span:nth-child(3)
+  top: 12px
+
+#bars.open span:nth-child(1)
+  top: 6px
+  -webkit-transform: rotate(135deg)
+  -moz-transform: rotate(135deg)
+  -o-transform: rotate(135deg)
+  transform: rotate(135deg)
+
+#bars.open span:nth-child(2)
+  opacity: 0
+  left: -60px
+
+#bars.open span:nth-child(3)
+  top: 6px
+  -webkit-transform: rotate(-135deg)
+  -moz-transform: rotate(-135deg)
+  -o-transform: rotate(-135deg)
+  transform: rotate(-135deg)
+
+
+//Search form
+
+form#searchform
+  color: $background-color
+  margin: 40px 0px 40px 0px
+
+  input,formSearchBoxJS
+    background-color: rgba(0,0,0,0.5)
+    border: none
+    color: $background-color
+    font-size: 1em
+    font-family: open sans
+    padding: 3px
+    border-bottom: 1px solid $background-color
+
+
+  input.search-submit
+    background-color: rgba(0,0,0,0)
+    color: #fafafa
+    font-family: open sans
+    border: 1px solid $background-color
+    padding: 3px 8px 3px 8px
+    border-radius: 40px
+    text-transform: uppercase
+    font-size: 0.9em
+    cursor: pointer !important
+
+
+  input.search-submit:hover
+    background-color: $background-color
+    color: rgba(0,0,0,0.9)
+    cursor: pointer !important
+
+
+//Cat-specific layout
+
+article.blog
+  max-width: 900px
+
+  div.video-box
+    margin: 40px 0px 40px 0px
+
+  p:first-of-type
+    font-weight: 700
+    font-size: 1.2em
+    margin-top: 20px
+    margin-bottom: 20px
+
+  p
+    max-width: 600px
+    margin: 0px auto 20px auto
+
+    a
+      color: $brand-color
+
+  div.blog-tile
+    margin: 30px auto
+
+//Hire us section and other custom page templates
+
+section.page_img
+  width: 100%
+  height: 60%
+  background-color: #efefef
+  position: relative
+
+  div#bg_img
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-attachment: fixed
+    background-position: center
+    background-size: cover
+    -webkit-filter: grayscale(1.0)
+    -moz-filter: grayscale(1.0)
+    filter: grayscale(1.0)
+    -ms-filter: grayscale(1.0)
+    -o-filter: grayscale(1.0)
+
+
+  div#bg
+    background: -moz-linear-gradient(left,  rgba(29,31,96,1) 0%, rgba(40,41,97,0) 100%)
+    background: -webkit-linear-gradient(left,  rgba(29,31,96,1) 0%,rgba(40,41,97,0) 100%)
+    background: linear-gradient(to right,  rgba(29,31,96,1) 0%,rgba(40,41,97,0) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282961', endColorstr='#00282961',GradientType=1 )
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: 1
+
+  div#centred
+    display: flex
+    flex-direction: column
+    justify-content: center
+    height: 100%
+
+  div.featured-info
+    padding: 50px
+    max-width: 500px
+    text-shadow: 0px 0px 30px rgba(0,0,0,0.4)
+    z-index: 2
+    position: relative
+
+    ul
+      list-style-type: none
+
+      li
+        display: inline
+        margin-right: 5px
+        font-size: 0.8em
+        font-family: $p-font-stack
+        font-weight: 100
+
+        a
+          color: $background-color
+
+    h2
+      text-transform: uppercase
+      color: $background-color
+      font-size: 1.8em
+
+    p
+      font-size: 0.9em
+      color: $background-color
+
+    button#watch-now
+      color: $background-color
+      background-color: $light-brand
+      padding: 15px
+      font-size: 0.8em
+      border-radius: 2px
+      margin-top: 40px
+      border: none !important
+      box-shadow: none !important
+      text-transform: uppercase
+      font-family: open sans
+
+      i
+        margin-left: 5px
+
+    h3
+      font-size: 1.8em
+      color: rgba(255,255,255,0.1)
+      text-transform: uppercase
+      color: $background-color
+
+    h4
+      a
+        color: $background-color !important
+
+a#whiteeeeee
+  color: white !important
+
+section.page_strip
+  width: 100%
+  min-height: 60%
+  background-color: #efefef
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  padding: 60px
+  -webkit-box-shadow: inset 0px -78px 120px -53px rgba(0,0,0,0.1)
+  -moz-box-shadow: inset 0px -78px 120px -53px rgba(0,0,0,0.1)
+  box-shadow: inset 0px -78px 120px -53px rgba(0,0,0,0.1)
+
+  div.video-box
+    flex: 1
+    max-width: 800px
+
+  div.content-left
+    margin-right: 170px
+
+  div.content-right
+    margin-left: 170px
+    text-align: right
+
+  div.content-right, div.content-left
+    max-width: 500px
+    flex: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    h3
+      font-size: 1.7em
+      font-family: oswald
+      color: $brand-color
+      text-transform: uppercase
+      margin-bottom: 10px
+
+    p
+      font-size: 0.9em
+      color: #2d2d2d
+      margin-bottom: 10px
+
+div.hire-tile-container
+  display: flex
+  flex: 1
+  flex-direction: row
+  min-width: 560px
+
+div.hire-tile:hover
+  transform: scale(1.03,1.03)
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+
+div.hire-tile
+  transition: 0.1s
+  flex: 1
+  border-top: 7px solid $brand-color
+  background-color: $background-color
+  margin: 5px
+  border-bottom: 1px solid #dfdfdf
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+  position: relative
+  display: flex
+  flex-direction: column
+  padding: 10px
+  max-width: 250px
+  align-items: center
+
+  i
+    color: $brand-color
+    margin: 10px
+
+  h5
+    text-transform: uppercase
+    font-size: 1.3em
+    color: $brand-color
+
+  p
+    text-align: center
+    font-size: 0.8em
+    margin: 10px auto
+
+  h4
+    font-size: 0.9em

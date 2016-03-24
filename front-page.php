@@ -115,7 +115,7 @@ wp_reset_postdata();
         <h4>Get involved</h4>
         <h3>Join our team</h3>
         <p>There are no membership fees or applications, and absolutely no experience is needed.</p>
-        <button>Find out how</button>
+        <a href="tv/get-involved"><button>Find out how</button></a>
       </div>
     </div>
   </div>
@@ -127,14 +127,14 @@ wp_reset_postdata();
         <h3>Hire us</h3>
         <p>Give your event the high-definition reception it deserves.</p>
       </div>
-      <a href="#">
+      <a href="/tv/hire">
         <div class="cover"></div>
       </a>
     </div>
 
     <?php
     $args2 = Array(
-      'cat' => '4045',
+      'cat' => '5',
       'posts_per_page' => '1',
     );
     $featured_query = new WP_Query( $args2 );

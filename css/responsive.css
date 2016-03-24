@@ -1,4 +1,11 @@
 @media screen and (max-width: 900px) {
+  section.page_strip {
+    flex-direction: column;
+    padding: 15px; }
+    section.page_strip div.content-left, section.page_strip div.content-right {
+      text-align: center;
+      margin: 20px auto; }
+
   ul.popular-cats, span#cat-back {
     display: none; }
 
@@ -18,8 +25,8 @@
 
   header nav#right div {
     display: none !important; }
-  header nav#right i {
-    display: inline !important; }
+  header nav#right #bars {
+    display: block !important; }
 
   header nav#social {
     display: none; }
@@ -36,8 +43,29 @@
     filter: grayscale(1) brightness(0.3); }
 
   section#category div.padder {
-    width: 50% !important; } }
+    width: 50% !important; }
+
+  div.hire-tile {
+    max-width: 400px; }
+
+  div.hire-tile-container {
+    min-width: 0px; }
+
+  section.page_strip div.content-right {
+    order: -3; } }
 @media screen and (max-width: 600px) {
+  section.page_img div.featured-info {
+    text-align: center; }
+
+  div.hire-tile-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center; }
+
+  div.hire-tile {
+    width: 100% !important;
+    max-width: 100%; }
+
   section#category div.padder {
     width: 100% !important; }
 
@@ -109,6 +137,9 @@
   section.related div.padder {
     width: 50%; } }
 @media screen and (min-width: 1400px) {
+  nav#mobile {
+    display: none !important; }
+
   img#logo {
     height: 130px; }
 
@@ -135,6 +166,22 @@
     section#contact h4 {
       font-size: 3em; }
     section#contact span {
-      font-size: 2em !important; } }
+      font-size: 2em !important; }
+
+  section.page_img div.featured-info {
+    padding: 80px;
+    max-width: 600px; }
+    section.page_img div.featured-info h2, section.page_img div.featured-info h3 {
+      font-size: 3em !important; }
+
+  section.page_strip {
+    padding: 80px; }
+    section.page_strip h3 {
+      font-size: 3em !important; } }
+@media screen and (max-width: 340px) {
+  nav#left li {
+    display: none; }
+  nav#left li:first-of-type {
+    display: block !important; } }
 
 /*# sourceMappingURL=responsive.css.map */

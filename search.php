@@ -3,34 +3,39 @@
 <div class="spacer"></div>
 
 <!-- Category title -->
-<h2 class="category"><span>
-<?php
-  if(is_category('5')){
-   echo 'Read';
-  }else{
-  echo 'Watch';
-  };
-?> // </span><?php single_cat_title(); ?></h2>
+<h2 class="category"><span>Search //</span> <?php the_search_query(); ?></h2>
 
 <ul class="popular-cats">
   <?php
     wp_list_categories( array(
       'odererby' => 'count',
       'order' => 'DESC',
-      'number' => 6,
+      'number' => 5,
       'title_li' => __( '' ),
-      'child_of' => 4
     ));
   ?>
 </ul>
 
 <?php
+
+  global $query_string;
+
+  $query_args = explode("&", $query_string);
+  $search_query = array();
+
+  foreach($query_args as $key => $string) {
+    $query_split = explode("=", $string);
+    $search_query[$query_split[0]] = urldecode($query_split[1]);
+  } // foreach
+
+  $search = new WP_Query($search_query);
+
   //Declare counter variable
   $counter = 0;
-  // The Loop
-  if ( have_posts() ) {
-  	while ( have_posts() ) {
-  		the_post();
+
+    if ($search->have_posts()) :
+      while ($search->have_posts()) : $search->the_post ();
+
   //Declare variable for featured images
   $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>
@@ -44,7 +49,7 @@
   <div id="bg"></div>
   <div class="featured-info">
 
-    <a href="http://forgetoday.com/tv"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
+    <a href="http://localhost/wp"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
 
     <h4><?php the_category(); ?></h4>
     <h2><?php the_title(); ?></h2>
@@ -76,20 +81,18 @@
 
 <?php } ?>
 
-
-
 <?php
-
-//Iterate counter
-$counter++;
-
-  } // end while
-  }; // end if
+  $counter++;
+  endwhile;
+  else:
+?>
+  <p>Sorry, no posts matched your criteria.</p>
+<?php
+  endif;
+  wp_reset_postdata();
 ?>
 
 </section>
-
-
 
 <!-- Pagination -->
 
