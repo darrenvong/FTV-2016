@@ -17,7 +17,7 @@ if ( have_posts() ) {
         <div id="bg"></div>
         <div class="featured-info">
 
-          <h4><a id="whiteeeeee" href="http://localhost/wp"><span id="404-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a></h4>
+          <h4><a id="whiteeeeee" href="http://forgetoday.com/tv"><span id="404-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a></h4>
           <h2><?php the_title(); ?></h2>
           <p>Forge TV can be hired for event coverage, music videos and pretty much anything else you can imagine.</p>
           <a href="#demo"><button id="watch-now">Watch demo reel <i class="fa fa-play"></i></button></a>
