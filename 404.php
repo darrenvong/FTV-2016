@@ -6,7 +6,7 @@
 
 <?php
   function random404() {
-      $photoAreas = array("404</span> Brilliance not found", "Hello!</span> Is it TV you're looking for?", "404</span> Someone unplugged our server again", "404</span> Move along, nothing to see");
+      $photoAreas = array("404</span> Brilliance not found", "Hello!</span> Is it TV you're looking for?", "404</span> Someone unplugged our server again", "404</span> Move along, nothing to see", "404</span> There is always contention in the switch.");
       $randomNumber = rand(0, (count($photoAreas) - 1));
       echo $photoAreas[$randomNumber];
   }

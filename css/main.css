@@ -1,5 +1,6 @@
 html, body {
-  background-color: #fafafa; }
+  background-color: #fafafa;
+height: 100%}
   html ::selection, body ::selection {
     background-color: rgba(40, 41, 97, 0.7);
     color: #efefef; }
@@ -307,7 +308,7 @@ section#latest {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 ); }
   section#latest div.tile {
     border: 1px solid #dfdfdf;
-    height: 70vh;
+    height: 50vh;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     transition: 0.2s;
     position: relative;
