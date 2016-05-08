@@ -283,7 +283,7 @@ h4 {
   color: #969696; }
 
 section#latest {
-  height: 100%;
+  /*height: 100%;*/
   display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
   display: -ms-flexbox;  /* TWEENER - IE 10 */
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
@@ -472,7 +472,7 @@ section#contact:hover div#grad {
   opacity: 0.7; }
 
 section#featured {
-  width: 100%;
+  /*width: 100%;*/
   height: 60%;
   background-color: #efefef;
   position: relative; }
@@ -559,9 +559,9 @@ button {
     margin-left: 5px; }
 
 section#services {
-  height: 80%;
-  display: flex;
+  /*height: 80%;*/
   display: -webkit-flex;
+  display: flex;
   flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
   z-index: 3;
