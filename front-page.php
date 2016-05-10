@@ -1,5 +1,17 @@
 <?php get_header(); ?>
 
+  <script>
+    function parallax(){
+        var scrolled = $(window).scrollTop();
+        $('#bg_img').css('top', (scrolled * 0.3) + 'px');
+    }
+    if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
+      $(window).scroll(function(e){
+            parallax(); //Run parallax() not a mobile device
+      });
+  };
+  </script>
+
 <section id="hero">
 
     <?php
@@ -22,6 +34,8 @@
   <a href="#latest" class="cue"><i class="fa fa-arrow-down fa-3x cue"></i></a>
 
 </section>
+
+
 
 <!-- Latest videos -->
 
@@ -46,7 +60,9 @@
                 <div class="tile-info">
                   <div class="triangle"></div>
                   <h4><?php the_category(); ?></h4>
-                  <h2><?php the_title(); ?></h2>
+                  <h2><?php if (in_category(23)){
+                    ?> <i class="fa fa-rss"></i> <?php
+                  } ?><?php the_title(); ?></h2>
                   <p><?php the_excerpt(); ?></p>
                   <div class="grad"></div>
                 </div>
@@ -94,7 +110,9 @@ if ( $featured_query->have_posts() ) {
           <div id="bg"></div>
           <div class="featured-info">
             <h4><?php the_category(); ?></h4>
-            <h2><?php the_title(); ?></h2>
+            <h2><?php if (in_category(23)){
+              ?><i class="fa fa-rss"></i> <?php
+            } ?><?php the_title(); ?></h2>
             <p><?php the_excerpt(); ?></p>
             <a href="<?php the_permalink(); ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
           </div>
