@@ -78,9 +78,6 @@
     } // end while
   } // end if
   ?>
-
-  <a href="http://localhost/wp"><span id="more"><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
-
 </section>
 
 

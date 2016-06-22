@@ -49,7 +49,7 @@
   <div id="bg"></div>
   <div class="featured-info">
 
-    <a href="http://localhost/wp"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
+    <a href="<?php echo esc_url( home_url() )?>"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
 
     <h4><?php the_category(); ?></h4>
     <h2><?php the_title(); ?></h2>

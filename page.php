@@ -20,7 +20,7 @@
         </section>
 
         <article class="page">
-          <a href="http://localhost/wp"><span id="back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
+          <a href="<?php echo esc_url( home_url() )?>"><span id="back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
           <?php the_content(); ?>
         </article>
 
