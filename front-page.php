@@ -85,7 +85,7 @@
 <?php
 
 $args1 = Array(
-  'cat' => '9',
+  'category_name' => 'features',
   'posts_per_page' => '1',
 );
 
@@ -107,7 +107,7 @@ if ( $featured_query->have_posts() ) {
           <div id="bg"></div>
           <div class="featured-info">
             <h4><?php the_category(); ?></h4>
-            <h2><?php if (in_category(23)){
+            <h2><?php if (in_category("upcoming-live")){
               ?><i class="fa fa-rss"></i> <?php
             } ?><?php the_title(); ?></h2>
             <p><?php the_excerpt(); ?></p>
@@ -149,7 +149,7 @@ wp_reset_postdata();
 
     <?php
     $args2 = Array(
-      'cat' => '5',
+      'category_name' => 'committee-blog',
       'posts_per_page' => '1',
     );
     $featured_query = new WP_Query( $args2 );
