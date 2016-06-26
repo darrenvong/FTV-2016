@@ -97,3 +97,34 @@ function fbogmeta_header() {
   }
 }
 add_action('wp_head', 'fbogmeta_header');
+
+
+
+//Hide the "featured" category and others on the front-end
+
+			add_filter('get_the_terms', 'hide_categories_terms', 10, 3);
+			function hide_categories_terms($terms, $post_id, $taxonomy){
+
+			    $exclude = array('featured', 'upcoming-live', 'videos');
+
+			    if (!is_admin()) {
+			        foreach($terms as $key => $term){
+			            if($term->taxonomy == "category"){
+			                if(in_array($term->slug, $exclude)) unset($terms[$key]);
+			            }
+			        }
+			    }
+
+			    return $terms;
+			};
+
+
+			//Author contact info
+
+			function add_remove_contactmethods( $contactmethods ) {
+			        $contactmethods['twitter'] = 'Twitter handle (&commat; will be automatically added)';
+			        $contactmethods['contactEmail'] = 'Contact Email (publicly visible)';
+			        // this will remove existing contact fields
+			        return $contactmethods;
+			}
+			add_filter('user_contactmethods','add_remove_contactmethods',10,1);

@@ -10,7 +10,7 @@
   }else{
   echo 'Watch';
   };
-?> // </span><?php single_cat_title(); ?></h2>
+?> // </span><?php if(is_category('4')){echo 'All ';} ?><?php single_cat_title(); ?></h2>
 
 <ul class="popular-cats">
   <?php
@@ -19,7 +19,8 @@
       'order' => 'DESC',
       'number' => 6,
       'title_li' => __( '' ),
-      'child_of' => 4
+      'child_of' => 4,
+      'depth' => 1
     ));
   ?>
 </ul>
@@ -37,7 +38,7 @@
 
 <?php if($counter==0){ ?>
 
-<section id="featured">
+<section id="featured" class="live-banner">
 
   <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
 
@@ -47,7 +48,9 @@
     <a href="http://forgetoday.com/tv"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
 
     <h4><?php the_category(); ?></h4>
-    <h2><?php the_title(); ?></h2>
+    <h2><?php if (in_category(23)){
+      ?><i class="fa fa-rss"></i> <?php
+    } ?><?php the_title(); ?></h2>
     <p><?php the_excerpt(); ?></p>
     <a href="<?php the_permalink(); ?>">
       <?php
@@ -60,6 +63,13 @@
 
       </button></a>
   </div>
+
+  <?php if(in_category('23')){ ?>
+    <div class="live-category-player">
+      <script src="http:////content.jwplatform.com/players/idJNvXsO-i9raT3mC.js"></script>
+    </div>
+  <?php }; ?>
+
 </section>
 
 <section id="category">
@@ -73,7 +83,9 @@
       <div class="tile-info">
         <div class="triangle"></div>
         <h4><?php the_category(); ?></h4>
-        <h2><?php the_title(); ?></h2>
+        <h2><?php if (in_category(23)){
+          ?><i class="fa fa-rss"></i> <?php
+        } ?><?php the_title(); ?></h2>
         <p><?php the_excerpt(); ?></p>
         <div class="grad"></div>
       </div>

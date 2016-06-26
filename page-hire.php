@@ -19,7 +19,7 @@ if ( have_posts() ) {
 
           <h4><a id="whiteeeeee" href="http://forgetoday.com/tv"><span id="404-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a></h4>
           <h2><?php the_title(); ?></h2>
-          <p>Forge TV can be hired for event coverage, music videos and pretty much anything else you can imagine.</p>
+          <p>You can hire one of the UK's top student broadcasters for event coverage, music videos and pretty much anything else you can imagine.</p>
           <a href="#demo"><button id="watch-now">Watch demo reel <i class="fa fa-play"></i></button></a>
         </div>
       </section>
@@ -48,7 +48,7 @@ if ( have_posts() ) {
         <div class="hire-tile-container">
           <div class="hire-tile">
             <i class="fa fa-calendar fa-2x"></i>
-            <h5>Event highlights</h5>
+            <h5 style="text-align: center;">Event highlights</h5>
             <p>We'll come along to your event, be it a fair, lecture, ball or gig, and shoot highlights.</p>
             <h4>From £50</h4>
           </div>
@@ -74,19 +74,28 @@ if ( have_posts() ) {
 
       </section>
 
-
-
-
-
-
-
-
-
-
       <?php
     } // end while
   }; // end if
 
 get_template_part(contact);
+?>
+
+<section class="page_strip" id="demo">
+
+	<div class="logo-container" style="min-width:0; max-width: 500px" >
+		<img class="logos" style="max-width: 100%; height: auto;     display: flex;
+    flex-direction: column;
+    justify-content: center;" src="http://forgetoday.com/tv/wp-content/uploads/sites/4/2016/03/logos-e1458999875730.png"/>
+	</div>
+
+	<div class="content-right">
+		<h4>Partners</h4>
+		<h3>You're in good company</h3>
+		<p>We've worked with many well-known groups in the past.</p>
+	</div>
+</section>
+
+<?php
 get_footer();
 ?>
