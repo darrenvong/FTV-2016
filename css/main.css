@@ -1402,10 +1402,7 @@ article.blog div.wp-caption p {
   font-size: 0.8em; }
 
 article.blog h3 {
-  color: #969696;
-  font-family: open sans, sans-serif;
   font-size: 0.8em;
-  font-weight: 100;
   margin-bottom: 30px; }
 
 article.blog h3 ul {
@@ -1439,9 +1436,6 @@ article.blog p {
 
 article.blog p a {
   color: #282961; }
-
-article.blog div.blog-tile {
-  margin: 30px auto; }
 
 section.page_img {
   width: 100%;

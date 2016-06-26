@@ -1653,10 +1653,7 @@ article.blog div.wp-caption p {
 }
 
 article.blog h3 {
-  color: $mid-grey;
-  font-family: $p-font-stack;
   font-size: 0.8em;
-  font-weight: 100;
   margin-bottom: 30px;
 }
 
@@ -1698,10 +1695,6 @@ article.blog p {
 
 article.blog p a {
   color: $brand-color;
-}
-
-article.blog div.blog-tile {
-  margin: 30px auto;
 }
 
 // Hire us section and other custom page templates
