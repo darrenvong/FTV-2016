@@ -620,17 +620,17 @@ section#services {
   /*height: 80%;*/
   display: -webkit-flex;
   display: flex;
-  flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   z-index: 3;
   position: relative;
   padding: 10px 5px 10px 5px; }
 
 section#services div.column {
   width: 50%;
+  display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  display: -webkit-flex;
   -webkit-flex-direction: column;
   background-color: peach; }
 

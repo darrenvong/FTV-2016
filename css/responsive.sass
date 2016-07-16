@@ -1,10 +1,7 @@
-// First breakpoint, for tablets
-
+// Responsive styling for tablets
 @media screen and (max-width: 900px)
-
-  section.live-banner
-    div.live-category-player
-      display: none !important
+  section.live-banner div.live-category-player
+    display: none !important
 
   section.live-container iframe.twitter-timeline
     display: none !important
@@ -13,9 +10,9 @@
     flex-direction: column
     padding: 15px
 
-    div.content-left, div.content-right
-      text-align: center
-      margin: 20px auto
+  section.page_strip div.content-left, section.page_strip div.content-right
+    text-align: center
+    margin: 20px auto
 
   ul.popular-cats, span#cat-back
     display: none
@@ -32,16 +29,14 @@
   section#latest, section#services
     height: auto !important
 
-    div.padder
-      height: 400px
+  section#latest div.padder, section#services div.padder
+    height: 400px
 
-  header
-    nav#right
-      div
-        display: none !important
+  header nav#right div
+    display: none !important
 
-      #bars
-        display: block !important
+  header nav#right #bars
+    display: block !important
 
   header nav#social
     display: none
@@ -52,15 +47,13 @@
   div.blog-tile
     width: 70%
 
-  section#title
-    div#bg_img
-      -webkit-filter: grayscale(1) brightness(0.3)
-      -moz-filter: grayscale(1) brightness(0.3)
-      filter: grayscale(1) brightness(0.3)
+  section#title div#bg_img
+    -webkit-filter: grayscale(1) brightness(0.3)
+    -moz-filter: grayscale(1) brightness(0.3)
+    filter: grayscale(1) brightness(0.3)
 
-  section#category
-    div.padder
-      width: 50% !important
+  section#category div.padder
+    width: 50% !important
 
   div.hire-tile
     max-width: 400px
@@ -68,17 +61,13 @@
   div.hire-tile-container
     min-width: 0px
 
-  section.page_strip
-    div.content-right
-      order: -3
+  section.page_strip div.content-right
+    order: -3
 
-// Second breakpoint, for phones
-
+// Responsive styling for large phones
 @media screen and (max-width: 600px)
-
-  section.page_img
-    div.featured-info
-      text-align: center
+  section.page_img div.featured-info
+    text-align: center
 
   div.hire-tile-container
     flex-direction: column
@@ -89,22 +78,21 @@
     width: 100% !important
     max-width: 100%
 
-  section#category
-    div.padder
-      width: 100% !important
+  section#category div.padder
+    width: 100% !important
 
   article
     margin-top: -150px
 
-    span#back
-      position: relative !important
-      color: #282961 !important
-      text-shadow: none !important
-      top: -5px !important
+  article span#back
+    position: relative !important
+    color: #282961 !important
+    text-shadow: none !important
+    top: -5px !important
 
-    p
-      font-size: 0.9em
-      margin-top: 15px
+  article p
+    font-size: 0.9em
+    margin-top: 15px
 
   h4.related
     max-width: 200px
@@ -114,36 +102,44 @@
   section#title
     height: 250px
 
+  section#title div#full-height
+    height: 200px
+
+  section#title div#full-height h2
+    font-size: 1.5em
+
+  section#title div#full-height h3
+    max-width: 275px
+    text-align: center
+
   section#blog-title
     padding: 0px 0px 0px 0px
 
-    article.blog
-      box-shadow: none
+  section#blog-title article.blog
+    box-shadow: none
 
-      p
-        font-size: 1em
+  section#blog-title article.blog p
+    font-size: 1em
 
-    div#full-height
-      height: 200px
+  section#blog-title div#full-height
+    height: 200px
 
-      h2
-        font-size: 1.5em
+  section#blog-title div#full-height h2
+    font-size: 1.5em
 
-      h3
-        max-width: 275px
-        text-align: center
+  section#blog-title div#full-height h3
+    max-width: 275px
+    text-align: center
 
-  section#services
-    div.column
-      div.service
-        min-height: 320px
-        flex-direction: column
+  section#services div.column div.service
+    min-height: 320px
+    flex-direction: column
 
-        div.flex-image
-          min-height: 150px
+  section#services div.column div.service div.flex-image
+    min-height: 150px
 
-        div.flex-content
-          min-height: 230px
+  section#services div.column div.service div.flex-content
+    min-height: 230px
 
   div.column
     width: 100% !important
@@ -154,25 +150,24 @@
   div.blog-tile
     width: 100%
 
-
   section#featured
     height: 100%
 
-    div.featured-info
-      margin: 0 auto
-      text-align: center
-      display: flex
-      flex-direction: column
-      align-items: center
-      justify-content: center
-      height: 100%
+  section#featured div.featured-info
+    margin: 0 auto
+    text-align: center
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
 
-      h2
-        font-size: 2.5em
-        margin-bottom: 15px
+  section#featured div.featured-info h2
+    font-size: 2.5em
+    margin-bottom: 15px
 
-      ul.post-categories
-        display: none
+  section#featured div.featured-info ul.post-categories
+    display: none
 
   footer br
     display: none
@@ -180,14 +175,11 @@
   section#contact
     display: none
 
-  section.related
-    div.padder
-      width: 50%
+  section.related div.padder
+    width: 50%
 
-// -1st breakpoint, for big HD screens
-
+// Responsive styling for large HD screens
 @media screen and (min-width: 1400px)
-
   nav#mobile
     display: none !important
 
@@ -197,19 +189,15 @@
   span#slogan
     font-size: 1.3em !important
 
-  section#featured
-    div.featured-info
-      padding: 80px
-      max-width: 800px
+  section#featured div.featured-info
+    padding: 80px
+    max-width: 800px
 
-      h2
-        font-size: 3em !important
+  section#featured div.featured-info h2
+    font-size: 3em !important
 
-  section#latest
-    div.tile
-      div.tile-info
-        h2
-          font-size: 1.6em
+  section#latest div.tile div.tile-info h2
+    font-size: 1.6em
 
   section#services
     height: 60%
@@ -218,38 +206,32 @@
     height: 300px
     padding: 80px
 
-    h3
-      font-size: 1em
+  section#contact h3
+    font-size: 1em
 
-    h4
-      font-size: 3em
+  section#contact h4
+    font-size: 3em
 
-    span
-      font-size: 2em !important
+  section#contact span
+    font-size: 2em !important
 
+  section.page_img div.featured-info
+    padding: 80px
+    max-width: 600px
 
-  section.page_img
-    div.featured-info
-      padding: 80px
-      max-width: 600px
-
-      h2, h3
-        font-size: 3em !important
+  section.page_img div.featured-info h2, section.page_img div.featured-info h3
+    font-size: 3em !important
 
   section.page_strip
     padding: 80px
 
-    h3
-      font-size: 3em !important
+  section.page_strip h3
+    font-size: 3em !important
 
-//Special breakpoint for extra small phones
-
-
+// Responsive styling for small phones
 @media screen and (max-width: 340px)
+  nav#left li
+    display: none
 
-  nav#left
-    li
-      display: none
-
-    li:first-of-type
-      display: block !important
+  nav#left li:first-of-type
+    display: block !important
