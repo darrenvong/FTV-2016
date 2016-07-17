@@ -10,19 +10,6 @@
   }
 ?>
 
-<script>
-  function parallax(){
-      var scrolled = $(window).scrollTop();
-      $('#bg_img').css('top', (scrolled * 0.3) + 'px');
-  }
-  if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
-    $(window).scroll(function(e){
-          parallax(); //Run parallax() not a mobile device
-    });
-  };
-</script>
-
-
   <?php
   if ( have_posts() ) {
   	while ( have_posts() ) {

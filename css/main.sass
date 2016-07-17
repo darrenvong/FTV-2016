@@ -214,6 +214,9 @@ section#latest p a, section#services p a
   color: $lighter-brand
   font-family: open sans
 
+div#bg_img
+  background-attachment: fixed
+
 // The hero section
 
 section#hero
@@ -656,9 +659,7 @@ button i
   margin-left: 5px
 
 section#services
-  //height: 80%;
-
-  //To be configured with min-height...
+  //Min-height?
   display: -webkit-flex
   display: flex
   -webkit-flex-flow: row wrap
@@ -682,6 +683,7 @@ section#services div.column div.service.hover:hover
 
 section#services div.column div.service
   flex: 1
+  min-height: 400px
   border-top: 7px solid $brand-color
   margin: 10px
   border-bottom: 1px solid #dfdfdf

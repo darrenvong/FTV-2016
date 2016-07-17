@@ -113,8 +113,7 @@
     wp_reset_query(); ?>
 
   </section>
-    <!-- Hacky fix for now to stop the links from breaking at least. To fix... -->
-    <a id="more" href="<?php echo esc_url( home_url() )?>"><span><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
+    <a id="more" href="http://forgetoday.com/tv/videos"><span><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
 
 
 <?php

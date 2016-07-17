@@ -1,22 +1,14 @@
 <?php get_header(); ?>
 
-  <script>
-    function parallax(){
-        var scrolled = $(window).scrollTop();
-        $('#bg_img').css('top', (scrolled * 0.3) + 'px');
-    }
-    if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
-      $(window).scroll(function(e){
-            parallax(); //Run parallax() not a mobile device
-      });
-  };
-  </script>
-
 <section id="hero">
 
     <?php
+      // Picks a hero photo name at random
       function displayRandom() {
-          $photoAreas = array("/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg");
+          $NUM_HERO_PHOTOS = 5;
+          for ($i = 1; $i <= $NUM_HERO_PHOTOS; $i++) {
+            $photoAreas[] = "/hero" . $i . ".jpg";
+          }
           $randomNumber = rand(0, (count($photoAreas) - 1));
           echo $photoAreas[$randomNumber];
       }
@@ -45,36 +37,33 @@
   $counter = 0;
 
   if ( have_posts() ) {
-  	while ( have_posts() ) {
+  	while ( have_posts() && $counter < 6 ) {
   		the_post();
 
-        if($counter<6){
+        $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+        ?>
 
-          $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-          ?>
-
-            <div class="padder">
-              <div class="tile">
-                <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
-                </div>
-                <div class="tile-info">
-                  <div class="triangle"></div>
-                  <h4><?php the_category(); ?></h4>
-                  <h2><?php if (in_category(23)){
-                    ?> <i class="fa fa-rss"></i> <?php
-                  } ?><?php the_title(); ?></h2>
-                  <p><?php the_excerpt(); ?></p>
-                  <div class="grad"></div>
-                </div>
-                <a href="<?php the_permalink(); ?>">
-                <div class="cover"></div>
-                </a>
+          <div class="padder">
+            <div class="tile">
+              <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
               </div>
+              <div class="tile-info">
+                <div class="triangle"></div>
+                <h4><?php the_category(); ?></h4>
+                <h2><?php if (in_category(23)){
+                  ?> <i class="fa fa-rss"></i> <?php
+                } ?><?php the_title(); ?></h2>
+                <p><?php the_excerpt(); ?></p>
+                <div class="grad"></div>
+              </div>
+              <a href="<?php the_permalink(); ?>">
+              <div class="cover"></div>
+              </a>
             </div>
+          </div>
 
-        <?php
-    };
-    $counter++;
+    <?php
+      $counter++;
     } // end while
   } // end if
   ?>
