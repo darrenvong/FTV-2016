@@ -29,7 +29,7 @@
   section#latest, section#services
     height: auto !important
 
-  section#latest div.padder, section#services div.padder
+  section#services div.padder
     height: 400px
 
   header nav#right div
@@ -199,9 +199,6 @@
   section#latest div.tile div.tile-info h2
     font-size: 1.6em
 
-  section#services
-    height: 60%
-
   section#contact
     height: 300px
     padding: 80px
@@ -235,3 +232,10 @@
 
   nav#left li:first-of-type
     display: block !important
+
+// Home page specific fixes on the "services" section
+@media screen and (min-width: 601px) and (max-width: 700px)
+  section#services
+    div.column
+      div.service
+        min-height: 400px

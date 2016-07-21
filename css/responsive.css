@@ -1,18 +1,17 @@
 @media screen and (max-width: 900px) {
+  section.live-banner div.live-category-player {
+    display: none !important; }
 
-  section.live-banner
-    div.live-category-player{
-      display: none !important;}
-
-  section.live-container iframe.twitter-timeline{
-    display: none !important;}
+  section.live-container iframe.twitter-timeline {
+    display: none !important; }
 
   section.page_strip {
     flex-direction: column;
     padding: 15px; }
-    section.page_strip div.content-left, section.page_strip div.content-right {
-      text-align: center;
-      margin: 20px auto; }
+
+  section.page_strip div.content-left, section.page_strip div.content-right {
+    text-align: center;
+    margin: 20px auto; }
 
   ul.popular-cats, span#cat-back {
     display: none; }
@@ -28,11 +27,13 @@
 
   section#latest, section#services {
     height: auto !important; }
-    section#latest div.padder, section#services div.padder {
-      height: 400px; }
+
+  section#services div.padder {
+    height: 400px; }
 
   header nav#right div {
     display: none !important; }
+
   header nav#right #bars {
     display: block !important; }
 
@@ -79,14 +80,16 @@
 
   article {
     margin-top: -150px; }
-    article span#back {
-      position: relative !important;
-      color: #282961 !important;
-      text-shadow: none !important;
-      top: -5px !important; }
-    article p {
-      font-size: 0.9em;
-      margin-top: 15px; }
+
+  article span#back {
+    position: relative !important;
+    color: #282961 !important;
+    text-shadow: none !important;
+    top: -5px !important; }
+
+  article p {
+    font-size: 0.9em;
+    margin-top: 15px; }
 
   h4.related {
     max-width: 200px;
@@ -95,36 +98,45 @@
 
   section#title {
     height: 250px; }
-    section#title div#full-height {
-      height: 200px; }
-      section#title div#full-height h2 {
-        font-size: 1.5em; }
-      section#title div#full-height h3 {
-        max-width: 275px;
-        text-align: center; }
 
-        section#blog-title {
-          padding: 0px 0px 0px 0px; }
-          section#blog-title article.blog {
-            box-shadow: none; }
-            section#blog-title article.blog p {
-              font-size: 1em; }
-          section#blog-title div#full-height {
-            height: 200px; }
-            section#blog-title div#full-height h2 {
-              font-size: 1.5em; }
-            section#blog-title div#full-height h3 {
-              max-width: 275px;
-              text-align: center; }
+  section#title div#full-height {
+    height: 200px; }
 
+  section#title div#full-height h2 {
+    font-size: 1.5em; }
+
+  section#title div#full-height h3 {
+    max-width: 275px;
+    text-align: center; }
+
+  section#blog-title {
+    padding: 0px 0px 0px 0px; }
+
+  section#blog-title article.blog {
+    box-shadow: none; }
+
+  section#blog-title article.blog p {
+    font-size: 1em; }
+
+  section#blog-title div#full-height {
+    height: 200px; }
+
+  section#blog-title div#full-height h2 {
+    font-size: 1.5em; }
+
+  section#blog-title div#full-height h3 {
+    max-width: 275px;
+    text-align: center; }
 
   section#services div.column div.service {
     min-height: 320px;
     flex-direction: column; }
-    section#services div.column div.service div.flex-image {
-      min-height: 150px; }
-    section#services div.column div.service div.flex-content {
-      min-height: 230px; }
+
+  section#services div.column div.service div.flex-image {
+    min-height: 150px; }
+
+  section#services div.column div.service div.flex-content {
+    min-height: 230px; }
 
   div.column {
     width: 100% !important; }
@@ -137,19 +149,22 @@
 
   section#featured {
     height: 100%; }
-    section#featured div.featured-info {
-      margin: 0 auto;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%; }
-      section#featured div.featured-info h2 {
-        font-size: 2.5em;
-        margin-bottom: 15px; }
-      section#featured div.featured-info ul.post-categories {
-        display: none; }
+
+  section#featured div.featured-info {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; }
+
+  section#featured div.featured-info h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px; }
+
+  section#featured div.featured-info ul.post-categories {
+    display: none; }
 
   footer br {
     display: none; }
@@ -172,39 +187,46 @@
   section#featured div.featured-info {
     padding: 80px;
     max-width: 800px; }
-    section#featured div.featured-info h2 {
-      font-size: 3em !important; }
+
+  section#featured div.featured-info h2 {
+    font-size: 3em !important; }
 
   section#latest div.tile div.tile-info h2 {
     font-size: 1.6em; }
 
-  section#services {
-    height: 60%; }
-
   section#contact {
     height: 300px;
     padding: 80px; }
-    section#contact h3 {
-      font-size: 1em; }
-    section#contact h4 {
-      font-size: 3em; }
-    section#contact span {
-      font-size: 2em !important; }
+
+  section#contact h3 {
+    font-size: 1em; }
+
+  section#contact h4 {
+    font-size: 3em; }
+
+  section#contact span {
+    font-size: 2em !important; }
 
   section.page_img div.featured-info {
     padding: 80px;
     max-width: 600px; }
-    section.page_img div.featured-info h2, section.page_img div.featured-info h3 {
-      font-size: 3em !important; }
+
+  section.page_img div.featured-info h2, section.page_img div.featured-info h3 {
+    font-size: 3em !important; }
 
   section.page_strip {
     padding: 80px; }
-    section.page_strip h3 {
-      font-size: 3em !important; } }
+
+  section.page_strip h3 {
+    font-size: 3em !important; } }
 @media screen and (max-width: 340px) {
   nav#left li {
     display: none; }
+
   nav#left li:first-of-type {
     display: block !important; } }
+@media screen and (min-width: 601px) and (max-width: 700px) {
+  section#services div.column div.service {
+    min-height: 400px; } }
 
 /*# sourceMappingURL=responsive.css.map */

@@ -310,7 +310,6 @@ h4 {
   color: #969696; }
 
 section#latest {
-  /*height: 100%; */
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
   display: -ms-flexbox;
@@ -642,7 +641,7 @@ section#services div.column div.service.hover:hover {
 
 section#services div.column div.service {
   flex: 1;
-  min-height: 400px;
+  min-height: 300px;
   border-top: 7px solid #282961;
   margin: 10px;
   border-bottom: 1px solid #dfdfdf;
