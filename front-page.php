@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php include $config->paths->templates . "FTV-2016/header.php"; ?>
 
 <section id="hero">
 
