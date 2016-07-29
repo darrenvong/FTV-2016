@@ -42,18 +42,19 @@
       wp_nav_menu( $args);
     ?>
 
-    <div id="bars">
+    <div class="bars">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
 <script>
-  $(document).ready(function(){
-  	$('#bars').click(function(){
-  		$(this).toggleClass('open');
+  $(document).ready(function() {
+  	var bars = $('.bars');
+    bars.click(function() {
+      bars.toggleClass('open');
       console.log("Open class toggle on bars icon");
-  		$(mobile).toggleClass('on');
+  		$('#mobile').toggleClass('on');
   	});
   });
 </script>
@@ -62,3 +63,10 @@
 
   </nav>
 </header>
+
+<!-- Close button fix on mobile menu for view ports wider than 900px -->
+<div class="bars white">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>

@@ -1,5 +1,5 @@
 <nav id="mobile">
-
+  
   <?php
     $args = array(
     'theme_location' => 'right',

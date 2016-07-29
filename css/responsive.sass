@@ -35,7 +35,7 @@
   header nav#right div
     display: none !important
 
-  header nav#right #bars
+  header nav#right .bars
     display: block !important
 
   header nav#social
@@ -180,9 +180,6 @@
 
 // Responsive styling for large HD screens
 @media screen and (min-width: 1400px)
-  nav#mobile
-    display: none !important
-
   img#logo
     height: 130px
 
@@ -239,3 +236,8 @@
     div.column
       div.service
         min-height: 400px
+
+// Close button fix for the mobile menu on view ports wider than 900px
+@media only screen and (min-width: 901px)
+  .bars.white.open
+    display: block
