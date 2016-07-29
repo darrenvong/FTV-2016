@@ -109,7 +109,7 @@ nav#right ul li.active a
 img#forge
   height: 20px
 
-header nav#right #bars
+header nav#right .bars
   display: none
   transition: 0.1s
   color: $brand-color
@@ -1239,8 +1239,8 @@ nav#mobile ul#socialise li
 nav#mobile ul#socialise li a
   color: rgba(0, 0, 0, 0.9)
 
-nav.on
-  display: flex !important
+nav#mobile.on
+  display: flex
   -webkit-animation: fadein 0.5
   -moz-animation: fadein 0.5
   -ms-animation: fadein 0.5
@@ -1254,7 +1254,7 @@ nav.on
   to
     opacity: 1
 
-#bars
+.bars
   width: 17px
   height: 17px
   position: relative
@@ -1269,7 +1269,18 @@ nav.on
   cursor: pointer
   margin-top: 5px
 
-#bars span
+.bars.white
+  display: none
+  position: fixed
+  top: 51px
+  right: 0
+  margin: 15px
+  z-index: 101
+
+  span
+    background: $background-color
+
+.bars span
   display: block
   position: absolute
   height: 3px
@@ -1287,32 +1298,34 @@ nav.on
   -o-transition: 0.25s ease-in-out
   transition: 0.25s ease-in-out
 
-#bars span:nth-child(1)
+.bars span:nth-child(1)
   top: 0px
 
-#bars span:nth-child(2)
+.bars span:nth-child(2)
   top: 6px
 
-#bars span:nth-child(3)
+.bars span:nth-child(3)
   top: 12px
 
-#bars.open span:nth-child(1)
-  top: 6px
-  -webkit-transform: rotate(135deg)
-  -moz-transform: rotate(135deg)
-  -o-transform: rotate(135deg)
-  transform: rotate(135deg)
+.bars.open, .bars.white
+  
+  span:nth-child(1)
+    top: 6px
+    -webkit-transform: rotate(135deg)
+    -moz-transform: rotate(135deg)
+    -o-transform: rotate(135deg)
+    transform: rotate(135deg)
 
-#bars.open span:nth-child(2)
-  opacity: 0
-  left: -60px
+  span:nth-child(2)
+    opacity: 0
+    left: -60px
 
-#bars.open span:nth-child(3)
-  top: 6px
-  -webkit-transform: rotate(-135deg)
-  -moz-transform: rotate(-135deg)
-  -o-transform: rotate(-135deg)
-  transform: rotate(-135deg)
+  span:nth-child(3)
+    top: 6px
+    -webkit-transform: rotate(-135deg)
+    -moz-transform: rotate(-135deg)
+    -o-transform: rotate(-135deg)
+    transform: rotate(-135deg)
 
 //Search form
 
@@ -1586,10 +1599,10 @@ section.page_img div.featured-info h3
   color: $background-color
 
 section.page_img div.featured-info h4 a
-  color: $background-color !important
+  color: $background-color
 
 a#whiteeeeee
-  color: white !important
+  color: white
 
 section.page_strip
   width: 100%

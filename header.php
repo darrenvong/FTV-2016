@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="<?php echo $config->urls->templates; ?>FTV-2016/favicon.png" />
     <link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates; ?>FTV-2016/style.css" />
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/jquery-2.2.1.min.js">
+    <script type="text/javascript" href="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 </head>
 <body id="top">
 
@@ -53,12 +53,13 @@
     </div>
 
 <script>
-  $(document).ready(function(){
-  	$('#bars').click(function(){
-  		$(this).toggleClass('open');
+  $(document).ready(function() {
+    var bars = $('.bars');
+    bars.click(function() {
+      bars.toggleClass('open');
       console.log("Open class toggle on bars icon");
-  		$(mobile).toggleClass('on');
-  	});
+      $('#mobile').toggleClass('on');
+    });
   });
 </script>
 
@@ -66,3 +67,10 @@
 
   </nav>
 </header>
+
+<!-- Close button fix on mobile menu for view ports wider than 900px -->
+<div class="bars white">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>

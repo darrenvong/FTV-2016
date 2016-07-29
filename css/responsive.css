@@ -34,7 +34,7 @@
   header nav#right div {
     display: none !important; }
 
-  header nav#right #bars {
+  header nav#right .bars {
     display: block !important; }
 
   header nav#social {
@@ -175,9 +175,6 @@
   section.related div.padder {
     width: 50%; } }
 @media screen and (min-width: 1400px) {
-  nav#mobile {
-    display: none !important; }
-
   img#logo {
     height: 130px; }
 
@@ -228,5 +225,8 @@
 @media screen and (min-width: 601px) and (max-width: 700px) {
   section#services div.column div.service {
     min-height: 400px; } }
+@media only screen and (min-width: 901px) {
+  .bars.white.open {
+    display: block; } }
 
 /*# sourceMappingURL=responsive.css.map */
