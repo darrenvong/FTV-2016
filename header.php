@@ -1,3 +1,5 @@
+<?php include_once 'funcs.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +9,7 @@
     <link rel="shortcut icon" href="<?php echo $config->urls->templates; ?>FTV-2016/favicon.png" />
     <link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates; ?>FTV-2016/style.css" />
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-    <script type="text/javascript" href="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 </head>
 <body id="top">
 
@@ -19,34 +21,24 @@
 
 <?php include $config->paths->templates . 'FTV-2016/float-menu.php'; ?>
 
-<!-- ################################## EDITTED UP TO HERE! ################################## -->
-
 <header>
   <nav id="left">
     <?php
-      $args = array(
-      'theme_location' => 'left',
-      );
-      wp_nav_menu( $args);
+      $outlets_menu = $pages->get("/outlets/");
+      display_menu($outlets_menu);
     ?>
   </nav>
   <nav id="social">
     <?php
-      $args = array(
-      'theme_location' => 'social',
-      );
-      wp_nav_menu( $args);
+      display_menu($social_menu);
     ?>
   </nav>
     <nav id="right">
     <?php
-      $args = array(
-      'theme_location' => 'right',
-      );
-      wp_nav_menu( $args);
+      display_menu($sections_menu);
     ?>
 
-    <div id="bars">
+    <div class="bars">
       <span></span>
       <span></span>
       <span></span>

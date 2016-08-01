@@ -2,32 +2,18 @@
 
 <section id="hero">
 
-    <?php
-      // Picks a hero photo name at random
-      function displayRandom() {
-          $NUM_HERO_PHOTOS = 5;
-          for ($i = 1; $i <= $NUM_HERO_PHOTOS; $i++) {
-            $photoAreas[] = "/hero" . $i . ".jpg";
-          }
-          $randomNumber = rand(0, (count($photoAreas) - 1));
-          echo $photoAreas[$randomNumber];
-      }
-    ?>
-
-
-
-  <div id="bg_img" style="background-image: url(<?php bloginfo('template_directory'); ?>/img<?php displayRandom(); ?>)"></div>
+  <div id="bg_img" style="background-image: url(<?= $config->urls->templates; ?>FTV-2016/img<?php displayRandom(); ?>)"></div>
   <div id="bg"></div>
 
-  <img id="logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" />
+  <img id="logo" src="<?= $config->urls->templates; ?>FTV-2016/img/logo.png" />
   <div class="divider"></div>
-  <span id="slogan"><?php bloginfo( 'description' ); ?></span>
+  <span id="slogan"><?=$page->tagline; ?></span>
 
   <a href="#latest" class="cue"><i class="fa fa-arrow-down fa-3x cue"></i></a>
 
 </section>
 
-
+<!-- ################################## EDITED UP TO HERE! ################################## -->
 
 <!-- Latest videos -->
 
