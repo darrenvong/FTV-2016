@@ -23,4 +23,27 @@
       $randomNumber = rand(0, (count($photoAreas) - 1));
       echo $photoAreas[$randomNumber];
   }
-?>
+
+  /** Randomise the text on the "More to see" section. Used in a single post template. */
+  function randomText() {
+      $seeMoreText = array("Always more to see", "More delightful videos", "Lots left to see", "We've got lots left to show you", "Aren't you glad to see us", "Have a looksie", "Fancy seeing you here");
+      $randomNumber = rand(0, (count($seeMoreText) - 1));
+      echo $seeMoreText[$randomNumber];
+  }
+
+  /**
+   * Trims the excerpt text into the specified length.
+   * @param $text - the excerpt text to trim
+   * @param $length - the first x number of words to retain. Default is 15.
+   */
+  function trimExcerpt($text, $length = 15) {
+    //The "16th word" will be the rest of the sentence hence $length + 1
+    $words = explode(' ', $text, $length + 1);
+    if (count($words) > $length) {
+      array_pop($words);
+      array_push($words, "...");
+      $text = implode(' ', $words);
+    }
+
+    return $text;
+  }

@@ -24,7 +24,7 @@
 <header>
   <nav id="left">
     <?php
-      $outlets_menu = $pages->get("/outlets/");
+      $outlets_menu = $pages->get("/menus/outlets/");
       display_menu($outlets_menu);
     ?>
   </nav>
