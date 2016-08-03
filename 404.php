@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php include "header.php"; ?>
 
 <div class="spacer"></div>
 
@@ -14,7 +14,7 @@
 
 <section id="featured" class="not-found">
 
-  <div id="bg_img" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/404.jpg)"></div>
+  <div id="bg_img" style="background-image:url(<?= $config->urls->templates; ?>FTV-2016/img/404.jpg)"></div>
 
   <div id="bg"></div>
   <div class="featured-info">
@@ -22,9 +22,9 @@
     <h4><a href="http://forgetoday.com/tv"><span id="404-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a></h4>
     <h2><span style=" color: #515294"><?php random404(); ?></h2>
     <p>We couldn't find what you're after. Could be that we lost it in a clear-out, or we just forgot to put it there in the first place.</p>
-   <?php get_search_form(); ?>
+   <?php include "searchform.php"; ?>
 
   </div>
 </section>
 
-<?php get_footer(); ?>
+<?php include "footer.php"; ?>

@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php include "header.php"; ?>
 
 <div class="spacer"></div>
 
@@ -6,87 +6,90 @@
 <h2 class="category">
   <span>
   <?php
-    if (is_category('committee-blog')) {
+    if ($page->template->name === "blog") {
       echo 'Read';
     } else {
       echo 'Watch';
     };
   ?> // </span>
-  <?php if (is_category('videos')) {
-          echo 'All ';
-        }
-        single_cat_title();
+  <?php
+    if ($page->name === "videos") {
+      echo 'All ';
+    }
+    echo $page->title;
   ?>
 </h2>
 
 <ul class="popular-cats">
   <?php
-    /** Grabs the 'videos' category ID using WordPress API functions instead of hard-coding it,
-     ** so that it works across all environments (i.e. in anyone's local server environment with
-     WordPress installed).
-     **/
-    $all_vids_id = get_term_by('slug', 'videos', 'category')->term_id;
-    wp_list_categories( array(
-      'orderby' => 'count',
-      'order' => 'DESC',
-      'number' => 6,
-      'title_li' => __( '' ),
-      'child_of' => $all_vids_id,
-      'depth' => 1
-    ));
+    if ($page->name !== "videos") {
+      $video_cats = $pages->get("/videos/")->children("sort=-numChildren");
+    }
+    else {
+      $video_cats = $page->children("sort=-numChildren");
+    }
+
+    foreach ($video_cats as $category) {
+      echo "<li class='cat-item'><a href='$category->url'>{$category->title}</a></li>";
+    }
   ?>
 </ul>
 <?php
-  //Declare counter variable
-  $counter = 0;
-  // The Loop
-  if ( have_posts() ) {
-  	while ( have_posts() ) {
-  		the_post();
+  $results = $pages->find("parent=$video_cats, limit=9, sort=-post_date")
+
+  foreach ($results as $post):
+
+  $first = true;
+  
   //Declare variable for featured images
-  $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+  $featured_img = $post->featured_image->url;
 ?>
 
 <!-- Put the 1st post on the top banner -->
-<?php if ($counter==0) {?>
+<?php
+  if ($first) {
+?>
+    <section id="featured" class="live-banner">
 
-<section id="featured" class="live-banner">
+      <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
 
-  <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
+      <div id="bg"></div>
+      <div class="featured-info">
 
-  <div id="bg"></div>
-  <div class="featured-info">
+        <a href="http://forgetoday.com/tv"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
 
-    <a href="http://forgetoday.com/tv"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
+        <h4><?php displayCats($post); ?></h4>
+        <h2><?php if ($post->upcoming_live) {
+          ?><i class="fa fa-rss"></i> <?php
+        } ?><?= $post->title; ?></h2>
+        <p><?php echo trimExcerpt($post->excerpt); ?></p>
+        <a href="<?= $post->url; ?>">
+          <?php
+            if( getCategories($post)->has("name=committee-blog") ) {
+               echo '<button id="watch-now">Read now <i class="fa fa-book"></i>';
+            }
+            else {
+              echo '<button id="watch-now">Watch now <i class="fa fa-play"></i>';
+            };
+          ?>
+          </button>
+        </a>
+      </div>
 
-    <h4><?php the_category(); ?></h4>
-    <h2><?php if (in_category('upcoming-live')){
-      ?><i class="fa fa-rss"></i> <?php
-    } ?><?php the_title(); ?></h2>
-    <p><?php the_excerpt(); ?></p>
-    <a href="<?php the_permalink(); ?>">
-      <?php
-        if(is_category('committee-blog')){
-         echo '<button id="watch-now">Read now <i class="fa fa-book"></i>';
-        }else{
-        echo '<button id="watch-now">Watch now <i class="fa fa-play"></i>';
-        };
-      ?>
+      <?php if ($post->upcoming_live) { ?>
+        <div class="live-category-player">
+          <script src="http:////content.jwplatform.com/players/idJNvXsO-i9raT3mC.js"></script>
+        </div>
+      <?php }; ?>
 
-      </button></a>
-  </div>
+    </section>
 
-  <?php if (in_category('upcoming-live')) { ?>
-    <div class="live-category-player">
-      <script src="http:////content.jwplatform.com/players/idJNvXsO-i9raT3mC.js"></script>
-    </div>
-  <?php }; ?>
+    <section id="category">
 
-</section>
-
-<section id="category">
-
-<?php } else { ?>
+<?php
+    $first = false; // No longer the first post now that it's been outputted
+  }
+  else { ?>
 
   <div class="padder">
     <div class="tile">
@@ -94,34 +97,27 @@
       </div>
       <div class="tile-info">
         <div class="triangle"></div>
-        <h4><?php the_category(); ?></h4>
-        <h2><?php if (in_category('upcoming-live')) {
+        <h4><?php displayCats($post); ?></h4>
+        <h2><?php if ($post->upcoming_live) {
           ?><i class="fa fa-rss"></i> <?php
-        } ?><?php the_title(); ?></h2>
-        <p><?php the_excerpt(); ?></p>
+        } ?><?= $post->title; ?></h2>
+        <p><?php echo trimExcerpt($post->excerpt); ?></p>
         <div class="grad"></div>
       </div>
-      <a href="<?php the_permalink(); ?>">
+      <a href="<?= $post->url; ?>">
       <div class="cover"></div>
       </a>
     </div>
   </div>
 
-<?php } ?>
-
-
-
 <?php
-
-//Iterate counter
-$counter++;
-
-  } // end while
-  }; // end if
+  } //end if
+  endforeach;
 ?>
 
 </section>
 
+<!-- ############################# EDITED UP TO HERE ###################################### -->
 
 
 <!-- Pagination -->
@@ -136,4 +132,4 @@ $counter++;
   ?>
 </section>
 
-<?php get_footer(); ?>
+<?php include "footer.php"; ?>

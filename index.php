@@ -1,3 +1,3 @@
-<?php get_header(); ?>
+<?php include_once "header.php"; ?>
 
-<?php get_footer(); ?>
+<?php include_once "footer.php"; ?>

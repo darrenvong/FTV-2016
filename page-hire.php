@@ -1,16 +1,13 @@
 <?php
 /* Template Name: Hire Us */
-get_header(); ?>
+  include "header.php";
+?>
 
 <div class="spacer"></div>
 
 <?php
-if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post();
-
-    $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-    ?>
+  $featured_img = $page->featured_image->url;
+?>
 
       <section class="page_img">
         <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
@@ -18,14 +15,16 @@ if ( have_posts() ) {
         <div class="featured-info">
 
           <h4><a id="whiteeeeee" href="http://forgetoday.com/tv"><span id="404-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a></h4>
-          <h2><?php the_title(); ?></h2>
+          <h2><?= $page->title; ?></h2>
           <p>You can hire one of the UK's top student broadcasters for event coverage, music videos and pretty much anything else you can imagine.</p>
           <a href="#demo"><button id="watch-now">Watch demo reel <i class="fa fa-play"></i></button></a>
         </div>
       </section>
 
       <section class="page_strip" id="demo">
-        <?php the_content(); ?>
+        <p>
+          <iframe style="border: none;" src="https://drive.google.com/file/d/0B0XoBOod-mHkMTdZenk3UVkwb1E/preview" width="640" height="360"></iframe>
+        </p>
         <div class="content-right">
           <h4>Support student television</h4>
           <h3>Trained operators</h3>
@@ -34,7 +33,7 @@ if ( have_posts() ) {
       </section>
 
       <section class="page_img" >
-        <div id="bg_img" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/hire.jpg)"></div>
+        <div id="bg_img" style="background-image:url(<?= $config->urls->templates; ?>FTV-2016/img/hire.jpg)"></div>
         <div id="bg"></div>
         <div class="featured-info" id="centred">
           <h3>Professional equipment</h3>
@@ -75,11 +74,8 @@ if ( have_posts() ) {
       </section>
 
       <?php
-    } // end while
-  }; // end if
-
-get_template_part(contact);
-?>
+        include "contact.php";
+      ?>
 
 <section class="page_strip" id="demo">
 
@@ -97,5 +93,5 @@ get_template_part(contact);
 </section>
 
 <?php
-get_footer();
+  include "footer.php";
 ?>

@@ -2,7 +2,7 @@
 <a href="mailto:forgetv@forgetoday.com">
   <section id="contact">
 
-    <div id="bg_img" style="background-image:url(<?php bloginfo('template_directory'); ?>/img/contact.jpg")></div>
+    <div id="bg_img" style="background-image:url(<?= $config->urls->templates; ?>FTV-2016/img/contact.jpg")></div>
 
     <div id="grad"></div>
     <h3>Get in touch</h3>

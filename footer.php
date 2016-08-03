@@ -4,14 +4,11 @@
 
   <nav>
     <?php
-      $args = array(
-      'theme_location' => 'social',
-      );
-      wp_nav_menu( $args);
+      display_menu($social_menu, $page, $pages);
     ?>
   </nav>
 
-  <span>© <?php bloginfo( 'title'); ?> <?php echo date('Y'); ?> </span>
+  <span>© <?=$home->title; ?> <?php echo date('Y'); ?> </span>
 
   <hr>
 
@@ -21,7 +18,5 @@
   Want to reuse our content? <a href="http://forgetoday.com/tv/contact">Get in touch</a>.</p>
 
 </footer>
-
-<?php wp_footer(); ?>
 </body>
 </html>

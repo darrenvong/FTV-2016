@@ -1,36 +1,26 @@
-<?php get_header(); ?>
+<?php include "header.php"; ?>
 
 <div class="spacer"></div>
 
-
   <?php
-  if ( have_posts() ) {
-  	while ( have_posts() ) {
-  		the_post();
-
-      $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-      ?>
-
-        <section id="title">
-          <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
-          <div id="bg"></div>
-          <div id="full-height">
-            <h2><?php the_title(); ?></h2>
-          </div>
-        </section>
-
-        <article class="page">
-          <a href="<?php echo esc_url( home_url() )?>"><span id="back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
-          <?php the_content(); ?>
-        </article>
-
-        <?php
-    } // end while
-  }; // end if
+    $featured_img = $page->featured_img->url;
   ?>
+
+  <section id="title">
+    <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
+    <div id="bg"></div>
+    <div id="full-height">
+      <h2><?= $page->title; ?></h2>
+    </div>
+  </section>
+
+  <article class="page">
+    <a href="<?php echo $config->urls->root; ?>"><span id="back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
+    <?= $page->content; ?>
+  </article>
 
 
 <?php
-get_template_part(contact);
-get_footer();
+  include_once "contact.php";
+  include_once "footer.php";
 ?>
