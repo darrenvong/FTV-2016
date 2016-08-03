@@ -1,5 +1,5 @@
 # FTV-2016
-Wordpress theme for the Forge TV website
+A ProcessWire adaptation of the Wordpress theme for the Forge TV website.
 
 TO-DO:
 ## Pagination
