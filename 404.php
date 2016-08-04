@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include $config->paths->templates . "FTV-2016/header.php"; ?>
 
 <div class="spacer"></div>
 
@@ -22,9 +22,9 @@
     <h4><a href="http://forgetoday.com/tv"><span id="404-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a></h4>
     <h2><span style=" color: #515294"><?php random404(); ?></h2>
     <p>We couldn't find what you're after. Could be that we lost it in a clear-out, or we just forgot to put it there in the first place.</p>
-   <?php include "searchform.php"; ?>
+   <?php include $config->paths->templates . "FTV-2016/searchform.php"; ?>
 
   </div>
 </section>
 
-<?php include "footer.php"; ?>
+<?php include $config->paths->templates . "FTV-2016/footer.php"; ?>

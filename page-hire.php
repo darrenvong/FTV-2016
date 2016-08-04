@@ -1,6 +1,6 @@
 <?php
 /* Template Name: Hire Us */
-  include "header.php";
+  include $config->paths->templates. "FTV-2016/header.php";
 ?>
 
 <div class="spacer"></div>
@@ -74,7 +74,7 @@
       </section>
 
       <?php
-        include "contact.php";
+        include $config->paths->templates . "FTV-2016/contact.php";
       ?>
 
 <section class="page_strip" id="demo">
@@ -93,5 +93,5 @@
 </section>
 
 <?php
-  include "footer.php";
+  include $config->paths->templates. "FTV-2016/footer.php";
 ?>

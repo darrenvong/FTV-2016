@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include $config->paths->templates . "FTV-2016/header.php"; ?>
 
 <div class="spacer"></div>
 
@@ -80,6 +80,6 @@
     <a id="more" href="$pages->get('/videos/')->url"><span><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
 
 <?php
-  include_once "contact.php";
-  include_once "footer.php";
+  include_once $config->paths->templates . "FTV-2016/contact.php";
+  include_once $config->paths->templates . "FTV-2016/footer.php";
 ?>

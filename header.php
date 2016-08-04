@@ -1,4 +1,4 @@
-<?php include_once 'funcs.php'; ?>
+<?php include_once $config->paths->templates . 'FTV-2016/funcs.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
