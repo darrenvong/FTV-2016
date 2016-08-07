@@ -62,11 +62,10 @@
 
 
   </nav>
+  <!-- Close button fix on mobile menu for view ports wider than 900px -->
+  <div class="bars white">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
-
-<!-- Close button fix on mobile menu for view ports wider than 900px -->
-<div class="bars white">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
