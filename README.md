@@ -3,7 +3,7 @@ A ProcessWire adaptation of the Wordpress theme for the Forge TV website.
 
 ## CHECKLIST:
 ### Template files converted and working?
-- [] 404.php
+- [x] 404.php
 - [x] front-page.php
 - [x] contact.php
 - [x] float-menu.php
