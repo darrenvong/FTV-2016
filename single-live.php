@@ -35,8 +35,8 @@
 
       <div style="margin-bottom:20px;"></div>
 
-      <?php // Disqud comments here
-        //comments_template( $file, $separate_comments );
+      <?php
+        include_once $theme_path . "comments.php";
       ?>
   </article>
 

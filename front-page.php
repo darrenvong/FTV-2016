@@ -44,7 +44,7 @@
                   endif;
                 ?>
               <?= $post->title; ?></h2>
-              <p><?php echo trimExcerpt($page->excerpt); ?></p>
+              <p><?php echo trimExcerpt($post->excerpt); ?></p>
               <div class="grad"></div>
             </div>
             <a href="<?= $post->url; ?>">

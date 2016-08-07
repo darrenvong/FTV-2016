@@ -5,17 +5,21 @@
    * @param $id - the specified CSS id value for the <ul> element of the menu
    * @param $menu - the menu Page (a ProcessWire object) to display
    */
-  function display_menu($menu, $page, $pages, $id = "") {
+  function display_menu($menu, $page, $id = "") {
     echo "<div class='menu-" . $menu->name . "-container'>";
     echo "<ul id='$id'>";
     foreach ($menu->menu_item as $menu_item) {
-      if ($pages->get($menu_item->menu_item_link)->id === $page->id) {
-        echo "<li class='active'><a href='$menu_item->menu_item_link'>" .
-            "$menu_item->menu_field</a></li>";
+      if ($menu_item->menu_page->name === "external-page") {
+        echo "<li><a href='$menu_item->external_page_link'>" .
+          "$menu_item->menu_label</a></li>";
+      }
+      elseif ($menu_item->menu_page->id === $page->id) {
+        echo "<li class='active'><a href='{$menu_item->menu_page->url}'>" .
+            "$menu_item->menu_label</a></li>";
       }
       else
-        echo "<li><a href='$menu_item->menu_item_link'>" .
-          "$menu_item->menu_field</a></li>";
+        echo "<li><a href='{$menu_item->menu_page->url}'>" .
+          "$menu_item->menu_label</a></li>";
     }
     echo "</ul></div>";
   }
@@ -60,11 +64,18 @@
    * @return the $page's categories as a PageArray.
    */
   function getCategories($page) {
-    $prime_cat = $page->parent; //Page object
-    $secondary_cats = $page->other_cats; //PageArray object
+    $categories = new PageArray();
+    $categories->add($page->parent); //Add primary parent to array
 
-    //Prepend therefore adds prime_cat page into secondary_cats array
-    return $secondary_cats->prepend($prime_cat);
+    // Secondary categories in a PageArray object
+    $secondary_cats = $page->other_cats;
+    if (count($secondary_cats) > 0) {
+      foreach ($secondary_cats as $cat) {
+        $categories->add($cat);
+      }
+    }
+
+    return $categories;
   }
 
   /**

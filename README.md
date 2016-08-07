@@ -1,17 +1,30 @@
 # FTV-2016
 A ProcessWire adaptation of the Wordpress theme for the Forge TV website.
 
-TO-DO:
-## Pagination
-* category.php (everything else done)
+## CHECKLIST:
+### Template files converted and working?
+- [] 404.php
+- [x] front-page.php
+- [x] contact.php
+- [x] float-menu.php
+- [x] footer.php
+- [x] front-page.php
+- [x] funcs.php (replaces functions.php used in WordPress)
+- [x] header.php
+- [x] index.php (probs never needed in the PW model)
+- [x] page-hire.php
+- [x] single-blog.php
+- [x] single-live.php
+- [x] single-vid.php
+- [x] CSS that accompanies the theme
+- [x] JavaScript that accompanies the theme
 
-## Search functionalities
-* search.php
-* searchform.php
+### Pagination
+- [x] category.php (CSS fixes on pagination links)
 
-* single.php? (Since technically I may not need it anymore in PW...)
+### Search functionalities
+- [x] search.php
+- [x] searchform.php
 
-## Comments
-* Disqus comments in all single post/page templates
-
-Last but not least, some proper testing!
+### Comments
+- [x] Disqus comments in all single post/page templates

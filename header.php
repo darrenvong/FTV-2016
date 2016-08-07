@@ -1,4 +1,4 @@
-<?php include_once $config->paths->templates . 'FTV-2016/funcs.php'; ?>
+<?php include $config->paths->templates . 'FTV-2016/funcs.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,17 +50,17 @@
   <nav id="left">
     <?php
       $outlets_menu = $pages->get("/menus/outlets/");
-      display_menu($outlets_menu, $page, $pages);
+      display_menu($outlets_menu, $page);
     ?>
   </nav>
   <nav id="social">
     <?php
-      display_menu($social_menu, $page, $pages);
+      display_menu($social_menu, $page);
     ?>
   </nav>
     <nav id="right">
     <?php
-      display_menu($sections_menu, $page, $pages);
+      display_menu($sections_menu, $page);
     ?>
 
     <div class="bars">

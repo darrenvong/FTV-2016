@@ -1057,6 +1057,8 @@ section#pagination {
   align-items: center;
   justify-content: center;
   flex-direction: row; }
+  section#pagination li {
+    list-style-type: none; }
 
 section#pagination span, section#pagination a {
   font-family: open sans, sans-serif;

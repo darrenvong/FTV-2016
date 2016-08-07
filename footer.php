@@ -4,7 +4,7 @@
 
   <nav>
     <?php
-      display_menu($social_menu, $page, $pages);
+      display_menu($social_menu, $page);
     ?>
   </nav>
 

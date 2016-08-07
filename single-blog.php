@@ -26,13 +26,6 @@
           $live_cat = $pages->get("/live/");
           $related = $pages->findOne("parent=$video_cats|$live_cat, sort=-post_date");
 
-        $args3 = Array(
-          'cat' => array($post->cat_ID),
-          'posts_per_page' => '1',
-          'post__not_in' => array($post->ID)
-        );
-        $blog_query = new WP_Query( $args3 );
-
         if ( $related->id !== 0 ):
         ?>
 
@@ -49,8 +42,7 @@
       ?>
 
           <?php
-            // Disqus comments here
-            // comments_template( $file, $separate_comments );
+            include_once $theme_path . "comments.php";
           ?>
 
         <?php

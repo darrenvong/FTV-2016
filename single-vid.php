@@ -23,7 +23,9 @@
 
       <?php
         // Find the next video in the same category
-        $related = $pages->findOne("parent=$page->parent, id!=$page->id, sort=-post_date");
+        $video_cats = $pages->get("/videos/")->children;
+        $live_cat = $pages->get("/live/");
+        $related = $pages->findOne("parent=$video_cats|$live_cat, id!=$page->id, sort=-post_date");
 
         if ($related->id !== 0):
       ?>
@@ -38,46 +40,51 @@
 
       <?php
         endif;
-        //Disqus comments here
-        // comments_template( $file, $separate_comments );
+        
+        include_once $theme_path . "comments.php";
       ?>
 
   </article>
 
-  <h4 class="related"><?php randomText(); ?></h4>
-  <section class="related">
 
-    <?php
-
+  <?php
     $page_cats = getCategories($page);
-    $related_posts = $pages->find("parent=$page_cats, sort=random, limit=4, id!=$page->id");
-
-    foreach ($related_posts as $related):
+    $related_posts = $pages->find("parent=$page_cats, sort=random, limit=4, id!=$page->id|$related->id");
+    if (count($related_posts)):
+  ?>
+      <h4 class="related"><?php randomText(); ?></h4>
+      <section class="related">
+      
+  <?php
+      foreach ($related_posts as $related):
         $featured_img = $related->featured_image->url;
-    ?>
+  ?>
 
-    <div class="padder">
-      <div class="related-tile">
+        <div class="padder">
+          <div class="related-tile">
 
-        <div class="related-image" style="background-image:url(<?php echo $featured_img; ?>)">
+            <div class="related-image" style="background-image:url(<?php echo $featured_img; ?>)">
+            </div>
+            <div class="related-content">
+              <h4><?= $related->post_date; ?></h4>
+              <h3><?= $related->title; ?></h3>
+            </div>
+
+            <a href="<?= $related->url; ?>"><div class="cover"></div></a>
+
+            <div class="grad"></div>
+
+          </div>
         </div>
-        <div class="related-content">
-          <h4><?= $related->post_date; ?></h4>
-          <h3><?= $related->title; ?></h3>
-        </div>
 
-        <a href="<?= $related->url; ?>"><div class="cover"></div></a>
+  <?php
+      endforeach;
+    echo "</section>";
+    endif;
+  ?>
 
-        <div class="grad"></div>
 
-      </div>
-    </div>
-
-    <?php endforeach; ?>
-
-  </section>
-
-    <a id="more" href="$pages->get('/videos/')->url"><span><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
+    <a id="more" href="<?= $pages->get('/videos/')->url; ?>"><span><I class="fa fa-arrow-circle-right"></i> More videos</span></a>
 
 <?php
   include_once $config->paths->templates . "FTV-2016/contact.php";

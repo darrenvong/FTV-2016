@@ -35,12 +35,20 @@
   ?>
 </ul>
 <?php
-  $results = $pages->find("parent=$video_cats, limit=9, sort=-post_date");
+  $limit = 10;
+  $start = $input->urlSegment1 ? ($input->urlSegment1 - 1) * $limit : 0;
+  $pageNum = $input->urlSegment1 ? : 1; // page number for pager
 
+  if ($page->name === "videos") { // Find all videos if accessing from "Watch" link
+    $results = $pages->find("(parent=$video_cats), (other_cats=$video_cats), start=$start, limit=$limit, sort=-post_date");
+  }
+  else { // Find category specific videos only
+    $results = $pages->find("(parent=$page), (other_cats=$page), start=$start, limit=$limit, sort=-post_date");
+  }
+
+  $first = true;
   foreach ($results as $post):
-
-    $first = true;
-    
+  
     //Declare variable for featured images
     $featured_img = $post->featured_image->url;
 ?>
@@ -125,14 +133,23 @@
 
 <section id="pagination">
   <?php
-    echo $results->renderPager(array(
-      'nextItemLabel' => "Next >",
-      'previousItemLabel' => "< Previous",
-      'numPageLinks' => 3,
-      'listMarkup' => "{out}",
-      'linkMarkup' => "<a href='{url}'>{out}</a>",
-      'currentLinkMarkup' => "<span class='current'>{out}</span>"
+    $pagination = new PageArray();
+    $pagination->setTotal($results->getTotal());
+    $pagination->setLimit($limit);
+    $pagination->setStart($start);
+    $pagerHTML = $pagination->renderPager(array(
+        "baseUrl" => $page->url,
+        'nextItemLabel' => "Next >",
+        'previousItemLabel' => "< Previous",
+        'numPageLinks' => 3,
+        'listMarkup' => "{out}",
+        'linkMarkup' => "<a href='{url}'>{out}</a>",
+        'currentLinkMarkup' => "<span class='current'>{out}</span>"
     ));
+
+    $pagerHTML = str_replace("toreplaceprefix", "", $pagerHTML);
+
+    echo $pagerHTML;
   ?>
 </section>
 

@@ -1,95 +1,93 @@
-<?php get_header(); ?>
+<?php include_once $theme_path . "header.php"; ?>
 
 <div class="spacer"></div>
 
+<?php
+  $query_string = $sanitizer->text($input->get("s"));
+?>
 <!-- Category title -->
-<h2 class="category"><span>Search //</span> <?php the_search_query(); ?></h2>
+<h2 class="category"><span>Search //</span> <?= (($query_string)? $sanitizer->entities($query_string) : ""); ?></h2>
 
 <ul class="popular-cats">
   <?php
-    wp_list_categories( array(
-      'odererby' => 'count',
-      'order' => 'DESC',
-      'number' => 5,
-      'title_li' => __( '' ),
-    ));
+    $video_cats = $pages->get("/videos/")->children("sort=-numChildren");
+
+    foreach ($video_cats as $category) {
+      echo "<li class='cat-item'><a href='$category->url'>{$category->title}</a></li>";
+    }
   ?>
 </ul>
 
 <?php
+  /** The main search query processed **/
+  if ($query_string):
+    $input->whitelist("s", $query_string);
 
-  global $query_string;
+    $query_string = $sanitizer->selectorValue($query_string);
 
-  $query_args = explode("&", $query_string);
-  $search_query = array();
+    /** Custom pagination setup **/
+    $limit = 10;
+    $start = $input->urlSegment1 ? ($input->urlSegment1 - 1) * $limit : 0;
+    $pageNum = $input->urlSegment1 ? : 1; // page number for pager
 
-  foreach($query_args as $key => $string) {
-    $query_split = explode("=", $string);
-    $search_query[$query_split[0]] = urldecode($query_split[1]);
-  } // foreach
+    $selector = "title|content~=$query_string";
+    if($user->isLoggedin()) $selector .= ", has_parent!=2, id!=1";
+    $selector .= ", start=$start, limit=$limit, sort=-post_date";
 
-  $search = new WP_Query($search_query);
+    $results = $pages->find($selector);
+    $first_post = true;
 
-  //Declare counter variable
-  $counter = 0;
-
-    if ($search->have_posts()) :
-      while ($search->have_posts()) : $search->the_post ();
-
-  //Declare variable for featured images
-  $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+    if (count($results) > 0):
+      foreach ($results as $r):
+        $featured_img = $r->featured_image->url;
+        if ($first_post):
 ?>
+          <section id="featured">
 
-<?php if($counter==0){ ?>
+            <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
 
-<section id="featured">
+            <div id="bg"></div>
+            <div class="featured-info">
 
-  <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
+              <a href="<?= $config->urls->root; ?>"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
 
-  <div id="bg"></div>
-  <div class="featured-info">
-
-    <a href="<?php echo esc_url( home_url() )?>"><span id="cat-back"><I class="fa fa-arrow-circle-left"></i> Home</span></a>
-
-    <h4><?php the_category(); ?></h4>
-    <h2><?php the_title(); ?></h2>
-    <p><?php the_excerpt(); ?></p>
-    <a href="<?php the_permalink(); ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
-  </div>
-</section>
-
-<section id="category">
-
-<?php } else { ?>
-
-  <div class="padder">
-    <div class="tile">
-      <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
-      </div>
-      <div class="tile-info">
-        <div class="triangle"></div>
-        <h4><?php the_category(); ?></h4>
-        <h2><?php the_title(); ?></h2>
-        <p><?php the_excerpt(); ?></p>
-        <div class="grad"></div>
-      </div>
-      <a href="<?php the_permalink(); ?>">
-      <div class="cover"></div>
-      </a>
-    </div>
-  </div>
-
-<?php } ?>
-
+              <h4><?php displayCats($r); ?></h4>
+              <h2><?= $r->title; ?></h2>
+              <p><?= trimExcerpt($r->excerpt); ?></p>
+              <a href="<?= $r->url; ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
+            </div>
+          </section>
+          <section id="category">
 <?php
-  $counter++;
-  endwhile;
+          $first_post = false;
+        else:
+?>
+          <div class="padder">
+            <div class="tile">
+              <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
+              </div>
+              <div class="tile-info">
+                <div class="triangle"></div>
+                <h4><?php displayCats($r); ?></h4>
+                <h2><?= $r->title; ?></h2>
+                <p><?= trimExcerpt($r->excerpt); ?></p>
+                <div class="grad"></div>
+              </div>
+              <a href="<?= $r->url; ?>">
+              <div class="cover"></div>
+              </a>
+            </div>
+          </div>        
+<?php         
+        endif;
+      endforeach;
+    else:
+      echo "<p>Sorry, no posts matched your criteria.</p>";
+    endif;
   else:
-?>
-  <p>Sorry, no posts matched your criteria.</p>
-<?php
+    echo "<p>Sorry, no posts matched your criteria.</p>";
   endif;
-  wp_reset_postdata();
+
 ?>
 
 </section>
@@ -98,12 +96,26 @@
 
 <section id="pagination">
   <?php
-    $pags = array(
-      'prev_text'          => __('< Previous'),
-      'next_text'          => __('Next >'),
-    );
-    echo paginate_links( $pags );
+    if ($results):
+      $pagination = new PageArray();
+      $pagination->setTotal($results->getTotal());
+      $pagination->setLimit($limit);
+      $pagination->setStart($start);
+      $pagerHTML = $pagination->renderPager(array(
+          "baseUrl" => $page->url,
+          'nextItemLabel' => "Next >",
+          'previousItemLabel' => "< Previous",
+          'numPageLinks' => 3,
+          'listMarkup' => "{out}",
+          'linkMarkup' => "<a href='{url}'>{out}</a>",
+          'currentLinkMarkup' => "<span class='current'>{out}</span>"
+      ));
+      
+      $pagerHTML = str_replace("toreplaceprefix", "", $pagerHTML);
+
+      echo $pagerHTML;
+    endif;
   ?>
 </section>
 
-<?php get_footer(); ?>
+<?php include_once $theme_path . "footer.php"; ?>
