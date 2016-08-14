@@ -1020,10 +1020,29 @@ section#category
   max-width: 1100px
   margin: 20px auto 10px auto
 
-section#category div.padder
-  height: 350px
-  width: 33.33%
-  padding: 10px
+  div.tile .gallery-image
+    height: 100%
+    width: 100%
+    -o-object-fit: cover
+    object-fit: cover
+
+  div.padder
+    height: 350px
+    width: 33.33%
+    padding: 10px
+
+  div.padder.gallery-padder
+    height: 250px
+
+.blocker
+  z-index: 999
+
+.modal
+  width: 70%
+  min-width: 400px
+
+.fotorama__thumb-border
+  border-color: $brand-color
 
 section#category div.tile:hover
   transform: scale(1.01, 1.01)

@@ -972,11 +972,27 @@ section#category {
   padding: 10px 5px 10px 5px;
   max-width: 1100px;
   margin: 20px auto 10px auto; }
+  section#category div.tile .gallery-image {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover; }
+  section#category div.padder {
+    height: 350px;
+    width: 33.33%;
+    padding: 10px; }
+  section#category div.padder.gallery-padder {
+    height: 250px; }
 
-section#category div.padder {
-  height: 350px;
-  width: 33.33%;
-  padding: 10px; }
+.blocker {
+  z-index: 999; }
+
+.modal {
+  width: 70%;
+  min-width: 400px; }
+
+.fotorama__thumb-border {
+  border-color: #282961; }
 
 section#category div.tile:hover {
   transform: scale(1.01, 1.01);

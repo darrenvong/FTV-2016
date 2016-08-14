@@ -68,7 +68,14 @@
     $categories->add($page->parent); //Add primary parent to array
 
     // Secondary categories in a PageArray object
-    $secondary_cats = $page->other_cats;
+    if ($page->template == "video" || $page->template == "live" ||
+        $page->template == "blog") {
+      $secondary_cats = $page->other_cats;
+    }
+    else { // It's a gallery post
+      $secondary_cats = $page->image_cats;
+    }
+
     if (count($secondary_cats) > 0) {
       foreach ($secondary_cats as $cat) {
         $categories->add($cat);

@@ -12,9 +12,15 @@
       ?>
     </title>
     <link rel="shortcut icon" href="<?php echo $config->urls->templates; ?>FTV-2016/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates; ?>FTV-2016/style.css" />
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+    <?php if ($page->template == "gallery" || $page->template == "single-gallery"): ?>
+    <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates; ?>css/jquery.modal.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    <?php endif; ?>
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates; ?>FTV-2016/style.css" />
+
 
     <!-- Open Graph Meta Tags for Facebook and LinkedIn-->
     <meta property="og:title" content="<?= $page->title; ?>"/>
@@ -37,10 +43,6 @@
     <meta name="twitter:image" content="<?= $page->featured_image->url; ?>">
 </head>
 <body id="top">
-
-  <script src="<?php echo $config->urls->templates . 'FTV-2016/js/smooth_scroll.js'?>"></script>
-
-
 
 <!-- The header -->
 
@@ -68,26 +70,12 @@
       <span></span>
       <span></span>
     </div>
-
-<script>
-  $(document).ready(function() {
-    var bars = $('.bars');
-    bars.click(function() {
-      bars.toggleClass('open');
-      console.log("Open class toggle on bars icon");
-      $('#mobile').toggleClass('on');
-    });
-  });
-</script>
-
-
-
   </nav>
+  
+  <!-- Close button fix on mobile menu for view ports wider than 900px -->
+  <div class="bars white">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
-
-<!-- Close button fix on mobile menu for view ports wider than 900px -->
-<div class="bars white">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>

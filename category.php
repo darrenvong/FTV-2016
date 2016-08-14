@@ -40,10 +40,10 @@
   $pageNum = $input->urlSegment1 ? : 1; // page number for pager
 
   if ($page->name === "videos") { // Find all videos if accessing from "Watch" link
-    $results = $pages->find("(parent=$video_cats), (other_cats=$video_cats), start=$start, limit=$limit, sort=-post_date");
+    $results = $pages->find("(parent|other_cats=$video_cats), start=$start, limit=$limit, sort=-post_date");
   }
   else { // Find category specific videos only
-    $results = $pages->find("(parent=$page), (other_cats=$page), start=$start, limit=$limit, sort=-post_date");
+    $results = $pages->find("(parent|other_cats=$page), start=$start, limit=$limit, sort=-post_date");
   }
 
   $first = true;
