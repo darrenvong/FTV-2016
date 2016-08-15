@@ -9,6 +9,13 @@ $mid-grey: #969696
 $p-font-stack: open sans, sans-serif
 $h-font-stack: oswald, sans-serif
 
+//Custom mixins
+=image-cover
+  height: 100%
+  width: 100%
+  -o-object-fit: cover
+  object-fit: cover
+
 html, body
   background-color: $background-color
   height: 100%
@@ -1021,10 +1028,7 @@ section#category
   margin: 20px auto 10px auto
 
   div.tile .gallery-image
-    height: 100%
-    width: 100%
-    -o-object-fit: cover
-    object-fit: cover
+    +image-cover
 
   div.padder
     height: 350px
@@ -1037,6 +1041,7 @@ section#category
 .blocker
   z-index: 999
 
+// Modal styling for gallery page
 .modal
   width: 70%
   min-width: 400px
@@ -1061,6 +1066,8 @@ section#category div.tile
   transition: 0.2s
   position: relative
   overflow: hidden
+  -webkit-backface-visibility: hidden
+  backface-visibility: hidden
 
 section#category div.tile div.cover
   position: absolute

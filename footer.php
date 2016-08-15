@@ -29,9 +29,10 @@
 
   <script>
     $(function() {
-      $("img.gallery-image").lazyload({
+      $("img.gallery-image").show().lazyload({
         effect: "fadeIn"
       });
+      $('[id*="img"]').modal({fadeDuration: 1200});
     });
   </script>
 <?php endif; ?>

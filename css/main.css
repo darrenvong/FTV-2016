@@ -1010,7 +1010,9 @@ section#category div.tile {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   transition: 0.2s;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
 section#category div.tile div.cover {
   position: absolute;
