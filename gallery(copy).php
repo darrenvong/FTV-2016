@@ -27,16 +27,17 @@
   ?>
         <div class="padder gallery-padder">
           <div class="tile">
-            <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png" data-original="<?= $photo_page->featured_image->url; ?>" />
+            <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
+              data-original="<?= $photo_page->featured_image->url; ?>" />
             <a href="#img<?= $image_id; ?>" rel="modal:open">
               <div class="cover"></div>
             </a>
           </div>
         </div>
         <div id="img<?= $image_id; ?>" style="display: none;">
-          <div class="fotorama" data-fit="cover" data-navwidth="100%"
+          <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
           data-transition="crossfade" data-nav="thumbs" data-width="100%"
-          data-ratio="16/9" data-loop="true" data-swipe="true">
+          data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
             <a href="<?= $photo_page->featured_image->url;?>"
               data-thumb="<?= str_replace(".jpg", ".0x260.jpg", $photo_page->featured_image->url); ?>">
             </a>
@@ -96,16 +97,17 @@
   ?>
           <div class="padder gallery-padder">
             <div class="tile">
-              <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png" data-original="<?= $page_image->url; ?>" />
+              <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
+                data-original="<?= $page_image->url; ?>" />
               <a href="#img<?= $image_id; ?>" rel="modal:open">
                 <div class="cover"></div>
               </a>
             </div>
           </div>
           <div id="img<?= $image_id; ?>" style="display: none;">
-            <div class="fotorama" data-fit="cover" data-navwidth="100%"
+            <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
             data-transition="crossfade" data-nav="thumbs" data-width="100%"
-            data-ratio="16/9" data-loop="true" data-swipe="true">
+            data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
               <a href="<?= $page_image->url;?>"
                 data-thumb="<?= str_replace(".jpg", ".0x260.jpg", $page_image->url);?>">
               </a>
@@ -138,16 +140,17 @@
   ?>
           <div class="padder gallery-padder">
             <div class="tile">
-              <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png" data-original="<?= $ext_img->external_image_link;?>" />
+              <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
+                data-original="<?= $ext_img->external_image_link;?>" />
               <a href="#img<?= $image_id; ?>" rel="modal:open">
                 <div class="cover"></div>
               </a>
             </div>
           </div>
           <div id="img<?= $image_id; ?>" style="display: none;">
-            <div class="fotorama" data-fit="cover" data-navwidth="100%"
+            <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
             data-transition="crossfade" data-nav="thumbs" data-width="100%"
-            data-ratio="16/9" data-loop="true" data-swipe="true">
+            data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
               <a href="<?= $ext_img->external_image_link;?>"
                 data-thumb="<?= $ext_img->external_image_link;?>"></a>
               <?php

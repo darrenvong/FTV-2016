@@ -41,6 +41,7 @@
     <meta name="twitter:creator" content="Forge TV">
     <meta name="twitter:title" content="<?= $page->title ?>">
     <meta name="twitter:image" content="<?= $page->featured_image->url; ?>">
+
 </head>
 <body id="top">
 
