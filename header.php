@@ -15,7 +15,8 @@
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 
     <?php if ($page->template == "gallery" || $page->template == "single-gallery"): ?>
-    <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates; ?>css/jquery.modal.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates; ?>css/remodal.css">
+    <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates; ?>css/remodal-default-theme.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
     <?php endif; ?>
     

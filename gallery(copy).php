@@ -16,7 +16,8 @@
 <!-- MAY GO ON A REFACTORING SPREE LATER -->
 <section id="category">
   <?php
-    $image_id = 1;
+    $image_id = 0;
+    $limit = 9;
     foreach ($photo_pages as $photo_page):
       if ($photo_page->template == "video"):
       /** Then this has the featured_image field with a single image
@@ -24,55 +25,58 @@
        * Useful image fields: url, description, width, height, original, page
        */
         if ($photo_page->featured_image):
+          $section_num = floor($image_id/$limit);
   ?>
-        <div class="padder gallery-padder">
-          <div class="tile">
-            <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
-              data-original="<?= $photo_page->featured_image->url; ?>" />
-            <a href="#img<?= $image_id; ?>" rel="modal:open">
-              <div class="cover"></div>
-            </a>
+          <div class="padder gallery-padder <?= (($section_num)? "sect".$section_num : ''); ?>">
+            <div class="tile">
+              <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
+                data-original="<?= $photo_page->featured_image->url; ?>" />
+              <a href="#img<?= $image_id; ?>">
+                <div class="cover"></div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div id="img<?= $image_id; ?>" style="display: none;">
-          <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
-          data-transition="crossfade" data-nav="thumbs" data-width="100%"
-          data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
-            <a href="<?= $photo_page->featured_image->url;?>"
-              data-thumb="<?= str_replace(".jpg", ".0x260.jpg", $photo_page->featured_image->url); ?>">
-            </a>
-            <?php
-              $video_ids = getYouTubeVideoID($photo_page->content);
-              foreach ($video_ids as $vid_id):
-                echo "<a href='https://www.youtube.com/watch?v={$vid_id}'></a>";
-              endforeach;
 
-              $related_cats = getCategories($photo_page);
-              $related_photo_pages = $pages->find("(parent|other_cats|image_cats=$related_cats), id!=$photo_page->id, sort=parent,
-                sort=image_cats, sort=other_cats");
+          <div class="remodal" data-remodal-id="img<?= $image_id; ?>">
+            <button data-remodal-action="close" class="remodal-close"></button>
+            <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
+            data-transition="crossfade" data-nav="thumbs" data-width="100%"
+            data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
+              <a href="<?= $photo_page->featured_image->url;?>"
+                data-thumb="<?= str_replace(".jpg", ".0x260.jpg", $photo_page->featured_image->url); ?>">
+              </a>
+              <?php
+                $video_ids = getYouTubeVideoID($photo_page->content);
+                foreach ($video_ids as $vid_id):
+                  echo "<a href='https://www.youtube.com/watch?v={$vid_id}'></a>";
+                endforeach;
 
-              foreach ($related_photo_pages as $rpp):
-                if ($rpp->featured_image):
-                  $thumb_url = str_replace(".jpg", ".0x260.jpg", $rpp->featured_image->url);
-                  echo "<a href='{$rpp->featured_image->url}' data-thumb='$thumb_url'></a>";
-                  $video_ids = getYouTubeVideoID($rpp->content);
-                  foreach ($video_ids as $vid_id):
-                    echo "<a href='https://www.youtube.com/watch?v={$vid_id}'></a>";
-                  endforeach;
-                elseif (count($rpp->gallery_image) > 0):
-                  foreach ($rpp->gallery_image as $single_img):
-                    $thumb_url = str_replace(".jpg", ".0x260.jpg", $single_img->url);
-                    echo "<a href='{$single_img->url}' data-thumb='$thumb_url'></a>";
-                  endforeach;
-                elseif ($rpp->external_image && count($rpp->external_image) > 0):
-                  foreach ($rpp->external_image as $external_img):
-                    echo "<a href='{$external_img->external_image_link}' data-thumb='$external_img->external_image_link'></a>";
-                  endforeach;
-                endif;
-              endforeach;
-            ?>
+                $related_cats = getCategories($photo_page);
+                $related_photo_pages = $pages->find("(parent|other_cats|image_cats=$related_cats)," .
+                  "id!=$photo_page->id, sort=parent, sort=image_cats, sort=other_cats");
+
+                foreach ($related_photo_pages as $rpp):
+                  if ($rpp->featured_image):
+                    $thumb_url = str_replace(".jpg", ".0x260.jpg", $rpp->featured_image->url);
+                    echo "<a href='{$rpp->featured_image->url}' data-thumb='$thumb_url'></a>";
+                    $video_ids = getYouTubeVideoID($rpp->content);
+                    foreach ($video_ids as $vid_id):
+                      echo "<a href='https://www.youtube.com/watch?v={$vid_id}'></a>";
+                    endforeach;
+                  elseif (count($rpp->gallery_image) > 0):
+                    foreach ($rpp->gallery_image as $single_img):
+                      $thumb_url = str_replace(".jpg", ".0x260.jpg", $single_img->url);
+                      echo "<a href='{$single_img->url}' data-thumb='$thumb_url'></a>";
+                    endforeach;
+                  elseif ($rpp->external_image && count($rpp->external_image) > 0):
+                    foreach ($rpp->external_image as $external_img):
+                      echo "<a href='{$external_img->external_image_link}' data-thumb='$external_img->external_image_link'></a>";
+                    endforeach;
+                  endif;
+                endforeach;
+              ?>
+            </div>
           </div>
-        </div>
   <?php
         $image_id++;
         endif;
@@ -87,19 +91,21 @@
         $page_images = $photo_page->gallery_image;
         $external_images = $photo_page->external_image;
         
-        //So first loop over all images ON this page...
+        //So first loop over all images on THIS page...
         foreach ($page_images as $page_image):
+          $section_num = floor($image_id/$limit);
   ?>
-        <div class="padder gallery-padder">
+        <div class="padder gallery-padder <?= (($section_num)? "sect".$section_num : ''); ?>">
           <div class="tile">
             <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
               data-original="<?= $page_image->url; ?>" />
-            <a href="#img<?= $image_id; ?>" rel="modal:open">
+            <a href="#img<?= $image_id; ?>">
               <div class="cover"></div>
             </a>
           </div>
         </div>
-        <div id="img<?= $image_id; ?>" style="display: none;">
+        <div class="remodal" data-remodal-id="img<?= $image_id; ?>">
+          <button data-remodal-action="close" class="remodal-close"></button>
           <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
           data-transition="crossfade" data-nav="thumbs" data-width="100%"
           data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
@@ -112,7 +118,6 @@
               $this_page = $related_photo_pages->get("id=$photo_page");
               //Move the current page to the beginning of the PageArray
               $related_photo_pages->prepend($this_page);
-              echo "<script>console.log('$related_photo_pages, $image_id');</script>";
 
               foreach ($related_photo_pages as $rpp):
                 if ($rpp->featured_image):
@@ -146,17 +151,19 @@
 
         //Then look at the external links and do it all over again...
         foreach ($external_images as $ext_img):
+          $section_num = floor($image_id/$limit);
   ?>
-        <div class="padder gallery-padder">
+        <div class="padder gallery-padder <?= (($section_num)? "sect".$section_num : ''); ?>">
           <div class="tile">
             <img class="gallery-image" src="<?= $config->urls->templates;?>img/default-placeholder.png"
               data-original="<?= $ext_img->external_image_link;?>" />
-            <a href="#img<?= $image_id; ?>" rel="modal:open">
+            <a href="#img<?= $image_id; ?>">
               <div class="cover"></div>
             </a>
           </div>
         </div>
-        <div id="img<?= $image_id; ?>" style="display: none;">
+        <div class="remodal" data-remodal-id="img<?= $image_id; ?>">
+          <button data-remodal-action="close" class="remodal-close"></button>
           <div class="fotorama" data-auto="false" data-fit="cover" data-navwidth="100%"
           data-transition="crossfade" data-nav="thumbs" data-width="100%"
           data-ratio="16/9" data-loop="true" data-swipe="true" data-click="false">
@@ -197,4 +204,5 @@
     endforeach;
   ?>
 </section>
+
 <?php include $config->paths->templates . "FTV-2016/footer.php"; ?>

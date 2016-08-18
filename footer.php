@@ -22,7 +22,7 @@
 <script src="<?php echo $config->urls->templates . 'FTV-2016/js/smooth_scroll.js'?>"></script>
 
 <?php if ($page->template == "gallery" || $page->template == "single-gallery"): ?>
-  <script type="text/javascript" src="<?= $config->urls->templates; ?>js/jquery.modal.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="<?= $config->urls->templates; ?>js/remodal.min.js"></script>
   <script type="text/javascript" src="<?= $config->urls->templates; ?>js/jquery.lazyload.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
 
