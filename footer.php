@@ -26,26 +26,7 @@
   <script type="text/javascript" src="<?= $config->urls->templates; ?>js/jquery.lazyload.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
 
-  <script>
-    $(function() {
-      $("img.gallery-image").show().lazyload({
-        effect: "fadeIn"
-      });
-      $('[id*="img"]').modal({fadeDuration: 1200});
-      $('[id*="img"] div.fotorama').each(function(i, e) {
-        var photoDiv = $(this).fotorama();
-      });
-
-      $('a[href*="#img"]').each(function() {
-        $(this).click(function() {
-          var fotorama = $($(this).attr("href")+" div.fotorama").data('fotorama');
-          if (fotorama) { // The slideshow has been opened before
-            fotorama.show({index: 0, time: 0});
-          }
-        });
-      });
-    });
-  </script>
+  <script src="<?= $config->urls->templates;?>FTV-2016/js/gallery.js"></script>
 <?php endif; ?>
 <script>
   $(document).ready(function() {

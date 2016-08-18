@@ -17,9 +17,12 @@
         echo "<li class='active'><a href='{$menu_item->menu_page->url}'>" .
             "$menu_item->menu_label</a></li>";
       }
-      else
+      else {
+        if ($menu_item->menu_page->name === "admin" && (!wire("user")->isSuperuser()))
+          continue;
         echo "<li><a href='{$menu_item->menu_page->url}'>" .
           "$menu_item->menu_label</a></li>";
+      }
     }
     echo "</ul></div>";
   }
@@ -65,11 +68,11 @@
    */
   function getCategories($page) {
     $categories = new PageArray();
-    $categories->add($page->parent); //Add primary parent to array
 
     // Secondary categories in a PageArray object
     if ($page->template == "video" || $page->template == "live" ||
         $page->template == "blog") {
+      $categories->add($page->parent); //Add primary parent to array
       $secondary_cats = $page->other_cats;
     }
     else { // It's a gallery post
@@ -124,4 +127,24 @@
     }
 
     return $related_selector;
+  }
+
+  /**
+   * Retrieve YouTube video IDs from a given post/page body.
+   * @param $content - the body of the page to search for YouTube video IDs
+   * @return an array of video IDs
+   */
+  function getYouTubeVideoID($content) {
+    $content_html = new DOMDocument();
+    $content_html->loadHTML($content);
+    $video_url = $content_html->getElementsByTagName('iframe');
+
+    $video_ids = array();
+    foreach ($video_url as $vid):
+      $embed_url = $vid->getAttribute('src');
+      $matched = preg_match('#(?:https://www.youtube.com/embed/)+([\w]+)#', $embed_url, $matches);
+      array_push($video_ids, $matches[1]);
+    endforeach;
+
+    return $video_ids;
   }
