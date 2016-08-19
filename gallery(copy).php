@@ -205,4 +205,7 @@
   ?>
 </section>
 
+<section id="pagination">
+  <button>Load more</button>
+</section>
 <?php include $config->paths->templates . "FTV-2016/footer.php"; ?>

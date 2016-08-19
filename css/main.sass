@@ -1043,6 +1043,10 @@ section#category
   max-width: 70%
   min-width: 300px
 
+div[class*="sect"].padder.gallery-padder
+  display: none
+  transition: 0.3s 
+
 .fotorama__thumb-border
   border-color: $brand-color
 
@@ -1131,6 +1135,21 @@ section#pagination
   li
     list-style-type: none
 
+  a:hover, span.current, button:hover
+    background-color: $brand-color
+    color: $background-color
+
+  button
+    background-color: transparent
+    color: $brand-color
+    border: 1px solid $brand-color
+    height: 150px
+    width: 150px
+    border-radius: 80px
+    cursor: pointer
+    font-size: 1em
+    transition: 0.3s
+
 section#pagination span, section#pagination a
   font-family: $p-font-stack
   border: 1px solid $brand-color
@@ -1141,10 +1160,6 @@ section#pagination span, section#pagination a
   margin: 0px 3px 0px 3px
   transition: 0.2s
   color: $brand-color
-
-section#pagination a:hover, section#pagination span.current
-  background-color: $brand-color
-  color: $background-color
 
 section#pagination span.dots
   background-color: $light-grey
