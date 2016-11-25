@@ -19,12 +19,10 @@ function special_nav_class($classes, $item){
 
 //Allows featured images
 
-	 add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails' );
 
-function wp_new_excerpt($text)
-{
-	if ($text == '')
-	{
+function wp_new_excerpt($text) {
+	if ($text == '') {
 		$text = get_the_content('');
 		$text = strip_shortcodes( $text );
 		$text = apply_filters('the_content', $text);
@@ -102,29 +100,77 @@ add_action('wp_head', 'fbogmeta_header');
 
 //Hide the "featured" category and others on the front-end
 
-			add_filter('get_the_terms', 'hide_categories_terms', 10, 3);
-			function hide_categories_terms($terms, $post_id, $taxonomy){
+add_filter('get_the_terms', 'hide_categories_terms', 10, 3);
+function hide_categories_terms($terms, $post_id, $taxonomy) {
 
-			    $exclude = array('featured', 'upcoming-live', 'videos');
+    $exclude = array('upcoming-live', 'videos');
 
-			    if (!is_admin()) {
-			        foreach($terms as $key => $term){
-			            if($term->taxonomy == "category"){
-			                if(in_array($term->slug, $exclude)) unset($terms[$key]);
-			            }
-			        }
-			    }
+    if (!is_admin()) {
+        foreach($terms as $key => $term){
+            if($term->taxonomy == "category"){
+                if(in_array($term->slug, $exclude)) unset($terms[$key]);
+            }
+        }
+    }
 
-			    return $terms;
-			};
+    return $terms;
+}
 
 
-			//Author contact info
+//Author contact info
 
-			function add_remove_contactmethods( $contactmethods ) {
-			        $contactmethods['twitter'] = 'Twitter handle (&commat; will be automatically added)';
-			        $contactmethods['contactEmail'] = 'Contact Email (publicly visible)';
-			        // this will remove existing contact fields
-			        return $contactmethods;
-			}
-			add_filter('user_contactmethods','add_remove_contactmethods',10,1);
+function add_remove_contactmethods( $contactmethods ) {
+        $contactmethods['twitter'] = 'Twitter handle (&commat; will be automatically added)';
+        $contactmethods['contactEmail'] = 'Contact Email (publicly visible)';
+        // this will remove existing contact fields
+        return $contactmethods;
+}
+add_filter('user_contactmethods','add_remove_contactmethods', 10, 1);
+
+function committee_member_tile( $atts, $content = '' ) {
+  // Attributes
+  $atts = shortcode_atts(array(
+    'name' => '',
+    'role' => '',
+    'office_hour' => '',
+    'email' => '',
+    'twitter_name' => ''
+  ), $atts, 'committee_member');
+
+  ob_start();
+  ?>
+  <div class="team-tile">
+  <?php
+  if ( preg_match('#<img[^>]+/>#', $content, $matches) ) {
+    echo $matches[0];
+  }
+  ?>
+    <h4><?= esc_html( $atts['name'] )?></h4>
+    <p><?= esc_html( $atts['role'] )?></p>
+    <p class="office_hour">Office Hour: <?= esc_html( $atts['office_hour'] )?></p>
+    <div class="team_contact">
+      <?php
+      if ( $atts['name'] && !$atts['email'] ):
+        $email_str = str_replace( ' ', '.', strtolower( $atts['name'] ) ) . '@forgetoday.com';
+      ?>
+        <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span class="email_address"><?= $email_str ?></span></a>
+      <?php
+      else:
+        $email_str = esc_html( $atts['email'] );
+      ?>
+        <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span class="email_address"><?= $email_str ?></span></a>
+      <?php
+      endif;
+      if ( $atts['twitter_name'] ): ?>
+        <a href="https://twitter.com/<?= esc_html( $atts['twitter_name'] )?>">
+          <i class="fa fa-twitter"></i>
+        </a>
+      <?php
+      endif;
+      ?>
+    </div>
+  </div>
+  <?php
+  return ob_get_clean();
+}
+add_shortcode( 'committee_member', 'committee_member_tile' );
