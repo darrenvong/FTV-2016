@@ -9,10 +9,6 @@
 </head>
 <body id="top">
 
-  <script src="<?php echo get_template_directory_uri() . '/js/smooth_scroll.js'?>"></script>
-
-
-
 <!-- The header -->
 
 <?php get_template_part('float-menu'); ?>

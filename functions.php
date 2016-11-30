@@ -47,7 +47,19 @@ add_filter('get_the_excerpt', 'wp_new_excerpt');
 
 wp_enqueue_style( 'Primary styles', get_stylesheet_uri() );
 wp_enqueue_style( 'FontAwesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
+
 wp_enqueue_script( 'jquery_frontend', 'https://code.jquery.com/jquery-2.2.1.min.js');
+
+//JavaScript hotfix to adjust the grid dynanically
+function load_grid_adjust() {
+  if ( is_page("about") ) {
+    //Parameters: handle name, src, js dependencies array (pass handle names here), version num (pass false if there isn't one),
+    //whether to load this in footer (should always set to true for js to speed up page load)
+    wp_enqueue_script('committee_grid_adjustments', get_template_directory_uri() . "/js/grid_adjust.js", array('jquery_frontend'),
+                      false, true);
+  }  
+}
+add_action('wp_enqueue_scripts', 'load_grid_adjust');
 
 //Wrap videos in responsive container
 
@@ -134,12 +146,14 @@ function committee_member_tile( $atts, $content = '' ) {
     'role' => '',
     'office_hour' => '',
     'email' => '',
-    'twitter_name' => ''
+    'twitter_name' => '',
+    // Whether it can be hidden or not to adjust to screen size changes
+    'classes' => ''
   ), $atts, 'committee_member');
 
   ob_start();
   ?>
-  <div class="team-tile">
+  <div class="team-tile <?= (($atts['classes'])? $atts['classes'] : "") ?>">
   <?php
   if ( preg_match('#<img[^>]+/>#', $content, $matches) ) {
     echo $matches[0];

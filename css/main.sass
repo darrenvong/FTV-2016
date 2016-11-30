@@ -1718,6 +1718,13 @@ section.team_gallery
     min-width: 250px
     align-items: center
 
+    //About page grid "hotfix"
+    &.hide
+      visibility: hidden
+
+    &.null-display
+      display: none
+
     img
       border-radius: 200px
       width: 100px
@@ -1752,14 +1759,13 @@ section.team_gallery
 
       a
         color: $light-brand
-        padding-left: 10px
 
         i
           margin-right: 10px
 
       .email_address
         font-family: $h-font-stack
-        font-size: 14px
+        font-size: 13px
 
 //Live
 
