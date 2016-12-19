@@ -34,16 +34,12 @@
 
         <section class="live-container">
           <div class="autosizer">
-          <script src="http:////content.jwplatform.com/players/idJNvXsO-i9raT3mC.js"></script>
+            <?php the_content(); ?>
           </div>
 
           <a class="twitter-timeline" href="https://twitter.com/ForgeTV" data-widget-id="713860130178265088" data-chrome="transparent noheader nofooter">Tweets by @ForgeTV</a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </section>
-
-        <span class="mobile-player">Not working? Try the <a href="http://195.195.131.195:1935/redirect/ForgeTV/forgecast?scheme=m3u8">mobile player</a>.</span>
-
-          <?php the_content(); ?>
 
           <div style="margin-bottom:20px;"></div>
 
