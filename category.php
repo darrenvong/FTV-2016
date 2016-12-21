@@ -48,7 +48,7 @@
 ?>
 
 <!-- Put the 1st post on the top banner -->
-<?php if ($counter==0) {?>
+<?php if ($counter == 0) {?>
 
 <section id="featured" class="live-banner">
 
@@ -66,21 +66,15 @@
     <p><?php the_excerpt(); ?></p>
     <a href="<?php the_permalink(); ?>">
       <?php
-        if(is_category('committee-blog')){
-         echo '<button id="watch-now">Read now <i class="fa fa-book"></i>';
-        }else{
-        echo '<button id="watch-now">Watch now <i class="fa fa-play"></i>';
+        if (is_category('committee-blog')) {
+          echo '<button id="watch-now">Read now <i class="fa fa-book"></i>';
+        } else {
+          echo '<button id="watch-now">Watch now <i class="fa fa-play"></i>';
         };
       ?>
 
       </button></a>
   </div>
-
-  <?php if (in_category('upcoming-live')) { ?>
-    <div class="live-category-player">
-      <script src="http:////content.jwplatform.com/players/idJNvXsO-i9raT3mC.js"></script>
-    </div>
-  <?php }; ?>
 
 </section>
 

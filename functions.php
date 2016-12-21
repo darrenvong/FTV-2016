@@ -94,6 +94,7 @@ function fbogmeta_header() {
 		<meta property="og:type" content="<?php
 			if (is_single() || is_page()) { echo "article"; } else { echo "website";} ?>"/>
 		<meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
+    <meta property="og:description" content="<?= custom_get_excerpt( get_the_ID() ); ?>">
 		<!-- End Open Graph Meta Tags !-->
 
 		<!-- Twitter meta tags -->
@@ -102,6 +103,7 @@ function fbogmeta_header() {
 		<meta name="twitter:creator" content="Forge TV">
 		<meta name="twitter:title" content="<?php the_title(); ?>">
 		<meta name="twitter:image" content="<?php echo $fb_image[0]; ?>">
+    <meta name="twitter:description" content="<?= custom_get_excerpt( get_the_ID() ); ?>">
 
     <?php
   }
@@ -147,7 +149,7 @@ function committee_member_tile( $atts, $content = '' ) {
     'office_hour' => '',
     'email' => '',
     'twitter_name' => '',
-    // Whether it can be hidden or not to adjust to screen size changes
+    // additional classes as handles for styling/layout changes if needed
     'classes' => ''
   ), $atts, 'committee_member');
 
