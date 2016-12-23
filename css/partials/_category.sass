@@ -1,0 +1,166 @@
+//Category page
+
+h2.category
+  font-family: $h-font-stack
+  font-size: 2em
+  text-align: center
+  font-weight: 700
+  color: $brand-color
+  margin: 20px auto 10px auto
+  text-transform: uppercase
+
+h2.category span
+  font-weight: 100
+  color: #dfdfdf
+
+section#category
+  display: flex
+  flex-flow: row wrap
+  z-index: 3
+  position: relative
+  padding: 10px 5px 10px 5px
+  max-width: 1100px
+  margin: 20px auto 10px auto
+
+section#category div.padder
+  height: 350px
+  width: 33.33%
+  padding: 10px
+
+section#category div.tile:hover
+  transform: scale(1.01, 1.01)
+  transition: 0.2s
+
+section#category div.tile:hover .tile-info
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%)
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%)
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 )
+
+section#category div.tile
+  border: 1px solid #dfdfdf
+  height: 100%
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+  transition: 0.2s
+  position: relative
+  overflow: hidden
+
+section#category div.tile div.cover
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+
+section#category div.tile div.tile-image
+  height: 50%
+  background-size: cover
+  background-position: center
+  -webkit-filter: brightness(0.8)
+
+section#category div.tile div.tile-info
+  height: 50%
+  padding: 20px
+  position: relative
+
+section#category div.tile div.tile-info ul
+  list-style-type: none
+  z-index: 10
+  position: relative
+
+section#category div.tile div.tile-info ul li
+  display: inline
+  margin-right: 5px
+  font-size: 0.8em
+  font-family: $p-font-stack
+
+section#category div.tile div.tile-info ul li a
+  color: $mid-grey
+  font-weight: 100
+
+section#category div.tile div.tile-info h2
+  text-transform: uppercase
+  color: $brand-color
+  font-size: 1.3em
+
+section#category div.tile div.tile-info p
+  font-size: 0.8em
+  color: $mid-grey
+  margin-top: 10px
+
+section#category div.tile div.tile-info div.triangle
+  width: 0
+  height: 0
+  border-left: 25px solid transparent
+  border-right: 25px solid transparent
+  border-bottom: 30px solid $background-color
+  position: absolute
+  top: -25px
+  left: 15px
+
+section#pagination
+  padding: 50px 10px 50px 10px
+  width: 100%
+  background-color: $light-grey
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: row
+
+section#pagination span, section#pagination a
+  font-family: $p-font-stack
+  border: 1px solid $brand-color
+  border-radius: 30px
+  font-size: 0.8em
+  text-transform: uppercase
+  padding: 3px 7px
+  margin: 0px 3px 0px 3px
+  transition: 0.2s
+  color: $brand-color
+
+section#pagination a:hover, section#pagination span.current
+  background-color: $brand-color
+  color: $background-color
+
+section#pagination span.dots
+  background-color: $light-grey
+  color: $brand-color
+  border: none !important
+
+ul.popular-cats
+  list-style-type: none
+  margin-bottom: 30px
+  text-align: center
+
+ul.popular-cats li
+  display: inline
+  font-family: $p-font-stack
+  border: 1px solid $mid-grey
+  border-radius: 30px
+  font-size: 0.8em
+  text-transform: uppercase
+  padding: 3px 7px
+  margin: 0px 3px 0px 3px
+  transition: 0.2s
+
+ul.popular-cats li a
+  color: $mid-grey
+
+ul.popular-cats li:hover
+  background-color: $brand-color !important
+  border-color: $brand-color
+
+ul.popular-cats li:hover a
+  color: $background-color !important
+
+span#cat-back
+  position: absolute
+  color: $brand-color
+  top: -25px
+  font-family: $p-font-stack
+  text-transform: uppercase
+  text-shadow: none !important
+  transition: 0.1s
+
+span#cat-back:hover
+  transform: scale(1.1, 1.1)

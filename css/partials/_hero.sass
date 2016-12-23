@@ -1,0 +1,107 @@
+// The hero section
+
+section#hero
+  width: 100%
+  height: 100%
+  display: -webkit-box
+
+  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox
+
+  /* TWEENER - IE 10 */
+  display: -webkit-flex
+
+  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex
+
+  /* NEW, Spec - Firefox, Chrome, Opera */
+  align-items: center
+  justify-content: center
+  -webkit-flex-direction: column
+  flex-direction: column
+  color: $background-color
+  position: relative
+  z-index: 1
+  overflow: hidden
+  font-family: $h-font-stack
+
+section#hero div#bg_img
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  height: 100%
+  z-index: -2
+  -webkit-filter: brightness(0.6) grayscale(1)
+  -moz-filter: brightness(0.6) grayscale(1)
+  -ms-filter: brightness(0.6) grayscale(1)
+  -o-filter: brightness(0.6) grayscale(1)
+  filter: brightness(0.6) grayscale(1)
+
+section#hero div#bg
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: -1
+  background: -moz-linear-gradient(right, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%)
+  background: -webkit-linear-gradient(right, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%)
+  background: linear-gradient(to left, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-color', endColorstr='#00282961',GradientType=1 )
+
+section#hero div.divider
+  height: 12px
+  width: 60px
+  border-top: 3px solid $background-color
+  border-bottom: 3px solid $background-color
+  margin: 20px
+
+section#hero span#slogan
+  max-width: 320px
+  text-align: center
+  padding: 0px 10px 0px 10px
+  font-size: 1.1em
+
+img#logo
+  height: 100px
+
+a.cue
+  position: absolute
+  bottom: 0
+  width: 100%
+  text-align: center
+  color: $background-color
+  animation-name: throb
+  animation-duration: 1s
+  animation-delay: 1s
+  transition: 0.2s
+  z-index: 3
+  left: 0
+
+i.cue
+  opacity: 0.7
+  padding: 5px
+
+@keyframes throb
+  0%
+    transform: scaleY(1)
+    background-color: rgba(255, 255, 255, 0)
+
+  50%
+    transform: scaleY(1.5)
+    background-color: rgba(255, 255, 255, 0.3)
+
+  100%
+    transform: scaleY(1)
+    background-color: rgba(255, 255, 255, 0)
+
+a.cue:hover
+  transition: 0.2s
+  transform: scaleY(1.3)
+  background-color: rgba(255, 255, 255, 0.3)

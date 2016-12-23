@@ -17,9 +17,7 @@
 
       $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
       ?>
-
-      <meta name="twitter:description" content="<?php echo get_the_excerpt(); ?>">
-
+      
         <section id="title">
           <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
           <div id="bg"></div>

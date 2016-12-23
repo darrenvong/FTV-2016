@@ -1,0 +1,71 @@
+// Team Gallery aka committee grid
+
+section.team_gallery
+  width: 100%
+  display: flex
+  flex-direction: row
+  flex-flow: row wrap
+
+  div.team-tile
+    margin: 50px 5px 5px 5px
+    padding: 10px
+    transition: 0.1s
+    border-top: 7px solid $brand-color
+    background-color: $background-color
+    border-bottom: 1px solid #dfdfdf
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+    position: relative
+    display: flex
+    flex-direction: column
+    flex: 1
+    min-width: 250px
+    align-items: center
+
+    //About page grid "hotfix"
+    &.hide
+      visibility: hidden
+
+    &.null-display
+      display: none
+
+    img
+      border-radius: 200px
+      width: 100px
+      height: 100px
+      object-fit: cover
+      -o-object-fit: cover
+      // font-family: 'object-fit: cover;'
+      margin-top: -50px
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
+
+    h4
+      font-family: $h-font-stack
+      color: $brand-color
+      font-size: 1.1em
+      font-weight: 700
+      margin-top: 10px
+
+    p
+      text-align: center
+      font-size: 0.8em
+      color: $mid-grey
+      background-color: transparent
+      margin-top: 5px !important
+
+      &.office_hour
+        font-family: $h-font-stack
+        color: $brand-color
+
+    div.team_contact
+      margin: 10px
+      display: inline-flex
+
+      a
+        color: $light-brand
+
+        i
+          margin-right: 10px
+
+      .email_address
+        font-family: $h-font-stack
+        font-size: 13px

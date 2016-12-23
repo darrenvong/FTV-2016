@@ -1,0 +1,152 @@
+//Latest section
+
+h4
+  font-size: 0.9em
+  text-transform: uppercase
+  margin-bottom: 5px
+  font-family: open sans
+  font-weight: 100
+  color: $mid-grey
+
+section#latest
+  display: -webkit-box
+
+  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox
+
+  /* TWEENER - IE 10 */
+  display: -webkit-flex
+
+  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex
+
+  /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-flow: row wrap
+  -webkit-flex-flow: row wrap
+  -webkit-flex-direction: row
+  z-index: 3
+  position: relative
+  padding: 10px 5px 10px 5px
+
+  div.padder
+    width: 33.33%
+    padding: 10px
+
+  div.tile
+    border: 1px solid #dfdfdf
+    height: 330px
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+    transition: 0.2s
+    position: relative
+    overflow: hidden
+
+    div.cover
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+
+    div.tile-image
+      height: 50%
+      background-size: cover
+      background-position: center
+      -webkit-filter: brightness(0.8)
+
+    div.tile-info
+      height: 50%
+      padding: 20px
+      position: relative
+
+      div.triangle
+        width: 0
+        height: 0
+        border-left: 25px solid transparent
+        border-right: 25px solid transparent
+        border-bottom: 30px solid $background-color
+        position: absolute
+        top: -25px
+        left: 15px
+      
+      p
+        font-size: 0.8em
+        color: $mid-grey
+        margin-top: 10px
+
+      h2
+        text-transform: uppercase
+        color: $brand-color
+        font-size: 1.3em
+
+      ul
+        list-style-type: none
+        z-index: 10
+        position: relative
+
+        li
+          display: inline
+          margin-right: 5px
+          font-size: 0.8em
+          font-family: $p-font-stack
+
+          a
+            color: $mid-grey
+            font-weight: 100
+
+  div.tile:hover
+    transform: scale(1.01, 1.01)
+    transition: 0.2s
+
+    .tile-info
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%)
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%)
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(40, 41, 97, 0.05) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a282961',GradientType=0 )
+
+div.grad
+  position: absolute
+  z-index: 4
+  bottom: 0
+  height: 40px
+  left: 0
+  width: 100%
+  background: rgba(255, 255, 255, 0)
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(246, 246, 246, 0.47) 47%, $background-color 100%)
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(47%, rgba(246, 246, 246, 0.47)), color-stop(100%, $background-color))
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(246, 246, 246, 0.47) 47%, $background-color 100%)
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(246, 246, 246, 0.47) 47%, $background-color 100%)
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(246, 246, 246, 0.47) 47%, $background-color 100%)
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(246, 246, 246, 0.47) 47%, $background-color 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$background-color', GradientType=0 )
+
+a span#more
+  color: $brand-color
+  font-size: 1em
+  font-family: open sans
+  text-transform: uppercase
+  font-weight: 100
+  margin: 5px 10px 20px 10px
+  display: none
+  transition: 0.1s
+  cursor: pointer
+
+a span#more:hover
+  transform: scale(1.1, 1.1)
+
+a#more span
+  color: $brand-color
+  font-size: 1em
+  font-family: open sans
+  text-transform: uppercase
+  font-weight: 100
+  cursor: pointer
+  text-align: center
+
+a#more:hover
+  transform: scale(1.05, 1.05)
+
+a#more
+  width: 122px !important
+  margin: 5px auto 50px auto
+  display: block
+  transition: 0.1s

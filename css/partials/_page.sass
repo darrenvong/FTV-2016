@@ -1,0 +1,186 @@
+// Hire us section + custom page template styling
+
+section.page_img
+  width: 100%
+  height: 60%
+  background-color: $light-grey
+  position: relative
+
+section.page_img div#bg_img
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-attachment: fixed
+  background-position: center
+  background-size: cover
+  -webkit-filter: grayscale(1)
+  -moz-filter: grayscale(1)
+  filter: grayscale(1)
+  -ms-filter: grayscale(1)
+  -o-filter: grayscale(1)
+
+section.page_img div#bg
+  background: -moz-linear-gradient(left, #1d1f60 0%, rgba(40, 41, 97, 0) 100%)
+  background: -webkit-linear-gradient(left, #1d1f60 0%, rgba(40, 41, 97, 0) 100%)
+  background: linear-gradient(to right, #1d1f60 0%, rgba(40, 41, 97, 0) 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-color', endColorstr='#00282961',GradientType=1 )
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 1
+
+section.page_img div#centred
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 100%
+
+section.page_img div.featured-info
+  padding: 50px
+  max-width: 500px
+  text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4)
+  z-index: 2
+  position: relative
+
+section.page_img div.featured-info ul
+  list-style-type: none
+
+section.page_img div.featured-info ul li
+  display: inline
+  margin-right: 5px
+  font-size: 0.8em
+  font-family: $p-font-stack
+  font-weight: 100
+
+section.page_img div.featured-info ul li a
+  color: $background-color
+
+section.page_img div.featured-info h2
+  text-transform: uppercase
+  color: $background-color
+  font-size: 1.8em
+
+section.page_img div.featured-info p
+  font-size: 0.9em
+  color: $background-color
+
+section.page_img div.featured-info button#watch-now
+  color: $background-color
+  background-color: $light-brand
+  padding: 15px
+  font-size: 0.8em
+  border-radius: 2px
+  margin-top: 40px
+  border: none !important
+  box-shadow: none !important
+  text-transform: uppercase
+  font-family: open sans
+  cursor: pointer
+
+section.page_img div.featured-info button#watch-now i
+  margin-left: 5px
+
+section.page_img div.featured-info h3
+  font-size: 1.8em
+  color: rgba(255, 255, 255, 0.1)
+  text-transform: uppercase
+  color: $background-color
+
+section.page_img div.featured-info h4 a
+  color: $background-color
+
+a#whiteeeeee
+  color: white
+
+section.page_strip
+  width: 100%
+  min-height: 60%
+  background-color: $light-grey
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  padding: 60px
+  -webkit-box-shadow: inset 0px -78px 120px -53px rgba(0, 0, 0, 0.1)
+  -moz-box-shadow: inset 0px -78px 120px -53px rgba(0, 0, 0, 0.1)
+  box-shadow: inset 0px -78px 120px -53px rgba(0, 0, 0, 0.1)
+
+section.page_strip div.video-box
+  flex: 1
+  max-width: 800px
+
+section.page_strip div.content-left
+  margin-right: 170px
+
+section.page_strip div.content-right
+  margin-left: 170px
+  text-align: right
+
+section.page_strip div.content-right, section.page_strip div.content-left
+  max-width: 500px
+  flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+section.page_strip div.content-right h3, section.page_strip div.content-left h3
+  font-size: 1.7em
+  font-family: oswald
+  color: $brand-color
+  text-transform: uppercase
+  margin-bottom: 10px
+
+section.page_strip div.content-right p, section.page_strip div.content-left p
+  font-size: 0.9em
+  color: #2d2d2d
+  margin-bottom: 10px
+
+div.hire-tile-container
+  display: flex
+  flex: 1
+  flex-direction: row
+  min-width: 560px
+
+div.hire-tile-container img
+  max-width: 200px
+  height: auto
+
+div.hire-tile:hover
+  transform: scale(1.03, 1.03)
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+
+div.hire-tile
+  transition: 0.1s
+  flex: 1
+  border-top: 7px solid $brand-color
+  background-color: $background-color
+  margin: 5px
+  border-bottom: 1px solid #dfdfdf
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)
+  position: relative
+  display: flex
+  flex-direction: column
+  padding: 10px
+  max-width: 250px
+  align-items: center
+
+div.hire-tile i
+  color: $brand-color
+  margin: 10px
+
+div.hire-tile h5
+  text-transform: uppercase
+  font-size: 1.3em
+  color: $brand-color
+
+div.hire-tile p
+  text-align: center
+  font-size: 0.8em
+  margin: 10px auto
+
+div.hire-tile h4
+  font-size: 0.9em

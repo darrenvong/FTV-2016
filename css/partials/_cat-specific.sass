@@ -1,0 +1,149 @@
+// Category Specific layout
+
+section#blog-title
+  width: 100%
+  background-color: rgba(255, 255, 255, 0.1)
+  position: relative
+  padding: 80px 0px 80px 0px
+  margin-bottom: 30px
+
+section#blog-title div#bg_img
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  -webkit-filter: grayscale(1) brightness(0.7)
+  -moz-filter: grayscale(1) brightness(0.7)
+  -ms-filter: grayscale(1) brightness(0.7)
+  -o-filter: grayscale(1) brightness(0.7)
+  filter: grayscale(1) brightness(0.7)
+  background-size: cover
+  background-position: center
+  background-attachment: fixed
+  z-index: 1
+
+section#blog-title div#bg
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: -moz-linear-gradient(right, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%)
+  background: -webkit-linear-gradient(right, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%)
+  background: linear-gradient(to left, rgba(29, 31, 96, 0.7) 0%, rgba(40, 41, 97, 0) 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-color', endColorstr='#00282961',GradientType=1 )
+  z-index: 2
+
+section#blog-title div#full-height
+  max-width: 1000px
+  margin: 0 auto
+  height: 250px
+  display: flex
+  justify-content: center
+  flex-direction: column
+
+section#blog-title div#full-height h2
+  z-index: 3
+  position: relative
+  text-transform: uppercase
+  color: $background-color
+  margin: 0px auto
+  font-size: 2.5em
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5)
+  text-align: center
+  max-width: 800px
+
+section#blog-title div#full-height h3
+  z-index: 3
+  position: relative
+  text-transform: uppercase
+  font-family: $p-font-stack
+  color: $background-color
+  margin: 0px auto
+  font-size: 0.9em
+  font-weight: 100
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5)
+  line-height: 24px
+
+section#blog-title div#full-height h3 ul
+  list-style-type: none
+  display: inline
+
+section#blog-title div#full-height h3 ul li:hover
+  background-color: $light-grey
+  border: 1px solid $background-color
+  text-shadow: none !important
+
+section#blog-title div#full-height h3 ul li:hover a
+  color: $brand-color !important
+
+section#blog-title div#full-height h3 ul li
+  display: inline
+  margin-right: 3px
+  display: inline
+  margin-right: 3px
+  border: 1px solid $background-color
+  padding: 2px 9px 2px 9px
+  border-radius: 20px
+  font-size: 0.8em
+  transition: 0.1s
+
+section#blog-title div#full-height h3 ul li a
+  color: $light-grey
+
+article.blog
+  max-width: 700px
+  margin: 0px auto 0px auto
+
+article.blog h2
+  text-transform: uppercase
+  color: $brand-color
+  font-size: 2em
+  margin-top: 20px
+
+article.blog div.wp-caption
+  width: 100% !important
+  margin: 30px auto 30px auto
+
+article.blog div.wp-caption img
+  border-bottom: 4px solid $light-brand
+
+article.blog div.wp-caption p
+  font-size: 0.8em
+
+article.blog h3
+  font-size: 0.8em
+  margin-bottom: 30px
+
+article.blog h3 ul
+  list-style-type: none
+  display: inline
+
+article.blog h3 ul li
+  display: inline
+
+article.blog h3 ul li a
+  color: $brand-color
+
+article.blog blockquote
+  float: right
+  width: 30%
+  font-size: 1.8em
+  margin: 20px
+
+article.blog blockquote p
+  font-weight: 400
+  font-family: $h-font-stack
+  color: $brand-color
+  padding-left: 10px
+  border-left: 4px solid $lighter-brand
+
+article.blog div.video-box
+  margin: 40px 0px 40px 0px
+
+article.blog p
+  margin: 0px auto 15px auto
+
+article.blog p a
+  color: $brand-color
