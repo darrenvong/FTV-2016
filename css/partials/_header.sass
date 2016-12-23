@@ -11,45 +11,51 @@ header
   z-index: 100
   font-family: $h-font-stack
 
+  nav ul li
+    float: left
+    padding: 0px 7px 0px 7px
+    font-size: 0.9em
+    transition: 0.2s
+    text-transform: uppercase
+
+  nav#right .bars
+    display: none
+    transition: 0.1s
+    color: $brand-color
+ 
 nav ul
   list-style-type: none
 
-header nav ul li
-  float: left
-  padding: 0px 7px 0px 7px
-  font-size: 0.9em
-  transition: 0.2s
-  text-transform: uppercase
+  li a
+    color: $brand-color
 
-nav ul li a
-  color: $brand-color
-
-nav#left ul li:hover, nav#right ul li:hover, footer nav ul li:hover, nav#social ul li a:hover
-  margin-top: -3px
-  transition: 0.2s
+nav#left, nav#right, footer nav, nav#social
+  ul li:hover
+    margin-top: -3px
+    transition: 0.2s
 
 nav#right, nav#social
   float: right
 
-nav#social ul li a
-  background-color: $brand-color
-  border-radius: 30px
-  width: 23px
-  height: 23px
-  color: $background-color
-  display: flex
-  display: -webkit-flex
-  justify-content: center
-  align-items: center
-  transition: 0.2s
-  text-align: center
-
 nav#social
   margin-left: 10px
 
-nav#social ul li
-  padding: 0px 5px 0px 5px
-  margin-top: -2px
+  ul li
+    padding: 0px 5px 0px 5px
+    margin-top: -2px
+
+    a
+      background-color: $brand-color
+      border-radius: 30px
+      width: 23px
+      height: 23px
+      color: $background-color
+      display: flex
+      display: -webkit-flex
+      justify-content: center
+      align-items: center
+      transition: 0.2s
+      text-align: center
 
 nav#right ul li.active a
   background-color: $light-brand
@@ -61,8 +67,3 @@ nav#right ul li.active a
 
 img#forge
   height: 20px
-
-header nav#right .bars
-  display: none
-  transition: 0.1s
-  color: $brand-color

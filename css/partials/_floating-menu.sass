@@ -12,58 +12,58 @@ nav#mobile
   align-items: center
   justify-content: center
 
-nav#mobile hr
-  width: 50%
-  margin: 30px
-  background-color: none
-  border: 1px solid rgba(255, 255, 255, 0.3)
-  max-width: 230px
+  hr
+    width: 50%
+    margin: 30px
+    background-color: none
+    border: 1px solid rgba(255, 255, 255, 0.3)
+    max-width: 230px
 
-nav#mobile ul#mobile-primary
-  text-align: center
-  font-family: oswald
-  font-size: 1.6em
-  text-transform: uppercase
-  margin: 5px
+  ul#mobile-primary
+    text-align: center
+    font-family: oswald
+    font-size: 1.6em
+    text-transform: uppercase
+    margin: 5px
 
-nav#mobile ul#mobile-primary li a
-  color: $background-color
+    li a
+      color: $background-color
 
-nav#mobile ul#mobile-primary li a:hover
-  color: $light-brand
-  transition: 0.2s
+      &:hover
+        color: $light-brand
+        transition: 0.2s
 
-nav#mobile ul#socialise
-  display: flex
-  flex-direction: row
-  justify-content: center
-  align-items: center
+  ul#socialise
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
 
-nav#mobile ul#socialise li:hover
-  margin-top: -3px
+    li
+      width: 40px
+      height: 40px
+      border-radius: 50px
+      background-color: $background-color
+      margin: 5px
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 1.5em
+      transition: 0.1s
 
-nav#mobile ul#socialise li
-  width: 40px
-  height: 40px
-  border-radius: 50px
-  background-color: $background-color
-  margin: 5px
-  display: flex
-  justify-content: center
-  align-items: center
-  font-size: 1.5em
-  transition: 0.1s
+      &:hover
+        margin-top: -3px
+      
+      a  
+        color: rgba(0, 0, 0, 0.9)
 
-nav#mobile ul#socialise li a
-  color: rgba(0, 0, 0, 0.9)
-
-nav#mobile.on
-  display: flex
-  -webkit-animation: fadein 0.5
-  -moz-animation: fadein 0.5
-  -ms-animation: fadein 0.5
-  -o-animation: fadein 0.5
-  animation: fadein 0.5s
+  &.on
+    display: flex
+    -webkit-animation: fadein 0.5
+    -moz-animation: fadein 0.5
+    -ms-animation: fadein 0.5
+    -o-animation: fadein 0.5
+    animation: fadein 0.5s
 
 @keyframes fadein
   from
@@ -87,43 +87,43 @@ nav#mobile.on
   cursor: pointer
   margin-top: 5px
 
-.bars.white
-  display: none
-  position: fixed
-  top: 51px
-  right: 0
-  margin: 15px
-  z-index: 101
+  &.white
+    display: none
+    position: fixed
+    top: 51px
+    right: 0
+    margin: 15px
+    z-index: 101
 
+    span
+      background: $background-color
+  
   span
-    background: $background-color
+    display: block
+    position: absolute
+    height: 3px
+    width: 100%
+    background: $brand-color
+    border-radius: 9px
+    opacity: 1
+    left: 0
+    -webkit-transform: rotate(0deg)
+    -moz-transform: rotate(0deg)
+    -o-transform: rotate(0deg)
+    transform: rotate(0deg)
+    -webkit-transition: 0.25s ease-in-out
+    -moz-transition: 0.25s ease-in-out
+    -o-transition: 0.25s ease-in-out
+    transition: 0.25s ease-in-out
 
-.bars span
-  display: block
-  position: absolute
-  height: 3px
-  width: 100%
-  background: $brand-color
-  border-radius: 9px
-  opacity: 1
-  left: 0
-  -webkit-transform: rotate(0deg)
-  -moz-transform: rotate(0deg)
-  -o-transform: rotate(0deg)
-  transform: rotate(0deg)
-  -webkit-transition: 0.25s ease-in-out
-  -moz-transition: 0.25s ease-in-out
-  -o-transition: 0.25s ease-in-out
-  transition: 0.25s ease-in-out
+    &:nth-child(1)
+      top: 0px
 
-.bars span:nth-child(1)
-  top: 0px
+    &:nth-child(2)
+      top: 6px
 
-.bars span:nth-child(2)
-  top: 6px
-
-.bars span:nth-child(3)
-  top: 12px
+    &:nth-child(3)
+      top: 12px
 
 .bars.open, .bars.white
   

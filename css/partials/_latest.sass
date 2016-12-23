@@ -130,23 +130,23 @@ a span#more
   transition: 0.1s
   cursor: pointer
 
-a span#more:hover
-  transform: scale(1.1, 1.1)
-
-a#more span
-  color: $brand-color
-  font-size: 1em
-  font-family: open sans
-  text-transform: uppercase
-  font-weight: 100
-  cursor: pointer
-  text-align: center
-
-a#more:hover
-  transform: scale(1.05, 1.05)
+  &:hover
+    transform: scale(1.1, 1.1)
 
 a#more
   width: 122px !important
   margin: 5px auto 50px auto
   display: block
   transition: 0.1s
+
+  span
+    color: $brand-color
+    font-size: 1em
+    font-family: open sans
+    text-transform: uppercase
+    font-weight: 100
+    cursor: pointer
+    text-align: center
+
+  &:hover
+    transform: scale(1.05, 1.05)
