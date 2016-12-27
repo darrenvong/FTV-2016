@@ -39,28 +39,26 @@
   if ( have_posts() ) {
   	while ( have_posts() && $counter < 6 ) {
   		the_post();
-
-        $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-        ?>
-
-          <div class="padder">
-            <div class="tile">
-              <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
-              </div>
-              <div class="tile-info">
-                <div class="triangle"></div>
-                <h4><?php the_category(); ?></h4>
-                <h2><?php if (in_category(23)){
-                  ?> <i class="fa fa-rss"></i> <?php
-                } ?><?php the_title(); ?></h2>
-                <p><?php the_excerpt(); ?></p>
-                <div class="grad"></div>
-              </div>
-              <a href="<?php the_permalink(); ?>">
-              <div class="cover"></div>
-              </a>
-            </div>
+      $thumbnail_size = array(768, 432); //"HD" quality
+  ?>
+      <div class="padder">
+        <div class="tile">
+          <div class="tile-image" style="background-image:url(<?php echo the_post_thumbnail_url( $thumbnail_size ); ?>)">
           </div>
+          <div class="tile-info">
+            <div class="triangle"></div>
+            <h4><?php the_category(); ?></h4>
+            <h2><?php if (in_category(23)){
+              ?> <i class="fa fa-rss"></i> <?php
+            } ?><?php the_title(); ?></h2>
+            <p><?php the_excerpt(); ?></p>
+            <div class="grad"></div>
+          </div>
+          <a href="<?php the_permalink(); ?>">
+          <div class="cover"></div>
+          </a>
+        </div>
+      </div>
 
     <?php
       $counter++;
@@ -83,26 +81,22 @@ $featured_query = new WP_Query( $args1 );
 if ( $featured_query->have_posts() ) {
   while ( $featured_query->have_posts() ) {
     $featured_query->the_post();
+?>
 
-        $do_not_duplicate=$post->ID;
+    <section id="featured">
 
-        $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-        ?>
+      <div id="bg_img" style="background-image:url(<?php echo the_post_thumbnail_url('large'); ?>)"></div>
 
-        <section id="featured">
-
-          <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
-
-          <div id="bg"></div>
-          <div class="featured-info">
-            <h4><?php the_category(); ?></h4>
-            <h2><?php if (in_category("upcoming-live")){
-              ?><i class="fa fa-rss"></i> <?php
-            } ?><?php the_title(); ?></h2>
-            <p><?php the_excerpt(); ?></p>
-            <a href="<?php the_permalink(); ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
-          </div>
-        </section>
+      <div id="bg"></div>
+      <div class="featured-info">
+        <h4><?php the_category(); ?></h4>
+        <h2><?php if (in_category("upcoming-live")){
+          ?><i class="fa fa-rss"></i> <?php
+        } ?><?php the_title(); ?></h2>
+        <p><?php the_excerpt(); ?></p>
+        <a href="<?php the_permalink(); ?>"><button id="watch-now">Watch now <i class="fa fa-play"></i></button></a>
+      </div>
+    </section>
 
       <?php
   } // end while
@@ -145,25 +139,22 @@ wp_reset_postdata();
     if ( $featured_query->have_posts() ) {
       while ( $featured_query->have_posts() ) {
         $featured_query->the_post();
+    ?>
 
-            $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-            ?>
+        <div class="service hover">
+          <div class="flex-image" style="background-image:url(<?php echo the_post_thumbnail_url('medium') ?>)"></div>
+          <div class="flex-content">
+            <h4>Latest blog post</h4>
+            <h3><?php the_title(); ?></h3>
+            <p><?php the_excerpt(); ?></p>
+          </div>
 
-              <div class="service hover">
-                <div class="flex-image" style="background-image:url(<?php echo $featured_img ?>)"></div>
-                <div class="flex-content">
-                  <h4>Latest blog post</h4>
-                  <h3><?php the_title(); ?></h3>
-                  <p><?php the_excerpt(); ?></p>
-                </div>
+          <a href="<?php the_permalink(); ?>">
+            <div class="cover"></div>
+          </a>
 
-                <a href="<?php the_permalink(); ?>">
-                  <div class="cover"></div>
-                </a>
-
-              </div>
-
-          <?php
+        </div>
+    <?php
       } // end while
     } // end if
     wp_reset_postdata();

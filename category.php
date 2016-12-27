@@ -43,16 +43,17 @@
   if ( have_posts() ) {
   	while ( have_posts() ) {
   		the_post();
-  //Declare variable for featured images
-  $featured_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+  //Declare desired size for the feature image
+  $thumbnail_size = array(768, 432);
 ?>
 
-<!-- Put the 1st post on the top banner -->
 <?php if ($counter == 0) {?>
+<!-- Put the 1st post on the top banner -->
 
 <section id="featured" class="live-banner">
 
-  <div id="bg_img" style="background-image:url(<?php echo $featured_img; ?>)"></div>
+  <div id="bg_img" style="background-image:url(<?php echo the_post_thumbnail_url('large'); ?>)"></div>
 
   <div id="bg"></div>
   <div class="featured-info">
@@ -84,7 +85,7 @@
 
   <div class="padder">
     <div class="tile">
-      <div class="tile-image" style="background-image:url(<?php echo $featured_img; ?>)">
+      <div class="tile-image" style="background-image:url(<?php echo the_post_thumbnail_url($thumbnail_size); ?>)">
       </div>
       <div class="tile-info">
         <div class="triangle"></div>
