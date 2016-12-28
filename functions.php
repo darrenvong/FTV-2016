@@ -68,6 +68,16 @@ function my_embed_oembed_html($html, $url, $attr, $post_id) {
   return '<div class="video-box"><div class="video-wrapper">' . $html . '</div></div>';
 }
 
+// Picks a hero photo name at random
+function displayRandom() {
+    $NUM_HERO_PHOTOS = 5;
+    for ($i = 1; $i <= $NUM_HERO_PHOTOS; $i++) {
+      $photoAreas[] = "/hero" . $i . ".jpg";
+    }
+    $randomNumber = rand(0, (count($photoAreas) - 1));
+    echo $photoAreas[$randomNumber];
+}
+
 // Random Text on the "related videos" section to keep it a bit more interesting
 function randomText() {
     $photoAreas = array("Always more to see", "More delightful videos", "Lots left to see", "We've got lots left to show you", "Aren't you glad to see us", "Have a looksie", "Fancy seeing you here");

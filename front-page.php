@@ -2,20 +2,6 @@
 
 <section id="hero">
 
-    <?php
-      // Picks a hero photo name at random
-      function displayRandom() {
-          $NUM_HERO_PHOTOS = 5;
-          for ($i = 1; $i <= $NUM_HERO_PHOTOS; $i++) {
-            $photoAreas[] = "/hero" . $i . ".jpg";
-          }
-          $randomNumber = rand(0, (count($photoAreas) - 1));
-          echo $photoAreas[$randomNumber];
-      }
-    ?>
-
-
-
   <div id="bg_img" style="background-image: url(<?php bloginfo('template_directory'); ?>/img<?php displayRandom(); ?>)"></div>
   <div id="bg"></div>
 
