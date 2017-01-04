@@ -15,10 +15,10 @@
 
   <hr>
 
-  <p>All rights reserved. Designed by <a target="blank" href="http://joshuahackett.com">Joshua Hackett</a>.
-  Maintained by <a href="https://github.com/darrenvong">Darren Vong</a>.
+  <p>All rights reserved. Designed by Joshua Hackett.
+  Maintained by <a href="https://github.com/darrenvong" target="_blank">Darren Vong</a>.
   <br>
-  Want to reuse our content? <a href="http://forgetoday.com/tv/contact">Get in touch</a>.</p>
+  Want to reuse our content? <a href="mailto:forgetv@forgetoday.com">Get in touch</a>.</p>
 
 </footer>
 
