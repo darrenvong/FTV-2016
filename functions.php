@@ -44,11 +44,13 @@ add_filter('get_the_excerpt', 'wp_new_excerpt');
 
 
 //Enqueue scripts
+function ftv_enqueue() {
+  wp_enqueue_style( 'Primary styles', get_stylesheet_uri() );
+  wp_enqueue_style( 'FontAwesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
 
-wp_enqueue_style( 'Primary styles', get_stylesheet_uri() );
-wp_enqueue_style( 'FontAwesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
-
-wp_enqueue_script( 'jquery_frontend', 'https://code.jquery.com/jquery-2.2.1.min.js');
+  wp_enqueue_script( 'jquery_frontend', 'https://code.jquery.com/jquery-2.2.1.min.js');  
+}
+add_action('wp_enqueue_scripts', 'ftv_enqueue');
 
 //JavaScript hotfix to adjust the grid dynanically
 function load_grid_adjust() {

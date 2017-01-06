@@ -150,6 +150,6 @@ wp_reset_postdata();
 </section>
 
 <?php
-get_template_part(contact);
+get_template_part('contact');
 get_footer();
 ?>
