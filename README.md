@@ -28,3 +28,6 @@ A ProcessWire adaptation of the Wordpress theme for the Forge TV website.
 
 ### Comments
 - [x] Disqus comments in all single post/page templates
+
+### Additional Feature(s)
+- [x] Photo/Video gallery 

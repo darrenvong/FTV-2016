@@ -24,9 +24,13 @@ $(function() {
 
   var sectCounter = 1;
   $('#pagination button').click(function() {
+    // "Load in" (i.e. reveal) more images when "Load More" button is clicked
     $('.sect'+sectCounter).toggleClass('sect'+sectCounter);
+    // Programmatically triggers click events on the images revealed to actually load them
+    // in due to lazy loading behaviour
     $('.padder:not([class*="sect"].padder) img').trigger("click");
     sectCounter++;
+    // Hide "Load More" button when there aren't any more images available
     if ($('[class*="sect"].padder img').size() == 0) {
       $(this).parent().css("display", "none");
     }
