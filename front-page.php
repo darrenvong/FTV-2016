@@ -21,6 +21,9 @@
 
   <?php
   $counter = 0;
+  // array of post IDs to keep track of displayed posts so featured banner don't show
+  // the same post twice on this page
+  $displayed = array();
 
   if ( have_posts() ) {
   	while ( have_posts() && $counter < 6 ) {
@@ -47,19 +50,19 @@
       </div>
 
     <?php
+      $displayed[] = get_the_ID();
       $counter++;
     } // end while
   } // end if
   ?>
 </section>
 
-
-
 <?php
 
 $args1 = Array(
-  'category_name' => 'features',
+  'category_name' => 'featured',
   'posts_per_page' => '1',
+  'post__not_in' => $displayed
 );
 
 $featured_query = new WP_Query( $args1 );
