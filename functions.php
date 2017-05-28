@@ -151,7 +151,7 @@ function hide_categories_terms($terms, $post_id, $taxonomy) {
 
 //Author contact info
 
-function add_remove_contactmethods( $contactmethods ) {
+function add_remove_contactmethods($contactmethods) {
         $contactmethods['twitter'] = 'Twitter handle (&commat; will be automatically added)';
         $contactmethods['contactEmail'] = 'Contact Email (publicly visible)';
         // this will remove existing contact fields
@@ -159,7 +159,20 @@ function add_remove_contactmethods( $contactmethods ) {
 }
 add_filter('user_contactmethods','add_remove_contactmethods', 10, 1);
 
-function committee_member_tile( $atts, $content = '' ) {
+function get_image_id_by_link($link) {
+    global $wpdb;
+    // strips out the size of image in file name in case link used isn't the original image
+    $link = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $link);
+
+    return $wpdb->get_var("SELECT ID FROM {$wpdb->posts} WHERE BINARY guid='$link'");
+}
+
+function get_optimised_photo($url) {
+  $photo_id = get_image_id_by_link($url);
+  return wp_get_attachment_image_url( $photo_id, "medium" );
+}
+
+function committee_member_tile($atts) {
   // Attributes
   $atts = shortcode_atts(array(
     'name' => '',
@@ -167,36 +180,32 @@ function committee_member_tile( $atts, $content = '' ) {
     'office_hour' => '',
     'email' => '',
     'twitter_name' => '',
+    'photo_url' => '',
     // additional classes as handles for styling/layout changes if needed
     'classes' => ''
   ), $atts, 'committee_member');
+  // runs the escape filter through all attributes at once
+  $atts = array_map("esc_html", $atts);
 
   ob_start();
   ?>
   <div class="team-tile <?= (($atts['classes'])? $atts['classes'] : "") ?>">
-  <?php
-  if ( preg_match('#<img[^>]+/>#', $content, $matches) ) {
-    echo $matches[0];
-  }
-  ?>
-    <h4><?= esc_html( $atts['name'] )?></h4>
-    <p><?= esc_html( $atts['role'] )?></p>
-    <p class="office_hour">Office Hour: <?= esc_html( $atts['office_hour'] )?></p>
+    <img src="<?= get_optimised_photo( $atts['photo_url'] ); ?>">
+    <h4><?= $atts['name'] ?></h4>
+    <p><?= $atts['role'] ?></p>
+    <p class="office_hour">Office Hour: <?= $atts['office_hour'] ?></p>
     <div class="team_contact">
       <?php
       if ( $atts['name'] && !$atts['email'] ):
         $email_str = str_replace( ' ', '.', strtolower( $atts['name'] ) ) . '@forgetoday.com';
-      ?>
-        <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span class="email_address"><?= $email_str ?></span></a>
-      <?php
       else:
-        $email_str = esc_html( $atts['email'] );
-      ?>
-        <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span class="email_address"><?= $email_str ?></span></a>
-      <?php
+        $email_str = $atts['email'];
       endif;
+      ?>
+      <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span class="email_address"><?= $email_str ?></span></a>
+      <?php
       if ( $atts['twitter_name'] ): ?>
-        <a href="https://twitter.com/<?= esc_html( $atts['twitter_name'] )?>">
+        <a href="https://twitter.com/<?= $atts['twitter_name'] ?>">
           <i class="fa fa-twitter"></i>
         </a>
       <?php
