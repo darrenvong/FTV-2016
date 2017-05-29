@@ -202,12 +202,17 @@ function committee_member_tile($atts) {
         $email_str = $atts['email'];
       endif;
       ?>
-      <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span class="email_address"><?= $email_str ?></span></a>
+      <div class="email_address">
+        <a href="mailto:<?= $email_str ?>"><i class="fa fa-envelope"></i><span><?= $email_str ?></span></a>
+      </div>
       <?php
       if ( $atts['twitter_name'] ): ?>
-        <a href="https://twitter.com/<?= $atts['twitter_name'] ?>">
-          <i class="fa fa-twitter"></i>
-        </a>
+        <div class="twitter_name">
+          <a href="https://twitter.com/<?= $atts['twitter_name'] ?>">
+            <i class="fa fa-twitter"></i>
+            <span>@<?= $atts['twitter_name'] ?></span>
+          </a>
+        </div>
       <?php
       endif;
       ?>
